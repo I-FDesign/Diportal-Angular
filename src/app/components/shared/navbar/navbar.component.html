@@ -1,0 +1,97 @@
+<header>
+    <div class="navbar">
+        <div class="left-side">
+            <div class="menu" >
+                <svg appClickStopProgapation id='navbar_menu' onclick="optionsSlideDown('navbar_menu')" class="fc-Icon fc-Icon--s " role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><g stroke-linecap="round"><path d="M20.4 7H3.557M20.4 12H3.557M20.4 17H3.557"></path></g></g></svg>
+                <div class="dropmenu animated slideInDown" appClickStopProgapation>
+                    <ul>
+                        <li>Alquilar</li>
+                        <li>Comprar</li>
+                        <li>Lo más buscado</li>
+                        <li>Iniciar sesion</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                <a class="navbar-logo">
+                    <h2 [routerLink]="['/home']" >diportal.es</h2>
+                </a>
+            </div>
+        </div>
+        <div class="right-side">
+            <nav class="options" appClickStopProgapation>
+                <li class='option'>
+                    <div id='language' class="option-button" onclick="optionsSlideDown('language')">
+                        <div class="logo">
+                                <svg class="fc-Icon fc-Icon--s " role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="10"></circle><path d="M19.416 7.95s-.43-.45-.861-.45c-.43 0-1.722.9-2.153 1.35-.43.45-.861 1.8-.43 2.25.43.45.86.45 1.722.45.861 0 1.306 0 1.306.45s-.014 1.05.416 1.5M16.5 3C16 3 16 4 16 4s-2 0-2 .5.593 2.494 2 0c.5-.886 1.5.5 2 0M4.619 1.45c.905 0 1.81-.888 1.81 0 0 .89.452.89.904.445.453-.444 1.81-.444 1.81 0 0 .445-.905.89-.905.89s-.905.444-.905.888c0 .445.905 0 1.357 0 .453 0 .905 0 .453.445-.453.444-1.357.889-1.81.889-.452 0-1.81.444-1.81.889v1.333c0 .445-.904-.444-.904-.444s-1.357 0-1.357.444c0 .445 1.81 1.778 1.81 1.778s.227.433.452.445c.452-.445 1.357-.889 1.357-.445 0 .445 1.357 0 1.357.445s.452.445.452.89c0 .444 1.358.444 1.358.444s.452 0 .452.444c0 .445 0 1.778-.452 1.778-.453 0-.453.445-.905.89-.453.444-1.357.888-1.357 1.333 0 .444-.905 2.222-.905 1.778 0-.445-.452-1.778-.452-2.667 0-.89.452-1.334-.453-1.778-.905-.445-1.357-.89-1.357-1.334 0-.444.452-.889.452-.889S4.62 7.674 2.81 7.674C1 7.674 1.452 6.34 1 5.896"></path></g></g></svg>
+                        </div>
+                        <p>Español</p>
+                        <div class="arrow">
+                                <svg class="fc-Icon fc-Icon--xs re-SharedTopbar-caretDown" role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M2 8l10 9 10-9" stroke-linecap="round"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class='dropmenu animated slideInDown'>
+                        <ul>
+                            <li class='selected'>Español</li>
+                            <li>Català</li>
+                            <li>English</li>
+                            <li>Deutsch</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='option'>
+                    <div id='professional' class="option-button" onclick="optionsSlideDown('professional')">
+                        <div class="logo">
+                            <svg class="fc-Icon fc-Icon--s " role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><g transform="translate(2 3.5)"><rect y="3" width="20" height="14" rx="2"></rect><path d="M8 9H5.87C4.217 9 2 8 1.5 6.5L.5 4m19 0l-1 2.5C18 8 16.077 9 14.423 9H12M6.187 3s-1.5-3 4-3 4 2.625 4 3h-8z"></path><rect x="8" y="7" width="4" height="4" rx="1"></rect></g></g></svg>
+                        </div>
+                        <p>Profesional</p>
+                        <div class="arrow">
+                            <svg class="fc-Icon fc-Icon--xs re-SharedTopbar-caretDown" role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M2 8l10 9 10-9" stroke-linecap="round"></path></g></svg>
+                        </div>
+                    </div>
+                    <div class='dropmenu dropdown-nolist animated slideInDown'>
+                        <p class='login-title'>Inicia sesión como profesional</p>
+                        <div class="btn-container">
+                            <a class='professional-login-button' href="">
+                                <fa-icon [icon]="faSignInAlt"></fa-icon>
+                                Iniciar sesión
+                            </a>
+                        </div>
+
+                        <div class="areyou">
+                            <p>¿Eres profesional?</p>
+                            <a href="">Solicita tu usuario</a>
+                        </div>
+                    </div>
+                </li>
+                <li class='option'>
+                    <div id='account' class="option-button" onclick="optionsSlideDown('account')">
+                        <div class="logo">
+                            <svg class="fc-Icon fc-Icon--s re-User-dropdownIcon" role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M22 21.295s-.552-1.387-2.276-2.591c-1.724-1.204-4.39 0-4.617-3.236 1.192-1.122 3.047-2.714 3.047-4.48 0-3.4.346-8.488-6.154-8.488s-6.154 5.089-6.154 8.487c0 1.767 1.855 3.36 3.047 4.481C8.667 18.704 6 17.5 4.276 18.704 2.552 19.908 2 21.294 2 21.294" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                        </div>
+                        <p>Mi cuenta</p>
+                    </div>
+                    <div class='dropmenu dropdown-nolist animated slideInDown'>
+                        <div class="btn-container">
+                            <a class='login-button' href="">
+                                <fa-icon [icon]="faSignInAlt"></fa-icon>
+                                Ingresar
+                            </a>
+                        </div>
+                        <div class="areyou">
+                            <p>¿Eres nuevo?</p>
+                            <a href="">Date de alta</a>
+                        </div>
+                    </div>
+                </li>
+                <div class='publica'>
+                    <button>
+                        Publica tu anuncio gratis
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+</header>

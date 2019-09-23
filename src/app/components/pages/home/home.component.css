@@ -1,0 +1,503 @@
+:before, :after{
+    box-sizing: inherit !important;
+}
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.main .search .banner{
+    background-image: url('../../../../assets/img/banner.jpg');
+    background-color: #999;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    min-height: 446px;
+    padding: .7em 0 1.3em;
+    position: relative;
+}
+
+.main .search .logo{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main .search .logo img{
+    height: 120px;
+    vertical-align: top;
+}
+.main .search .logo p{
+    font-size: 1.5em;
+    line-height: 1;
+}
+.main .search .find{
+    padding: 25px;
+    box-sizing: inherit;
+}
+.main .search .find .show-new input[type="checkbox"]{
+    position: absolute;
+    visibility: hidden !important;
+}
+.main .search .find .show-new label{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    position: relative;
+}
+.main .search .find .show-new label:before{
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    content: "\200B";
+    display: inline-block;
+    height: 18px;
+    margin-right: .5em;
+    vertical-align: middle;
+    width: 18px;
+}
+.main .search .find .show-new label.changed:after{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-width='2' stroke='%23FFF' d='M15 5l-8.25 9L3 9.91' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    content: "\200B";
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 18px;
+}
+.main .search .find .filters{
+    margin: 8px 0;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+.main .search .find .filters button{
+    display: inline-block;
+    background-color: #dcdcdc;
+    border:none;
+    padding: 5px;
+    border-radius: 3px;
+    color: #4d4d4d;
+    cursor: pointer;
+    font-size: 15px;
+    /* line-height: 2.5; */
+    text-align: center;
+    width: 24.5%;
+}
+.main .search .find .filters button.active{
+    background: #18afa5;
+    color:#fff;
+}
+.main .search .find .input-search{
+    display:flex;
+    width: 100%;
+}
+.main .search .find .input-search .select-type{
+    background-color: #fff;
+    border-radius: 3px 0 0 3px;
+    color: #000;
+    -webkit-flex-basis: 30%;
+    flex-basis: 30%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+    margin-right: -2px;
+    padding-right: 2px;
+}
+.main .search .find .input-search .select-type select{
+    border: 0;
+    border-right: 1px solid #bbb;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 10px 0;
+    padding: 8px 36px 8px 16px;
+    color: #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border-right: 1px solid #bbb;
+    border-radius: 0;
+    color: #4d4d4d;
+    font-size: 14px;
+    padding: 8px 40px 8px 8px;
+    width: 100%;
+    background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center;
+    font-size: inherit;
+}
+
+.main .search .find .input-search .insert-term{
+    color: #000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    position: relative;
+}
+.main .search .find .input-search .insert-term .field{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+.main .search .find .input-search .insert-term .field input{
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 16px 48px 16px 16px;
+    width: 100%;
+    overflow: visible;
+}
+.main .search .find .input-search .insert-term .field span.clear{
+    height: 40px;
+    margin-top: -20px;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    width: 40px;
+    z-index: 0;
+    cursor: pointer;
+}
+.main .search .find .input-search .insert-term .field span.clear:after{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 0l-7 7.025L.475 0 0 .475 7 7.5l-7 7.025.475.475L7.5 7.975l7 7.025.5-.475L7.975 7.5 15 .475 14.5 0z'/%3E%3C/svg%3E");
+    background-position: 13px;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    content: "\200B";
+    height: 100%;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 0l-7 7.025L.475 0 0 .475 7 7.5l-7 7.025.475.475L7.5 7.975l7 7.025.5-.475L7.975 7.5 15 .475 14.5 0z'/%3E%3C/svg%3E") no-repeat 13px;
+    background-size: 35%;
+    content: "\200B";
+    height: 100%;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+.main .search .find .input-search .insert-term .form-options{
+    border: 1px solid rgba(0, 0, 0, .2);
+    background: white;
+    position: absolute;
+    top:100%;
+    left:0;
+    width: 100%;
+    border-radius: 0 0 3px 3px;
+    display: none;
+}
+.main .search .find .input-search .insert-term .visible{
+    display: block;
+}
+.main .search .find .input-search .insert-term .form-options li:first-child,
+.main .search .find .input-search .insert-term .form-options li:hover{
+    background: #f1f1f1;
+}
+.main .search .find .input-search .insert-term .form-options li{
+    list-style: none;
+    padding:10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.main .search .find .input-search .search-button{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    z-index: 1;
+}
+.main .search .find .input-search .search-button button{
+    -webkit-appearance: none;
+    background-color: #303ab2;
+    border: 0;
+    border-radius: 0 3px 3px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    overflow: visible;
+}
+.main .search .find .examples{
+    font-size: 12px;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.main .search .find .final-filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.main .search .find .final-filters .ambientes{
+    display: flex;
+    justify-content: space-between;
+}
+.main .search .find .final-filters .ambientes .btn-container{
+    background: white;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.main .search .find .final-filters .ambientes button.amb-option{
+    background: none;
+    border:none;
+    background: rgba(48,58,178, .80);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #fff;
+}
+.main .search .find .final-filters .ambientes .container-active,
+.main .search .find .final-filters .ambientes .btn-container:hover{
+    transition: .2s all ease;
+    background: rgba(48,58,178, .75);
+}
+.main .search .find .final-filters .ambientes button.active,
+.main .search .find .final-filters .ambientes button.amb-option:hover{
+    transition: .2s all ease;
+    background: rgba(48,58,178, .75);
+    padding: 5px 10px;
+}
+
+.main .search .find .final-filters .price{
+    margin-left: 5px;
+}
+.main .search .find .final-filters .price .final-filters-inputs{
+    display:flex;
+    justify-content: flex-end;
+}
+.main .search .find .final-filters .price .input-container{
+    padding: 5px;
+    background: white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.main .search .find .final-filters .price input[type='text']{
+    padding:10px;
+    border:none;
+}
+.main .search .find .final-filters .price input.desde{
+    border-right: 1px solid rgba(0, 0, 0, .3) ;
+}
+.main .search .find .final-filters .price input.hasta{
+    padding-left: 15px;
+}
+.main .search .find .final-filters .search-button button{
+    -webkit-appearance: none;
+    background-color: #303ab2;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0;
+    padding: 1em 2em;
+    text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------------------------ */
+/* ---------------------------------Inspiracion---------------------------------- */
+/* ------------------------------------------------------------------------------ */
+
+.main .inspiration .inspiration-title h2{
+    color: rgb(77, 77, 77);
+    font-size: 26px;
+    font-weight: 400;
+    margin: 2em 0px 0.2em 0.3em;
+    line-height: 1.5;
+}
+.main .inspiration .images .img{
+    overflow: hidden;
+}
+.main .inspiration .images .first{
+    display:flex;
+}
+.main .inspiration .images .left{
+    width: 66%;
+}
+.main .inspiration .images .right{
+    width: 33%;
+}
+.main .inspiration .images .left,
+.main .inspiration .images .right{
+    margin:8px;
+    overflow: hidden;
+}
+.main .inspiration .images .img-link{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.main .inspiration .images .img-link:hover{
+    transition: 0.2s all ease;
+    -webkit-transform: scale(1.12); 
+    transform: scale(1.12);
+}
+.main .inspiration .images .img-link img{
+    vertical-align: top;
+}
+.main .inspiration .images .img-link .item-background{
+    background-color: #353535;
+    height: 100%;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.main .inspiration .images .img-link:hover .item-background{
+    transition: .2s all ease;
+    opacity: 0;
+}
+.main .inspiration .images .img-link h3.item-title{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display:flex;
+    align-items: center;
+}
+.main .inspiration .images .img-link h3.item-title p{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 0 16px;
+    text-align: center;
+    z-index: 1;
+}
+.main .inspiration .images .first .left img{
+    height: 420px;
+}
+.main .inspiration .images .right{
+    display:flex;
+    flex-direction: column;
+}
+.main .inspiration .images .right>div{
+    height: 50%;
+    margin-top: 8px;
+    overflow: hidden;
+}
+.main .inspiration .images .right .img-top{
+    margin:0;
+    margin-bottom: 8px;
+}
+.main .inspiration .images .right>div a{
+    height: 100%;
+}
+.main .inspiration .images .first .right img{
+    height: 107%;
+    width: auto;
+}
+.main .inspiration .images .second{
+    display:flex;
+}
+.main .inspiration .images .second .img-main{
+    width: 50%;
+    margin:8px;
+}
+.main .inspiration .images .second .img-aside-left,
+.main .inspiration .images .second .img-aside-right{
+    width: 25%;
+    margin: 8px;
+}
+.main .inspiration .images .second img,
+.main .inspiration .images .second .img-aside-right a{
+    height: 300px;
+}
+.main .inspiration .images .second .img-aside-right img{
+    height: 355px;
+}
+
+/* ------------------------------------------------------------------------------ */
+/* -----------------------------------Banner------------------------------------- */
+/* ------------------------------------------------------------------------------ */
+
+.main .final-banner{
+    margin-top: 80px;
+}
+
+.main .final-banner a.banner-link{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: #3035ba url('../../../../assets/img/banner2.jpg') no-repeat bottom;
+    background-size: cover;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    max-height: 350px;
+    min-height: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+.main .final-banner a.banner-link .banner-outerwraper{
+    left: -154px;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 970px;
+    position: relative;
+}
+.main .final-banner a.banner-link .banner-innerwraper{
+    width: 55%;
+}
+.main .final-banner a.banner-link .banner-content{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    font-size: 36px;
+    font-weight: 400;
+    height: 350px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: auto;
+}
+.main .final-banner a.banner-link .banner-content .banner-info{
+    line-height: 1.4;
+    max-width: 100%;
+    padding: 16px;
+}
+.main .final-banner a.banner-link .banner-content .banner-title{
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    margin: 24px 0 0;
+    padding: 6px 12px;
+}

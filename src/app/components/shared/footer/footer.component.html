@@ -1,0 +1,153 @@
+<footer class="re-SharedSeoFooter">
+        <section class="re-SharedSeoFooter-seo">
+            <h4>Lo más buscado</h4>
+            <ul class="sui-ListLink" *ngIf='searchs.length > 0'>
+                <li *ngFor='let search of searchs' class="sui-ListLink-item">
+                    <a (click)="redirectToSearch(search)" class="sui-LinkBasic" title="Pisos de bancos">
+                        {{ (search.fields.municipio.length > 10) ? 'Alquiler en ' : 'Pisos en ' }}
+                        {{ search.fields.municipio }}
+                    </a>
+                </li>
+            </ul>
+            <!-- <ul class="sui-ListLink">
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos de bancos">Pisos de bancos</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler casas en Barcelona">Alquiler casas en Barcelona</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler casas">Alquiler casas</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en A Coruña">Alquiler pisos en A Coruña</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Alicante">Alquiler pisos en Alicante</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Barcelona capital">Alquiler pisos en Barcelona capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Barcelona">Alquiler pisos en Barcelona</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Gijon">Alquiler pisos en Gijon</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Granada provincia">Alquiler pisos en Granada provincia</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Ibiza">Alquiler pisos en Ibiza</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Las Palmas de Gran Canaria">Alquiler pisos en Las Palmas de Gran Canaria</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Lleida provincia">Alquiler pisos en Lleida provincia</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en centro, Madrid capital">Alquiler pisos en centro, Madrid capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Chamberi">Alquiler pisos en Chamberi</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Madrid capital">Alquiler pisos en Madrid capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Madrid">Alquiler pisos en Madrid</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Palma de Mallorca">Alquiler pisos en Palma de Mallorca</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Sevilla">Alquiler pisos en Sevilla</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Tenerife">Alquiler pisos en Tenerife</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Valencia">Alquiler pisos en Valencia</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Valladolid">Alquiler pisos en Valladolid</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Vigo">Alquiler pisos en Vigo</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Zaragoza capital">Alquiler pisos en Zaragoza capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Alquiler pisos en Zaragoza">Alquiler pisos en Zaragoza</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Barcelona capital">Casas en venta en Barcelona capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Barcelona">Casas en venta en Barcelona</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta">Casas en venta</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Madrid capital">Casas en venta en Madrid capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Madrid">Casas en venta en Madrid</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Malaga">Casas en venta en Malaga</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Sevilla">Casas en venta en Sevilla</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Valencia capital">Casas en venta en Valencia capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Valencia">Casas en venta en Valencia</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Casas en venta en Zaragoza">Casas en venta en Zaragoza</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Barcelona capital">Pisos en venta en Barcelona capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Barcelona">Pisos en venta en Barcelona</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Bilbao">Pisos en venta en Bilbao</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic"  title="Pisos en venta en San Sebastian">Pisos en venta en San Sebastian</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Gijon">Pisos en venta en Gijon</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Carabanchel">Pisos en venta en Carabanchel</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en centro, Madrid capital">Pisos en venta en centro, Madrid capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Chamberi">Pisos en venta en Chamberi</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Madrid capital">Pisos en venta en Madrid capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Salamanca">Pisos en venta en Salamanca</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en Sevilla capital">Pisos en venta en Sevilla capital</a>
+                </li>
+                <li class="sui-ListLink-item">
+                    <a class="sui-LinkBasic" title="Pisos en venta en centro, Zaragoza capital">Pisos en venta en centro, Zaragoza capital</a>
+                </li>
+            </ul> -->
+        </section>
+    </footer>

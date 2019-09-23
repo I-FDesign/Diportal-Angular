@@ -1,0 +1,222 @@
+<section class="main">
+        <div class="search" id='search_div'>
+            <div class="banner">
+                <div class="container">
+                    <div class="logo">
+                        <img src="../../../../assets/img/location.svg" alt="">
+                        <p>Encuentra dónde vas a vivir</p>
+                    </div>
+                    <div class="find">
+                        <form #f="ngForm" (ngSubmit)="searchSubmit(f.value)">
+                            <input *ngIf='filters.cmun' type="hidden" [(ngModel)]="filters.cmun" name='cmun'>
+                            <div class="show-new">
+                                <input type="checkbox" [(ngModel)]="filters.obraNueva" name="obraNueva">
+                                <label onclick="changeCheckbox()" (click)="filters.obraNueva = !filters.obraNueva"
+                                       id='checkbox_controller' for="show_new">
+                                    Mostrar pisos de obra nueva
+                                </label>
+                            </div>
+                            <div class="filters">
+                                <input type="hidden" [(ngModel)]="filters.queDesea" name="queDesea">
+
+                                <button [ngClass]="{'active': filters.queDesea == 'comprar'}" 
+                                        type='button' (click)="filtersChanged('comprar')">
+                                        Comprar
+                                </button>
+
+                                <button [ngClass]="{'active': filters.queDesea == 'alquilar'}"
+                                        type='button' (click)="filtersChanged('alquilar')">
+                                        Alquilar
+                                </button>
+
+                                <button [ngClass]="{'active': filters.queDesea == 'compartir'}"
+                                        type='button' (click)="filtersChanged('compartir')">
+                                    Compartir
+                                </button>
+
+                                <button [ngClass]="{'active': filters.queDesea == 'vacacional'}"
+                                        type='button' (click)="filtersChanged('vacacional')">
+                                        Vacacional
+                                </button>
+
+                            </div>
+                            <div class="input-search">
+                                <div class="select-type">
+                                    <select [(ngModel)]="filters.tipo" name="tipo">
+                                        <option value="vivienda">Vivienda</option>
+                                        <option value="obranueva">Obra Nueva</option>
+                                        <option value="localynave">Local y nave</option>
+                                        <option value="edificio">Edificio</option>
+                                        <option value="terreno">Terreno</option>
+                                        <option value="trastero">Trastero</option>
+                                        <option value="oficina">Oficina</option>
+                                        <option value="garaje">Garaje</option>
+                                    </select>
+                                </div>
+                                <div class="insert-term">
+                                    <div class="field">
+                                        <input #input [(ngModel)]="filters.termino" name="termino" (keyup)="searchLocation()"
+                                               type="text" placeholder="Municipio, Provincia, CP..." autocomplete="off">
+                                        <span (click)="clearTerm()" class="clear"></span>
+                                    </div>
+                                    <div class="form-options" [ngClass]="{'visible': municipalitys.length > 0  || results.length > 0 }" id="dropdown_search">
+                                        <li *ngFor='let municipality of municipalitys' (click)="optionSelected(municipality, 'municipality')">
+                                            {{ municipality.fields.municipio }}, {{ municipality.fields.provincia }} Provincia
+                                        </li>
+                                        <li *ngFor='let result of results' (click)="optionSelected(result, 'result')">
+                                            {{ result.fields.municipio }}, {{ result.fields.provincia }} Provincia
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class='examples'>ej. Barcelona, Madrid, Barcelona Provincia, Madrid Provincia...</p>
+    
+                            <div class="final-filters">
+                                <div class="ambientes">
+                                    <input type="hidden" [(ngModel)]="filters.ambientes" name='ambientes'>
+                                    <div class="btn-container" [ngClass]="{ 'container-active': filters.ambientes == '1' }">
+                                        <button type='button' [ngClass]="{ 'active': filters.ambientes == '1' }" 
+                                                class="amb-option" (click)="filters.ambientes = '1'">
+                                            1 Hab.
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="btn-container" [ngClass]="{ 'container-active': filters.ambientes == '2' }">
+                                        <button type='button' [ngClass]="{ 'active': filters.ambientes == '2' }" 
+                                                class="amb-option" (click)="filters.ambientes = '2'">
+                                            2 Hab.
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="btn-container" [ngClass]="{ 'container-active': filters.ambientes == '3' }">
+                                        <button type='button' [ngClass]="{ 'active': filters.ambientes == '3' }" 
+                                                class="amb-option" (click)="filters.ambientes = '3'">
+                                            3 Hab.
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="btn-container" [ngClass]="{ 'container-active': filters.ambientes == '4' }">
+                                        <button type='button' [ngClass]="{ 'active': filters.ambientes == '4' }" 
+                                                class="amb-option" (click)="filters.ambientes = '4'">
+                                            4 Hab.
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="btn-container" [ngClass]="{ 'container-active': filters.ambientes == '5+' }">
+                                        <button type='button' [ngClass]="{ 'active': filters.ambientes == '5+' }" 
+                                                class="amb-option" (click)="filters.ambientes = '5+'">
+                                            5+ Hab.
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                                <div class="price">
+                                    <div class="final-filters-inputs">
+                                        <div class="input-container">
+                                            <input class='desde' [(ngModel)]="filters.desde" name='desde'
+                                                   type="text" placeholder="EUR Desde" autocomplete="off">
+                                        
+                                            <input class='hasta' [(ngModel)]="filters.hasta" name='hasta'
+                                                   type="text" placeholder="EUR Hasta" autocomplete="off">
+                                        </div>
+                                        
+                                        <div class="search-button">
+                                            <button type='submit'>BUSCAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </form>
+    
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inspiration">
+            <div class="container">
+                <div class="inspiration-title">
+                    <h2>¿Necesitas inspiración?</h2>
+                </div>
+                <div class="images">
+                    <div class="first">
+                        <div class="left img">
+                            <a class='img-link' href="">
+                                <img src="../../../../assets/img/obra_nueva.jpg" alt="">
+                                <div class="item-background"></div>
+                                <h3 class="item-title">
+                                    <p>Lo último en Obra nueva</p>
+                                </h3>
+                            </a>
+                        </div>
+                        <div class="right">
+                            <div class="img-top img">
+                                <a class='img-link' href="">
+                                    <img src="../../../../assets/img/piscina.jpg" alt="">
+                                    <div class="item-background"></div>
+                                    <h3 class='item-title'>
+                                        <p>Refréscate en la piscina</p>
+                                    </h3>
+                                </a>
+                            </div>
+                            <div class="img-bottom img">
+                                <a class='img-link' href="">
+                                    <img src="../../../../assets/img/casas_ensueno.jpg" alt="">
+                                    <div class="item-background"></div>
+                                    <h3 class='item-title'>
+                                        <p>Casas de ensueño</p>
+                                    </h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second">
+                        <div class="img-main img">
+                            <a class='img-link' class="img-link">
+                                <img src="../../../../assets/img/terrazas.jpg" alt="">
+                                <div class="item-background"></div>
+                                <h3 class="item-title">
+                                    <p>Pon una terraza en tu vida</p>
+                                </h3>
+                            </a>
+                        </div>
+                        <div class="img-aside-left img">
+                            <a class='img-link'>
+                                <img src="../../../../assets/img/rustico.jpg" alt="">
+                                <div class="item-background"></div>
+                                <h3 class="item-title">
+                                    <p>Vive en la naturaleza</p>
+                                </h3>
+                            </a>
+                        </div>
+                        <div class="img-aside-right img">
+                            <a class='img-link'>
+                                <img src="../../../../assets/img/duplex.jpg" alt="">
+                                <div class="item-background"></div>
+                                <h3 class="item-title">
+                                    <p>¿Prefieres un duplex?</p>
+                                </h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="final-banner" onclick='upToSearch()'>
+            <a class="banner-link" title="Encontra tu futuro hogar">
+                <div class="banner-outerwraper">
+                    <div class="banner-innerwraper">
+                        <div class="banner-content">
+                            <span class="banner-info">Encuentra tu futuro hogar en diportal</span>
+                            <span class="banner-title">
+                                Encuentra tu hogar
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>

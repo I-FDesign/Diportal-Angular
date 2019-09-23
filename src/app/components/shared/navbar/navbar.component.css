@@ -1,0 +1,304 @@
+
+/* ------------------------------------------------------------------------- */
+/* --------------------------------- Header -------------------------------- */
+/* ------------------------------------------------------------------------- */
+.fc-Icon.fc-Icon--s {
+    height: 24px;
+    width: 24px;
+}
+header .fc-Icon.fc-Icon--s,
+.fc-Icon.fc-Icon--xs {
+    fill: #fff;
+    stroke: #777;
+    stroke-width: 1px;
+}
+.fc-Icon.fc-Icon--xs {
+    height: 16px;
+    width: 16px;
+}
+header .navbar{
+    padding: 7px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .navbar .left-side{
+    display:flex;
+    align-items: center;
+}
+header .navbar .left-side .menu{
+    padding-top: 5px;
+}
+header .navbar .left-side .menu svg{
+    margin:0 7px ;
+    cursor: pointer;
+}
+header .navbar .left-side .menu:hover{
+    transition: .3s all ease;
+    background:  rgba(150,150,150,.15);
+}
+header .navbar .left-side .menu .dropmenu{
+    position: absolute;
+    top:65px;
+    left:5px;
+    z-index: 999;
+    background: #fff;
+    display: none;
+}
+header .navbar .left-side .menu .dropmenu li{
+    list-style: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+header .navbar .left-side .menu .dropmenu li:hover{
+    transition: .3s all ease;
+    background: #f1f1f1;
+}
+header .navbar .left-side .logo{
+    margin-left: 5px;
+}
+header .navbar .left-side .logo a{
+    text-decoration: none;
+    color: #303ab2;
+}
+header .navbar .left-side .logo a h2{
+    font-size: 26px;
+    padding-top: 6px;
+    font-family: 'Manjari', 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+header .navbar .right-side .options{
+    display: flex;
+    align-items: center;
+}
+header .navbar .right-side .options li{
+    list-style: none;
+    position: relative;
+}
+header .navbar .right-side .options li:hover{
+    transition: .8s all ease;
+    background: rgba(150,150,150,.15);
+}
+header .navbar .right-side .options li .option-button{
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-right: 1px solid #bbb;
+}
+header .navbar .right-side .options li .logo{
+    color: rgba(100,100,100,.6);
+    font-size: 20px;
+}
+header .navbar .right-side .options li .logo svg{
+    margin-bottom:-5px;
+}
+header .navbar .right-side .options li .arrow svg{
+    margin-bottom: -2.5px;
+}
+header .navbar .right-side .options li p{
+    font-size: 14px;
+    padding: 0 8px;
+}
+header .navbar .right-side .options li .arrow fa-icon{
+    color: rgba(57, 61, 61, .6);
+}
+
+header .navbar .right-side .options .publica button{
+    padding:10px;
+    margin-right: 10px;
+    background: none;
+    border:none;
+    border: 1px solid #303ab2;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #303ab2;
+    font-size: 14px;
+    margin-left: 15px;
+}
+header .navbar .right-side .options .publica button:hover{
+    transition: .3s all ease;
+    background: rgba(48, 58, 178, .1);
+}
+header .navbar .right-side .options li .dropmenu{
+    background: #f1f1f1;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: none;
+    z-index:999;
+}
+header .navbar .right-side .options li .dropdown-nolist{
+    padding: 15px;
+}
+header .navbar .right-side .options li .dropmenu:before,
+header .navbar .left-side .menu .dropmenu:before{
+    border-color: transparent transparent #f1f1f1 !important;
+    border-width: 9px !important;
+    margin-left: -9px !important;
+    border: solid transparent;
+    bottom: 100%;
+    content: "";
+    height: 0;
+    left: 16px;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    box-sizing: inherit;
+}
+header .navbar .right-side .options li .dropmenu li{
+    list-style: none;
+    width: 130px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+header .navbar .right-side .options li .dropmenu li.selected{
+    background: #303ab2;
+    color: white;
+    padding: 9px 20px;
+    border: 1px solid #f1f1f1;
+}
+header .navbar .right-side .options li .dropmenu .login-title{
+    color: #303ab2;
+    font-size: 16px;
+    width: 300px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}
+header .navbar .right-side .options li .dropmenu .btn-container{
+    display: flex;
+    justify-content: center;
+}
+header .navbar .right-side .options li .dropmenu .professional-login-button{
+    display:flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 60px;
+    background: #303ab2;
+    color: #dad6d6;
+    text-decoration: none;
+    border-radius: 2px;
+}
+header .navbar .right-side .options li .dropmenu .login-button{
+    display:flex;
+    align-items: center;
+    padding: 10px 60px;
+    background: #303ab2;
+    color: #dad6d6;
+    text-decoration: none;
+    border-radius: 2px;
+}
+header .navbar .right-side .options li .dropmenu .professional-login-button fa-icon,
+header .navbar .right-side .options li .dropmenu .login-button fa-icon{
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+header .navbar .right-side .options li .dropmenu .areyou{
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .navbar .right-side .options li .dropmenu .areyou p{
+    font-size: 14px;
+}
+
+header .navbar .right-side .options li .dropmenu .areyou a{
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color:#303ab2;
+}
+
+
+
+
+
+/* -------------------------------Animations------------------------------- */
+
+.animated {
+    -webkit-animation-duration: .55s;
+    animation-duration: .55s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInDown {
+    from {
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+  }
+  
+@keyframes slideInDown {
+    from {
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slideOutUp {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+        visibility: visible;
+        opacity: 0;
+    }
+  }
+
+@keyframes slideOutUp {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+        visibility: visible;
+        opacity: 0;
+    }
+}
+
+.slideInDown {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+}
+
+.slideOutUp {
+    -webkit-animation-name: slideOutUp;
+    animation-name: slideOutUp;
+}
+
+.drop-visible{
+    display: block !important;
+}
