@@ -4,6 +4,10 @@
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
+.container{
+    max-width: 1000px;
+    margin:0 auto;
+}
 :focus{
 	outline:0px;
 }

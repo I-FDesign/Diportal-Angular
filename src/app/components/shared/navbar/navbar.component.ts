@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  faGlobeAmericas,
-  faChevronDown,
-  faBriefcase,
-  faUser,
-  faBars,
   faSignInAlt
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,11 +12,6 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
-  faGlobeAmericas = faGlobeAmericas;
-  faChevronDown = faChevronDown;
-  faBriefcase = faBriefcase;
-  faUser = faUser;
-  faBars = faBars;
   faSignInAlt = faSignInAlt;
 
   constructor() { }

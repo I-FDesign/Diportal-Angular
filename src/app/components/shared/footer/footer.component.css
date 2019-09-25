@@ -16,7 +16,7 @@ footer.re-SharedSeoFooter h4{
 }
 .re-SharedSeoFooter-seo {
     left: -140px;
-    padding: 0 8px 8px;
+    padding: 8px 8px 18px;
     position: relative;
     width: 970px;
     left: inherit;
@@ -48,4 +48,42 @@ footer.re-SharedSeoFooter h4{
     font-size: 12px;
     margin: 4px;
     text-decoration: none;
+}
+footer .last-footer{
+    background: #1d1d1d;
+    width: 100%;
+    padding:20px;
+}
+footer .last-footer .social{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15%;
+}
+footer .last-footer .social li{
+    list-style: none;
+}
+footer .last-footer .social li a{
+    cursor: pointer;
+}
+footer .last-footer .social li svg{
+    fill: #1edbcf;
+    stroke: #1edbcf;
+    height: 30px;
+    width: 30px;
+}
+footer .last-footer .social li svg:hover{
+    transition: .3s all ease;
+    opacity: .5;
+}
+footer .last-footer .social{
+    border-bottom: 1px solid #1edbcf;
+}
+footer .last-footer .credits{
+    margin-top:  20px;
+    text-align: center;
+    color:#fff;
+    opacity: .7;
+}
+footer .last-footer .credits a{
+    color: white;
 }

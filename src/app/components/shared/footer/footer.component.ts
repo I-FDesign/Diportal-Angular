@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ODS_URL } from '../../../config/config';
 import { HttpClient } from '@angular/common/http';
 import { Filters } from '../../../models/filters.model';
-import { filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HomeService } from '../../../services/services.index';
 
@@ -15,6 +14,7 @@ export class FooterComponent implements OnInit {
 
   searchs = [];
 
+
   constructor(
     // tslint:disable-next-line: variable-name
     public _homeService: HomeService,
@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
     public router: Router
   ) {
 
-    // this._homeService.loading = true;
+    this._homeService.loading = true;
 
     this.getSearchs();
    }
