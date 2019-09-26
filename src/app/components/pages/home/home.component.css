@@ -1,6 +1,7 @@
 :before, :after{
     box-sizing: inherit !important;
 }
+
 .main .search .banner{
     background-image: url('../../../../assets/img/banner.jpg');
     background-color: #999;
@@ -73,7 +74,7 @@
 }
 .main .search .find .filters button{
     display: inline-block;
-    background-color: #dcdcdc;
+    background-color: #7093C1;
     border:none;
     padding: 5px;
     border-radius: 3px;
@@ -82,10 +83,11 @@
     font-size: 15px;
     /* line-height: 2.5; */
     text-align: center;
-    width: 24.5%;
+    width: 32%;
+    color: white;
 }
 .main .search .find .filters button.active{
-    background: #18afa5;
+    background: #5676FC;
     color:#fff;
 }
 .main .search .find .input-search{
@@ -222,7 +224,7 @@
 }
 .main .search .find .input-search .search-button button{
     -webkit-appearance: none;
-    background-color: #303ab2;
+    background-color: #5676FC;
     border: 0;
     border-radius: 0 3px 3px 0;
     color: #fff;
@@ -252,13 +254,13 @@
 }
 .main .search .find .final-filters .ambientes .btn-container{
     background: white;
-    border-radius: 10px;
+    border-radius: 11px;
     margin-right: 10px;
 }
 .main .search .find .final-filters .ambientes button.amb-option{
     background: none;
     border:none;
-    background: rgba(48,58,178, .80);
+    background: rgba(86,118,252, .60);
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 10px;
@@ -267,12 +269,12 @@
 .main .search .find .final-filters .ambientes .container-active,
 .main .search .find .final-filters .ambientes .btn-container:hover{
     transition: .2s all ease;
-    background: rgba(48,58,178, .75);
+    background: rgba(86,118,252, .75);
 }
 .main .search .find .final-filters .ambientes button.active,
 .main .search .find .final-filters .ambientes button.amb-option:hover{
     transition: .2s all ease;
-    background: rgba(48,58,178, .75);
+    background: rgba(86,118,252, .75);
     padding: 5px 10px;
 }
 
@@ -301,7 +303,7 @@
 }
 .main .search .find .final-filters .search-button button{
     -webkit-appearance: none;
-    background-color: #303ab2;
+    background-color: #5676FC;
     border: 0;
     border-radius: 3px;
     color: #fff;
@@ -315,125 +317,176 @@
 
 
 /* ------------------------------------------------------------------------------ */
-/* ---------------------------------Inspiracion---------------------------------- */
+/* ---------------------------------Posts---------------------------------------- */
 /* ------------------------------------------------------------------------------ */
 
-.main .inspiration .inspiration-title h2{
-    color: rgb(77, 77, 77);
-    font-size: 26px;
+.some-houses{
+    padding: 20px 10px;
+    padding-top: 30px;
+}
+.some-houses h2{
+    color: #4d4d4d;
+    font-size: 1.6em;
     font-weight: 400;
-    margin: 2em 0px 0.2em 0.3em;
-    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 15px;
 }
-.main .inspiration .images .img{
-    overflow: hidden;
-}
-.main .inspiration .images .first{
+.some-houses .posts{
     display:flex;
-}
-.main .inspiration .images .left{
-    width: 66%;
-}
-.main .inspiration .images .right{
-    width: 33%;
-}
-.main .inspiration .images .left,
-.main .inspiration .images .right{
-    margin:8px;
-    overflow: hidden;
-}
-.main .inspiration .images .img-link{
-    position:relative;
-    display:flex;
-    justify-content: center;
-    cursor: pointer;
-}
-.main .inspiration .images .img-link:hover{
-    transition: 0.2s all ease;
-    -webkit-transform: scale(1.12); 
-    transform: scale(1.12);
-}
-.main .inspiration .images .img-link img{
-    vertical-align: top;
-}
-.main .inspiration .images .img-link .item-background{
-    background-color: #353535;
-    height: 100%;
-    opacity: .3;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-.main .inspiration .images .img-link:hover .item-background{
-    transition: .2s all ease;
-    opacity: 0;
-}
-.main .inspiration .images .img-link h3.item-title{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
-.main .inspiration .images .img-link h3.item-title p{
-    color: #fff;
-    font-size: 24px;
-    font-weight: 400;
-    margin: 0 auto;
-    padding: 0 16px;
-    text-align: center;
-    z-index: 1;
+.some-houses .posts .post{
+    width: 47%;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
-.main .inspiration .images .first .left img{
-    height: 420px;
+.some-houses .posts .post:hover{
+    transition: .3s all ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
 }
-.main .inspiration .images .right{
-    display:flex;
-    flex-direction: column;
+.some-houses .posts .post .img{
+    position: relative;
 }
-.main .inspiration .images .right>div{
-    height: 50%;
-    margin-top: 8px;
+.some-houses .posts .post .img:before{
+    display: block;
+    content: "";
+    background: linear-gradient(to bottom,transparent 70%,rgba(0,0,0,.85) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.some-houses .posts .post .img .photo{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
     overflow: hidden;
 }
-.main .inspiration .images .right .img-top{
-    margin:0;
-    margin-bottom: 8px;
+.some-houses .posts .post .img .photo img{
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+    border-radius: 3px 3px 0 0;
 }
-.main .inspiration .images .right>div a{
-    height: 100%;
+.carousel-control-next, .carousel-control-prev{
+    z-index: 5 !important;
+    font-size: 2em;
 }
-.main .inspiration .images .first .right img{
-    height: 107%;
-    width: auto;
+.some-houses .posts .post .img .favorite{
+    position: absolute;
+    top: 15px;
+    right:15px;
+    z-index:1;
 }
-.main .inspiration .images .second{
-    display:flex;
+.some-houses .posts .post .img .favorite fa-icon{
+    font-size: 24px;
+    vertical-align: top;
+    overflow: hidden;
+    color:#dfdf;
 }
-.main .inspiration .images .second .img-main{
-    width: 50%;
-    margin:8px;
+.some-houses .posts .post .img .price{
+    position: absolute;
+    color:white;
+    bottom:.5em;
+    left:.8em;
+    font-size: 1.4em;
+    z-index:2;
 }
-.main .inspiration .images .second .img-aside-left,
-.main .inspiration .images .second .img-aside-right{
-    width: 25%;
-    margin: 8px;
+.some-houses .posts .post .info{
+    padding: 1em;
 }
-.main .inspiration .images .second img,
-.main .inspiration .images .second .img-aside-right a{
-    height: 300px;
+.some-houses .info .location p{
+    color: #3a3b3b;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.main .inspiration .images .second .img-aside-right img{
-    height: 355px;
+.some-houses .info .street p{
+    color: #5676FC;
+    margin: 4px 0 0;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 5px;
 }
+.some-houses .info .rooms{
+    margin: 5px 0;
+}
+.some-houses .info .rooms ul{
+    display: flex;
+    align-items: center;
+}
+.some-houses .info .rooms li{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.some-houses .info .rooms li fa-icon{
+    font-size: 18px;
+    margin-right: 5px;
+    color:rgba(86,118,252, .60);
+}
+.some-houses .info .rooms li p{
+    font-size: 14px;
+}
+.some-houses .info .rooms li p .dot{
+    font-weight: bold;
+    color:#5676FC;
+    padding-left: 5px;
+}
+.some-houses .info .contact-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.some-houses .info .contact-btn button,
+.some-houses .show-more button{
+    margin-top: 10px;
+    cursor: pointer;
+    border:none;
+    background: none;
+    color: #0173e6;
+    border: 1px solid #0173e6;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.some-houses .info .contact-btn button:hover,
+.some-houses .show-more button:hover{
+    transition: .3s all ease;
+    background:#0173e6 ;
+    color: white;
+}
+.some-houses .show-more{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.some-houses .show-more button{
+    padding: 10px 30px;
+}
+
 
 /* ------------------------------------------------------------------------------ */
 /* -----------------------------------Banner------------------------------------- */
 /* ------------------------------------------------------------------------------ */
 
 .main .final-banner{
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .main .final-banner a.banner-link{

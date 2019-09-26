@@ -27,7 +27,7 @@ header .navbar .left-side{
     align-items: center;
 }
 header .navbar .left-side .menu{
-    padding-top: 5px;
+    padding: 5px 0;
 }
 header .navbar .left-side .menu svg{
     margin:0 7px ;
@@ -61,11 +61,11 @@ header .navbar .left-side .logo{
 }
 header .navbar .left-side .logo a{
     text-decoration: none;
-    color: #303ab2;
+    color: #4761CF;
 }
 header .navbar .left-side .logo a h2{
     font-size: 26px;
-    padding-top: 6px;
+    padding-top: 8px;
     font-family: 'Manjari', 'Open Sans', sans-serif;
     cursor: pointer;
 }
@@ -92,12 +92,6 @@ header .navbar .right-side .options li .logo{
     color: rgba(100,100,100,.6);
     font-size: 20px;
 }
-header .navbar .right-side .options li .logo svg{
-    margin-bottom:-5px;
-}
-header .navbar .right-side .options li .arrow svg{
-    margin-bottom: -2.5px;
-}
 header .navbar .right-side .options li p{
     font-size: 14px;
     padding: 0 8px;
@@ -111,10 +105,10 @@ header .navbar .right-side .options .publica button{
     margin-right: 10px;
     background: none;
     border:none;
-    border: 1px solid #303ab2;
+    border: 1px solid #4761CF;
     border-radius: 2px;
     cursor: pointer;
-    color: #303ab2;
+    color: #4761CF;
     font-size: 14px;
     margin-left: 15px;
 }
@@ -155,13 +149,13 @@ header .navbar .right-side .options li .dropmenu li{
     cursor: pointer;
 }
 header .navbar .right-side .options li .dropmenu li.selected{
-    background: #303ab2;
+    background: #4761CF;
     color: white;
     padding: 9px 20px;
     border: 1px solid #f1f1f1;
 }
 header .navbar .right-side .options li .dropmenu .login-title{
-    color: #303ab2;
+    color: #4761CF;
     font-size: 16px;
     width: 300px;
     text-align: center;
@@ -177,7 +171,7 @@ header .navbar .right-side .options li .dropmenu .professional-login-button{
     align-items: center;
     margin-top: 20px;
     padding: 10px 60px;
-    background: #303ab2;
+    background: #4761CF;
     color: #dad6d6;
     text-decoration: none;
     border-radius: 2px;
@@ -186,7 +180,7 @@ header .navbar .right-side .options li .dropmenu .login-button{
     display:flex;
     align-items: center;
     padding: 10px 60px;
-    background: #303ab2;
+    background: #4761CF;
     color: #dad6d6;
     text-decoration: none;
     border-radius: 2px;
@@ -213,7 +207,7 @@ header .navbar .right-side .options li .dropmenu .areyou a{
     display: block;
     text-decoration: none;
     font-size: 14px;
-    color:#303ab2;
+    color:#4761CF;
 }
 
 

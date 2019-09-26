@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="logo">
                         <img src="../../../../assets/img/location.svg" alt="">
-                        <p>Encuentra dónde vas a vivir</p>
+                        <p>Encuentra tu nuevo hogar</p>
                     </div>
                     <div class="find">
                         <form #f="ngForm" (ngSubmit)="searchSubmit(f.value)">
@@ -32,11 +32,6 @@
                                 <button [ngClass]="{'active': filters.queDesea == 'compartir'}"
                                         type='button' (click)="filtersChanged('compartir')">
                                     Compartir
-                                </button>
-
-                                <button [ngClass]="{'active': filters.queDesea == 'vacacional'}"
-                                        type='button' (click)="filtersChanged('vacacional')">
-                                        Vacacional
                                 </button>
 
                             </div>
@@ -136,72 +131,246 @@
                 </div>
             </div>
         </div>
-        <div class="inspiration">
+        <div class="some-houses">
             <div class="container">
-                <div class="inspiration-title">
-                    <h2>¿Necesitas inspiración?</h2>
+                <h2>Algunas publicaciones</h2>
+                <div class="posts">
+                    <div class="post">
+                        <div class="img">
+                            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active photo">
+                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Anterior</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Siguiente</span>
+                                </a>
+                            </div>
+                            <div class="favorite">
+                                <!-- <fa-icon [icon]="faHeartRegular"></fa-icon> -->
+                                <fa-icon [icon]="faHeartSolid"></fa-icon>
+                            </div>
+                            <div class="price">
+                                <p>EUR 240.000</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="location">
+                                <p>Piso en Alquiler, Barcelona</p> 
+                            </div>
+                            <div class="street">
+                                <p>Calle test de la prueba 123</p> 
+                            </div>
+                            <div class="rooms">
+                                <ul>
+                                    <li>
+                                        <fa-icon [icon]="faHome"></fa-icon>
+                                        <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                                    </li>
+                                    <li>
+                                        <fa-icon [icon]="faDollarSign"></fa-icon>
+                                        <p>Alquiler</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="contact-btn">
+                                <button>Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post">
+                            <div class="img">
+                                <div id="carouselExampleFade2" class="carousel slide carousel-fade">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active photo">
+                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleFade2" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleFade2" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Siguiente</span>
+                                    </a>
+                                </div>
+                                <div class="favorite">
+                                    <fa-icon [icon]="faHeartRegular"></fa-icon>
+                                    <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
+                                </div>
+                                <div class="price">
+                                    <p>EUR 240.000</p>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="location">
+                                    <p>Piso en Alquiler, Barcelona</p> 
+                                </div>
+                                <div class="street">
+                                    <p>Calle test de la prueba 123</p> 
+                                </div>
+                                <div class="rooms">
+                                    <ul>
+                                        <li>
+                                            <fa-icon [icon]="faHome"></fa-icon>
+                                            <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                                        </li>
+                                        <li>
+                                            <fa-icon [icon]="faDollarSign"></fa-icon>
+                                            <p>Alquiler</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contact-btn">
+                                    <button>Contactar</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="post">
+                        <div class="img">
+                            <div id="carouselExampleFade3" class="carousel slide carousel-fade">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active photo">
+                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item photo">
+                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleFade3" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Anterior</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleFade3" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Siguiente</span>
+                                </a>
+                            </div>
+                            <div class="favorite">
+                                <fa-icon [icon]="faHeartRegular"></fa-icon>
+                                <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
+                            </div>
+                            <div class="price">
+                                <p>EUR 240.000</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="location">
+                                <p>Piso en Alquiler, Barcelona</p> 
+                            </div>
+                            <div class="street">
+                                <p>Calle test de la prueba 123</p> 
+                            </div>
+                            <div class="rooms">
+                                <ul>
+                                    <li>
+                                        <fa-icon [icon]="faHome"></fa-icon>
+                                        <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                                    </li>
+                                    <li>
+                                        <fa-icon [icon]="faDollarSign"></fa-icon>
+                                        <p>Alquiler</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="contact-btn">
+                                <button>Contactar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post">
+                            <div class="img">
+                                <div id="carouselExampleFade4" class="carousel slide carousel-fade">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active photo">
+                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item photo">
+                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleFade4" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleFade4" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Siguiente</span>
+                                    </a>
+                                </div>
+                                <div class="favorite">
+                                    <fa-icon [icon]="faHeartRegular"></fa-icon>
+                                    <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
+                                </div>
+                                <div class="price">
+                                    <p>EUR 240.000</p>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="location">
+                                    <p>Piso en Alquiler, Barcelona</p> 
+                                </div>
+                                <div class="street">
+                                    <p>Calle test de la prueba 123</p> 
+                                </div>
+                                <div class="rooms">
+                                    <ul>
+                                        <li>
+                                            <fa-icon [icon]="faHome"></fa-icon>
+                                            <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                                        </li>
+                                        <li>
+                                            <fa-icon [icon]="faDollarSign"></fa-icon>
+                                            <p>Alquiler</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contact-btn">
+                                    <button>Contactar</button>
+                                </div>
+                            </div>
+                    </div>
+                    
                 </div>
-                <div class="images">
-                    <div class="first">
-                        <div class="left img">
-                            <a class='img-link' href="">
-                                <img src="../../../../assets/img/obra_nueva.jpg" alt="">
-                                <div class="item-background"></div>
-                                <h3 class="item-title">
-                                    <p>Lo último en Obra nueva</p>
-                                </h3>
-                            </a>
-                        </div>
-                        <div class="right">
-                            <div class="img-top img">
-                                <a class='img-link' href="">
-                                    <img src="../../../../assets/img/piscina.jpg" alt="">
-                                    <div class="item-background"></div>
-                                    <h3 class='item-title'>
-                                        <p>Refréscate en la piscina</p>
-                                    </h3>
-                                </a>
-                            </div>
-                            <div class="img-bottom img">
-                                <a class='img-link' href="">
-                                    <img src="../../../../assets/img/casas_ensueno.jpg" alt="">
-                                    <div class="item-background"></div>
-                                    <h3 class='item-title'>
-                                        <p>Casas de ensueño</p>
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="second">
-                        <div class="img-main img">
-                            <a class='img-link' class="img-link">
-                                <img src="../../../../assets/img/terrazas.jpg" alt="">
-                                <div class="item-background"></div>
-                                <h3 class="item-title">
-                                    <p>Pon una terraza en tu vida</p>
-                                </h3>
-                            </a>
-                        </div>
-                        <div class="img-aside-left img">
-                            <a class='img-link'>
-                                <img src="../../../../assets/img/rustico.jpg" alt="">
-                                <div class="item-background"></div>
-                                <h3 class="item-title">
-                                    <p>Vive en la naturaleza</p>
-                                </h3>
-                            </a>
-                        </div>
-                        <div class="img-aside-right img">
-                            <a class='img-link'>
-                                <img src="../../../../assets/img/duplex.jpg" alt="">
-                                <div class="item-background"></div>
-                                <h3 class="item-title">
-                                    <p>¿Prefieres un duplex?</p>
-                                </h3>
-                            </a>
-                        </div>
-                    </div>
+                <div class="show-more">
+                    <button [routerLink]="['/search']" >Ver más</button>
                 </div>
             </div>
         </div>

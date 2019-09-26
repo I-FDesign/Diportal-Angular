@@ -1,5 +1,7 @@
 // Header------------------------------------------------------------------
-
+$(document).ready(function(){
+    $('.carousel').carousel('pause');
+})
 function menuSlideDown(){
     $('#menu_dropdown').addClass('slideInDown');
 }

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faHome, faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { Filters } from '../../../models/filters.model';
 import { HomeService } from '../../../services/services.index';
 import { Router } from '@angular/router';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +14,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  faMapMarkerAlt = faMapMarkerAlt;
+  faHeartSolid = faHeart;
+  faHeartRegular = faHeartRegular;
+  faHome = faHome;
+  faDollarSign = faDollarSign;
 
   filters: Filters = new Filters('');
 
@@ -25,7 +31,8 @@ export class HomeComponent implements OnInit {
     // tslint:disable-next-line: variable-name
     public _homeService: HomeService,
     public router: Router
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
     if (localStorage.getItem('filter')) {
