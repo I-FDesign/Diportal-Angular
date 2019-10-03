@@ -5,10 +5,11 @@
                 <svg appClickStopProgapation id='navbar_menu' onclick="optionsSlideDown('navbar_menu')" class="fc-Icon fc-Icon--s " role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><g stroke-linecap="round"><path d="M20.4 7H3.557M20.4 12H3.557M20.4 17H3.557"></path></g></g></svg>
                 <div class="dropmenu animated slideInDown" appClickStopProgapation>
                     <ul>
-                        <li>Alquilar</li>
-                        <li>Comprar</li>
-                        <li>Lo más buscado</li>
-                        <li>Iniciar sesion</li>
+                        <li (click)="redirectTo('alquilar')" >Alquilar</li>
+                        <li (click)="redirectTo('comprar')" >Comprar</li>
+                        <li (click)="redirectTo('servicios')" >Servicios</li>
+                        <li onclick='downToMostSearch()'>Lo más buscado</li>
+                        <li (click)="redirectTo('login')">Iniciar sesion</li>
                     </ul>
                 </div>
             </div>
@@ -39,7 +40,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class='option'>
+                <li class='option professional'>
                     <div id='professional' class="option-button" onclick="optionsSlideDown('professional')">
                         <div class="logo">
                             <svg class="fc-Icon fc-Icon--s " role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><g transform="translate(2 3.5)"><rect y="3" width="20" height="14" rx="2"></rect><path d="M8 9H5.87C4.217 9 2 8 1.5 6.5L.5 4m19 0l-1 2.5C18 8 16.077 9 14.423 9H12M6.187 3s-1.5-3 4-3 4 2.625 4 3h-8z"></path><rect x="8" y="7" width="4" height="4" rx="1"></rect></g></g></svg>
@@ -50,9 +51,11 @@
                         </div>
                     </div>
                     <div class='dropmenu dropdown-nolist animated slideInDown'>
-                        <p class='login-title'>Inicia sesión como profesional</p>
-                        <div class="btn-container">
-                            <a class='professional-login-button' href="">
+                        <div class="login-title-p">
+                            <p class='login-title'>Inicia sesión como profesional</p>
+                        </div>
+                        <div class="btn-container" onclick="optionsSlideDown('professional')">
+                            <a [routerLink]="['/login']"  class='professional-login-button'>
                                 <fa-icon [icon]="faSignInAlt"></fa-icon>
                                 Iniciar sesión
                             </a>
@@ -60,17 +63,17 @@
 
                         <div class="areyou">
                             <p>¿Eres profesional?</p>
-                            <a href="">Solicita tu usuario</a>
+                            <a onclick="optionsSlideDown('professional')" (click)="openModal()">Solicita tu usuario</a>
                         </div>
                     </div>
                 </li>
                 <li class='option'>
-                    <div id='account' class="option-button" onclick="optionsSlideDown('account')">
+                    <!-- <div id='account' class="option-button" onclick="optionsSlideDown('account')">
                         <div class="logo">
                             <svg class="fc-Icon fc-Icon--s re-User-dropdownIcon" role="img" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M22 21.295s-.552-1.387-2.276-2.591c-1.724-1.204-4.39 0-4.617-3.236 1.192-1.122 3.047-2.714 3.047-4.48 0-3.4.346-8.488-6.154-8.488s-6.154 5.089-6.154 8.487c0 1.767 1.855 3.36 3.047 4.481C8.667 18.704 6 17.5 4.276 18.704 2.552 19.908 2 21.294 2 21.294" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
                         </div>
                         <p>Mi cuenta</p>
-                    </div>
+                    </div> -->
                     <div class='dropmenu dropdown-nolist animated slideInDown'>
                         <div class="btn-container">
                             <a class='login-button' href="">
@@ -87,6 +90,9 @@
                 <div class='publica'>
                     <button>
                         Publica un anuncio
+                    </button>
+                    <button class='responsive-button'>
+                         Publica
                     </button>
                 </div>
             </nav>

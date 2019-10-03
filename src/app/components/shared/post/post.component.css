@@ -1,0 +1,160 @@
+/* ------------------------------------------------------------------------------ */
+/* ---------------------------------Posts---------------------------------------- */
+/* ------------------------------------------------------------------------------ */
+
+.post{
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.post:hover{
+    transition: .3s all ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
+}
+.post .img{
+    position: relative;
+}
+.post .img:before{
+    display: block;
+    content: "";
+    background: linear-gradient(to bottom,transparent 70%,rgba(0,0,0,.85) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.post .img .photo{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.post .img .photo img{
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+    border-radius: 3px 3px 0 0;
+}
+.carousel-control-next, .carousel-control-prev{
+    z-index: 5 !important;
+    font-size: 2em;
+}
+.post .img .favorite{
+    position: absolute;
+    top: 15px;
+    right:15px;
+    z-index:1;
+}
+.post .img .favorite fa-icon{
+    font-size: 24px;
+    vertical-align: top;
+    overflow: hidden;
+    color:#dfdf;
+}
+.post .img .price{
+    position: absolute;
+    color:white;
+    bottom:.5em;
+    left:.8em;
+    font-size: 1.4em;
+    z-index:2;
+}
+.post .info{
+    padding: 1em;
+}
+.info .location p{
+    color: #3a3b3b;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.info .street p{
+    color: #5676FC;
+    margin: 4px 0 0;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 27px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 5px;
+}
+.info .rooms{
+    margin: 5px 0;
+}
+.info .rooms ul{
+    display: flex;
+    align-items: center;
+}
+.info .rooms li{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.info .rooms li fa-icon{
+    font-size: 18px;
+    margin-right: 5px;
+    color:rgba(86,118,252, .60);
+}
+.info .rooms li p{
+    font-size: 14px;
+}
+.info .rooms li p .dot{
+    font-weight: bold;
+    color:#5676FC;
+    padding-left: 5px;
+}
+.info .contact-btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.info .contact-btn button{
+    margin-top: 10px;
+    cursor: pointer;
+    border:none;
+    background: none;
+    color: #0173e6;
+    border: 1px solid #0173e6;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.info .contact-btn button:hover{
+    transition: .3s all ease;
+    background:#0173e6 ;
+    color: white;
+}
+
+@media screen and ( max-width: 800px ){
+    .post .img .photo{
+        height: auto;
+    }
+}
+@media screen and ( max-width: 620px ){
+    .post{
+        box-shadow: none;
+    }
+    .post:hover{
+        box-shadow: none;
+    }
+    .post .info{
+        border: 1px solid #dcdcdc;
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+@media screen and ( max-width: 370px ){
+    .post .info{
+        padding: .5em;
+    }
+}
+

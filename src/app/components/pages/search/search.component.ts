@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Filters } from '../../../models/filters.model';
 
 @Component({
   selector: 'app-search',

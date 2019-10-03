@@ -1,0 +1,62 @@
+<div class="post">
+    <div class="img">
+        <div [attr.id]="modalId" class="carousel carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active photo">
+                    <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item photo">
+                    <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item photo">
+                    <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item photo">
+                    <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" [href]="'#' + modalId" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" [href]="'#' + modalId" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+        <div class="favorite">
+            <!-- <fa-icon [icon]="faHeartRegular"></fa-icon> -->
+            <fa-icon [icon]="faHeartSolid"></fa-icon>
+        </div>
+        <div class="price">
+            <p>EUR 240.000</p>
+        </div>
+    </div>
+    <div class="info">
+        <div class="location">
+            <p>Piso en Alquiler, Barcelona</p> 
+        </div>
+        <div class="street">
+            <p>Calle test de la prueba 123</p> 
+        </div>
+        <div class="rooms">
+            <ul>
+                <li>
+                    <fa-icon [icon]="faHome"></fa-icon>
+                    <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                </li>
+                <li>
+                    <fa-icon [icon]="faDollarSign"></fa-icon>
+                    <p>Alquiler <span class='dot'>•</span></p>
+                </li>
+                <li>
+                    <fa-icon [icon]="faRulerHorizontal"></fa-icon>
+                    <p><span>300</span> m²</p>
+                </li>
+            </ul>
+        </div>
+        <div class="contact-btn">
+            <button (click)="openModal('lol@gmail.com')">Contactar</button>
+        </div>
+    </div>
+</div> 

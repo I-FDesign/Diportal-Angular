@@ -1,0 +1,20 @@
+<div class="insert-term">
+    <div class="field">
+        <input #input [(ngModel)]="filters.termino" name="termino" (keyup)="searchLocation()"
+                type="text" placeholder="Municipio, Provincia, CP..." autocomplete="off">
+        <span (click)="clearTerm()" class="clear"></span>
+    </div>
+    <div class="form-options" [ngClass]="{'visible': municipalitys.length > 0  || results.length > 0 }" id="dropdown_search">
+        <li *ngFor='let municipality of municipalitys' (click)="optionSelected(municipality, 'municipality')">
+            {{ municipality.fields.municipio }}, {{ municipality.fields.provincia }} Provincia
+        </li>
+        <li *ngFor='let result of results' (click)="optionSelected(result, 'result')">
+            {{ result.fields.municipio }}, {{ result.fields.provincia }} Provincia
+        </li>
+    </div>
+    <div class="search-button">
+        <button type='submit'>
+            Buscar
+        </button>
+    </div>
+</div>

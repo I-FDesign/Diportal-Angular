@@ -29,9 +29,13 @@
                                         Alquilar
                                 </button>
 
-                                <button [ngClass]="{'active': filters.queDesea == 'compartir'}"
-                                        type='button' (click)="filtersChanged('compartir')">
-                                    Compartir
+                                <button [ngClass]="{'active': filters.queDesea == 'vacacional'}"
+                                        type='button' (click)="filtersChanged('vacacional')">
+                                    Vacacional
+                                </button>
+                                <button [ngClass]="{'active': filters.queDesea == 'servicios'}"
+                                        type='button' (click)="filtersChanged('servicios')">
+                                    Servicios
                                 </button>
 
                             </div>
@@ -48,21 +52,7 @@
                                         <option value="garaje">Garaje</option>
                                     </select>
                                 </div>
-                                <div class="insert-term">
-                                    <div class="field">
-                                        <input #input [(ngModel)]="filters.termino" name="termino" (keyup)="searchLocation()"
-                                               type="text" placeholder="Municipio, Provincia, CP..." autocomplete="off">
-                                        <span (click)="clearTerm()" class="clear"></span>
-                                    </div>
-                                    <div class="form-options" [ngClass]="{'visible': municipalitys.length > 0  || results.length > 0 }" id="dropdown_search">
-                                        <li *ngFor='let municipality of municipalitys' (click)="optionSelected(municipality, 'municipality')">
-                                            {{ municipality.fields.municipio }}, {{ municipality.fields.provincia }} Provincia
-                                        </li>
-                                        <li *ngFor='let result of results' (click)="optionSelected(result, 'result')">
-                                            {{ result.fields.municipio }}, {{ result.fields.provincia }} Provincia
-                                        </li>
-                                    </div>
-                                </div>
+                                <app-search-input></app-search-input>
                             </div>
 
                             <p class='examples'>ej. Barcelona, Madrid, Barcelona Provincia, Madrid Provincia...</p>
@@ -132,247 +122,21 @@
             </div>
         </div>
         <div class="some-houses">
+            
             <div class="container">
                 <h2>Algunas publicaciones</h2>
                 <div class="posts">
-                    <div class="post">
-                        <div class="img">
-                            <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active photo">
-                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Anterior</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Siguiente</span>
-                                </a>
-                            </div>
-                            <div class="favorite">
-                                <!-- <fa-icon [icon]="faHeartRegular"></fa-icon> -->
-                                <fa-icon [icon]="faHeartSolid"></fa-icon>
-                            </div>
-                            <div class="price">
-                                <p>EUR 240.000</p>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="location">
-                                <p>Piso en Alquiler, Barcelona</p> 
-                            </div>
-                            <div class="street">
-                                <p>Calle test de la prueba 123</p> 
-                            </div>
-                            <div class="rooms">
-                                <ul>
-                                    <li>
-                                        <fa-icon [icon]="faHome"></fa-icon>
-                                        <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
-                                    </li>
-                                    <li>
-                                        <fa-icon [icon]="faDollarSign"></fa-icon>
-                                        <p>Alquiler</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="contact-btn">
-                                <button>Contactar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post">
-                            <div class="img">
-                                <div id="carouselExampleFade2" class="carousel slide carousel-fade">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active photo">
-                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleFade2" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Anterior</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleFade2" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Siguiente</span>
-                                    </a>
-                                </div>
-                                <div class="favorite">
-                                    <fa-icon [icon]="faHeartRegular"></fa-icon>
-                                    <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
-                                </div>
-                                <div class="price">
-                                    <p>EUR 240.000</p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="location">
-                                    <p>Piso en Alquiler, Barcelona</p> 
-                                </div>
-                                <div class="street">
-                                    <p>Calle test de la prueba 123</p> 
-                                </div>
-                                <div class="rooms">
-                                    <ul>
-                                        <li>
-                                            <fa-icon [icon]="faHome"></fa-icon>
-                                            <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
-                                        </li>
-                                        <li>
-                                            <fa-icon [icon]="faDollarSign"></fa-icon>
-                                            <p>Alquiler</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="contact-btn">
-                                    <button>Contactar</button>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="post">
-                        <div class="img">
-                            <div id="carouselExampleFade3" class="carousel slide carousel-fade">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active photo">
-                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item photo">
-                                        <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleFade3" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Anterior</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleFade3" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Siguiente</span>
-                                </a>
-                            </div>
-                            <div class="favorite">
-                                <fa-icon [icon]="faHeartRegular"></fa-icon>
-                                <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
-                            </div>
-                            <div class="price">
-                                <p>EUR 240.000</p>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="location">
-                                <p>Piso en Alquiler, Barcelona</p> 
-                            </div>
-                            <div class="street">
-                                <p>Calle test de la prueba 123</p> 
-                            </div>
-                            <div class="rooms">
-                                <ul>
-                                    <li>
-                                        <fa-icon [icon]="faHome"></fa-icon>
-                                        <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
-                                    </li>
-                                    <li>
-                                        <fa-icon [icon]="faDollarSign"></fa-icon>
-                                        <p>Alquiler</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="contact-btn">
-                                <button>Contactar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post">
-                            <div class="img">
-                                <div id="carouselExampleFade4" class="carousel slide carousel-fade">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active photo">
-                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item photo">
-                                            <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleFade4" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Anterior</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleFade4" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Siguiente</span>
-                                    </a>
-                                </div>
-                                <div class="favorite">
-                                    <fa-icon [icon]="faHeartRegular"></fa-icon>
-                                    <!-- <fa-icon [icon]="faHeartSolid"></fa-icon> -->
-                                </div>
-                                <div class="price">
-                                    <p>EUR 240.000</p>
-                                </div>
-                            </div>
-                            <div class="info">
-                                <div class="location">
-                                    <p>Piso en Alquiler, Barcelona</p> 
-                                </div>
-                                <div class="street">
-                                    <p>Calle test de la prueba 123</p> 
-                                </div>
-                                <div class="rooms">
-                                    <ul>
-                                        <li>
-                                            <fa-icon [icon]="faHome"></fa-icon>
-                                            <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
-                                        </li>
-                                        <li>
-                                            <fa-icon [icon]="faDollarSign"></fa-icon>
-                                            <p>Alquiler</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="contact-btn">
-                                    <button>Contactar</button>
-                                </div>
-                            </div>
-                    </div>
-                    
+                    <app-post [modalId]="'one'"></app-post>
+                    <app-post [modalId]="'two'"></app-post>
+                    <app-post [modalId]="'three'"></app-post>
+                    <app-post [modalId]="'four'"></app-post>
                 </div>
                 <div class="show-more">
                     <button [routerLink]="['/search']" >Ver más</button>
                 </div>
             </div>
+
+            <app-contact-modal></app-contact-modal>
         </div>
         <div class="final-banner" onclick='upToSearch()'>
             <a class="banner-link" title="Encontra tu futuro hogar">

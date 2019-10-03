@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeService } from './home.service';
+import { ContactModalService } from './contact-modal.service';
+import { SearchInputService } from './search-input.service';
 
 
 
@@ -8,7 +9,9 @@ import { HomeService } from './home.service';
   declarations: [],
   imports: [],
   providers: [
-    HomeService
+    HomeService,
+    ContactModalService,
+    SearchInputService
   ]
 })
 export class ServicesModule { }

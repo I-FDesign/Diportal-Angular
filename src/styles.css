@@ -10,6 +10,9 @@ p{
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
     margin-bottom: 0;
 }
+ul{
+    margin-bottom: 0;
+}
 button{
     font-size: small;
 }
@@ -23,7 +26,30 @@ button, input, optgroup, select, textarea{
 .container{
     max-width: 1000px;
     margin:0 auto;
+    animation-name: fadeIn;
+    overflow: hidden;
 }
 :focus{
 	outline:0px;
+}
+
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

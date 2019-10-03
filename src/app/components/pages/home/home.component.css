@@ -83,7 +83,7 @@
     font-size: 15px;
     /* line-height: 2.5; */
     text-align: center;
-    width: 32%;
+    width: 24.5%;
     color: white;
 }
 .main .search .find .filters button.active{
@@ -131,87 +131,8 @@
     background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center;
     font-size: inherit;
 }
-
-.main .search .find .input-search .insert-term{
-    color: #000;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
-    position: relative;
-}
-.main .search .find .input-search .insert-term .field{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    position: relative;
+.main .search .find .input-search app-search-input{
     width: 100%;
-}
-.main .search .find .input-search .insert-term .field input{
-    -webkit-appearance: none;
-    border: 0;
-    border-radius: 3px 0 0 3px;
-    box-sizing: border-box;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
-    padding: 16px 48px 16px 16px;
-    width: 100%;
-    overflow: visible;
-}
-.main .search .find .input-search .insert-term .field span.clear{
-    height: 40px;
-    margin-top: -20px;
-    padding: 0;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    width: 40px;
-    z-index: 0;
-    cursor: pointer;
-}
-.main .search .find .input-search .insert-term .field span.clear:after{
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 0l-7 7.025L.475 0 0 .475 7 7.5l-7 7.025.475.475L7.5 7.975l7 7.025.5-.475L7.975 7.5 15 .475 14.5 0z'/%3E%3C/svg%3E");
-    background-position: 13px;
-    background-repeat: no-repeat;
-    background-size: 35%;
-    content: "\200B";
-    height: 100%;
-    right: 0;
-    top: 0;
-    width: 100%;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.5 0l-7 7.025L.475 0 0 .475 7 7.5l-7 7.025.475.475L7.5 7.975l7 7.025.5-.475L7.975 7.5 15 .475 14.5 0z'/%3E%3C/svg%3E") no-repeat 13px;
-    background-size: 35%;
-    content: "\200B";
-    height: 100%;
-    right: 0;
-    top: 0;
-    position: absolute;
-}
-.main .search .find .input-search .insert-term .form-options{
-    border: 1px solid rgba(0, 0, 0, .2);
-    background: white;
-    position: absolute;
-    top:100%;
-    left:0;
-    width: 100%;
-    border-radius: 0 0 3px 3px;
-    display: none;
-}
-.main .search .find .input-search .insert-term .visible{
-    display: block;
-}
-.main .search .find .input-search .insert-term .form-options li:first-child,
-.main .search .find .input-search .insert-term .form-options li:hover{
-    background: #f1f1f1;
-}
-.main .search .find .input-search .insert-term .form-options li{
-    list-style: none;
-    padding:10px;
-    font-size: 14px;
-    cursor: pointer;
 }
 .main .search .find .input-search .search-button{
     display: -webkit-box;
@@ -247,6 +168,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 .main .search .find .final-filters .ambientes{
     display: flex;
@@ -315,10 +237,7 @@
     text-transform: uppercase;
 }
 
-
-/* ------------------------------------------------------------------------------ */
-/* ---------------------------------Posts---------------------------------------- */
-/* ------------------------------------------------------------------------------ */
+/* ----------------------------Somehouses---------------------------------------- */
 
 .some-houses{
     padding: 20px 10px;
@@ -337,122 +256,10 @@
     justify-content: space-between;
     align-items: center;
 }
-.some-houses .posts .post{
+.some-houses .posts app-post{
     width: 47%;
-    cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0,0,0,.3);
-    border-radius: 3px;
-    margin-bottom: 20px;
 }
-.some-houses .posts .post:hover{
-    transition: .3s all ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,.3);
-}
-.some-houses .posts .post .img{
-    position: relative;
-}
-.some-houses .posts .post .img:before{
-    display: block;
-    content: "";
-    background: linear-gradient(to bottom,transparent 70%,rgba(0,0,0,.85) 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-}
-.some-houses .posts .post .img .photo{
-    display: inline-block;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-}
-.some-houses .posts .post .img .photo img{
-    width: 100%;
-    height: auto;
-    vertical-align: top;
-    border-radius: 3px 3px 0 0;
-}
-.carousel-control-next, .carousel-control-prev{
-    z-index: 5 !important;
-    font-size: 2em;
-}
-.some-houses .posts .post .img .favorite{
-    position: absolute;
-    top: 15px;
-    right:15px;
-    z-index:1;
-}
-.some-houses .posts .post .img .favorite fa-icon{
-    font-size: 24px;
-    vertical-align: top;
-    overflow: hidden;
-    color:#dfdf;
-}
-.some-houses .posts .post .img .price{
-    position: absolute;
-    color:white;
-    bottom:.5em;
-    left:.8em;
-    font-size: 1.4em;
-    z-index:2;
-}
-.some-houses .posts .post .info{
-    padding: 1em;
-}
-.some-houses .info .location p{
-    color: #3a3b3b;
-    font-size: 14px;
-    line-height: 18px;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.some-houses .info .street p{
-    color: #5676FC;
-    margin: 4px 0 0;
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 27px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-bottom: 5px;
-}
-.some-houses .info .rooms{
-    margin: 5px 0;
-}
-.some-houses .info .rooms ul{
-    display: flex;
-    align-items: center;
-}
-.some-houses .info .rooms li{
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-.some-houses .info .rooms li fa-icon{
-    font-size: 18px;
-    margin-right: 5px;
-    color:rgba(86,118,252, .60);
-}
-.some-houses .info .rooms li p{
-    font-size: 14px;
-}
-.some-houses .info .rooms li p .dot{
-    font-weight: bold;
-    color:#5676FC;
-    padding-left: 5px;
-}
-.some-houses .info .contact-btn{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-.some-houses .info .contact-btn button,
-.some-houses .show-more button{
+.show-more button{
     margin-top: 10px;
     cursor: pointer;
     border:none;
@@ -465,21 +272,19 @@
     font-weight: 600;
     text-transform: uppercase;
 }
-.some-houses .info .contact-btn button:hover,
-.some-houses .show-more button:hover{
+.show-more button:hover{
     transition: .3s all ease;
     background:#0173e6 ;
     color: white;
 }
-.some-houses .show-more{
+.show-more{
     margin-top: 10px;
     display: flex;
     justify-content: center;
 }
-.some-houses .show-more button{
+.show-more button{
     padding: 10px 30px;
 }
-
 
 /* ------------------------------------------------------------------------------ */
 /* -----------------------------------Banner------------------------------------- */
@@ -550,3 +355,83 @@
     margin: 24px 0 0;
     padding: 6px 12px;
 }
+
+
+/* ----------------------------------------------------------------------------- */
+/* -----------------------------Media Queries----------------------------------- */
+/* ----------------------------------------------------------------------------- */
+
+@media screen and ( max-width: 1250px ){
+    .main .final-banner a.banner-link .banner-outerwraper{
+        left:0;
+    }
+}
+@media screen and ( max-width: 1000px ){
+    .main .search .find .final-filters{
+        flex-direction: column;
+    }
+    .main .search .find .final-filters .price{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main .search .find .final-filters .price .final-filters-inputs{
+        justify-content: center;
+    }
+    .main .final-banner a.banner-link .banner-outerwraper{
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+@media screen and ( max-width: 800px ){
+    .some-houses .posts app-post{
+        width: 100%;
+    }
+    .main .final-banner a.banner-link .banner-content .banner-info{
+        font-size: 20px;
+    }
+}
+
+@media screen and ( max-width: 620px ){
+    .main .search .find{
+        padding: 5px;
+    }
+    .main .search .logo{
+        margin-bottom: 30px;
+    }
+    .main .search .find .filters button:last-child{
+        display: none;
+    }
+    .main .search .find .filters button{
+        width: 32.5%;
+    }
+    .main .search .find .input-search{
+        flex-wrap: wrap;
+    }
+    .main .search .find .input-search .select-type{
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    .main .search .find .final-filters .price{
+        display: none;
+    }
+    .main .some-houses .container{
+        padding: 0;
+    }
+}
+@media screen and ( max-width: 500px ){
+    .main .search .logo img{
+        margin-top: 10px;
+        height: 100px;
+    }
+    .main .search .logo p{
+        font-size: 1.2em;
+    }
+    .main .search .find .input-search .select-type select{
+        padding: 0 10px;
+        border-right: none;
+    }
+    .main .search .find .final-filters .ambientes{
+        display: none;
+    }
+}
+

@@ -87,3 +87,23 @@ footer .last-footer .credits{
 footer .last-footer .credits a{
     color: white;
 }
+
+/* ----------------------------------------------------------------------------- */
+/* -----------------------------Media Queries----------------------------------- */
+/* ----------------------------------------------------------------------------- */
+
+@media screen and ( max-width: 1000px ){
+    .re-SharedSeoFooter-seo{
+        max-width: 100%;
+        padding: 0px 40px;
+        padding-bottom : 20px;
+    }
+}
+@media screen and ( max-width: 500px ){
+    .re-SharedSeoFooter-seo .sui-ListLink{
+        height: auto;
+    }
+    footer .last-footer{
+        padding: 10px;
+    }
+}

@@ -20,6 +20,11 @@ import { ClickStopPropagationDirective } from './directives/click-stop-propagati
 // Services
 import { ServicesModule } from './services/services.module';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { ContactModalComponent } from './components/shared/contact-modal/contact-modal.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { PostComponent } from './components/shared/post/post.component';
+import { SearchInputComponent } from './components/shared/search-input/search-input.component';
 
 
 @NgModule({
@@ -31,7 +36,12 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     PageNotFoundComponent,
     SearchComponent,
     ClickStopPropagationDirective,
-    LoadingComponent
+    LoadingComponent,
+    ContactModalComponent,
+    LoginComponent,
+    RegisterComponent,
+    PostComponent,
+    SearchInputComponent
   ],
   imports: [
     BrowserModule,

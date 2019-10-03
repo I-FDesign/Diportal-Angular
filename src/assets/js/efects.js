@@ -1,7 +1,4 @@
 // Header------------------------------------------------------------------
-$(document).ready(function(){
-    $('.carousel').carousel('pause');
-})
 function menuSlideDown(){
     $('#menu_dropdown').addClass('slideInDown');
 }
@@ -45,11 +42,20 @@ function slideUpDropdown(){
         dropdown.id = '';
     }
 
-}
-    
+}   
 
 function noSlide(event){
     event.stopPropagation();
+}
+
+function downToMostSearch(){
+    const most_search_div = $('#most_search_div').offset().top;
+
+    $('html, body').animate({
+        scrollTop: most_search_div - 500
+    }, 500);
+
+    slideUpDropdown();
 }
 
 // -----------------------------------------------------------------------------
@@ -74,3 +80,6 @@ function upToSearch(){
         scrollTop: search_div - 10
     }, 500);
 }
+
+// Search ------------------------------------------------------
+

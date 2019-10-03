@@ -112,6 +112,9 @@ header .navbar .right-side .options .publica button{
     font-size: 14px;
     margin-left: 15px;
 }
+header .navbar .right-side .options .publica button.responsive-button{
+    display: none;
+}
 header .navbar .right-side .options .publica button:hover{
     transition: .3s all ease;
     background: rgba(48, 58, 178, .1);
@@ -208,6 +211,7 @@ header .navbar .right-side .options li .dropmenu .areyou a{
     text-decoration: none;
     font-size: 14px;
     color:#4761CF;
+    cursor: pointer;
 }
 
 
@@ -295,4 +299,49 @@ header .navbar .right-side .options li .dropmenu .areyou a{
 
 .drop-visible{
     display: block !important;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* ---------------------------Media Queries------------------------------------ */
+/* ---------------------------------------------------------------------------- */
+
+@media screen and (max-width: 768px){
+    header .navbar .right-side .options li.professional .dropmenu{
+        left: -150px;
+    }
+    header .navbar .right-side .options li.professional .dropmenu:before{
+        left: 54%;
+    }
+    header .navbar .right-side .options li .option-button{
+        border-right: none;
+    }
+    header .navbar .right-side .options li .option-button p,
+    header .navbar .right-side .options li .option-button .arrow{
+        display: none;
+    }
+}
+@media screen and (max-width: 500px){
+    header .navbar .right-side .options li .option-button{
+        padding: 0 5px;
+    }
+    header .navbar .right-side .options li.professional .dropmenu{
+        top: 55px;
+        left: -210px;
+    }
+    header .navbar .right-side .options li.professional .dropmenu:before{
+        left: 68.5%;
+    }
+}
+@media screen and (max-width: 450px){
+    header .navbar .right-side .options .publica button{
+        display: none;
+    }
+    header .navbar .right-side .options .publica button.responsive-button{
+        display: block;
+    }
+}
+@media screen and (max-width: 360px){
+    header .navbar .left-side .logo a h2{
+        font-size: 24px;
+    }
 }
