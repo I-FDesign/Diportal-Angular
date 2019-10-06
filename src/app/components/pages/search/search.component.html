@@ -1,7 +1,9 @@
 <div class="search-container">
     <div class="top-search">
         <div class="searching-in">
-            <p>80 Viviendas en venta en <span>Albalate de Zorita</span> </p>
+            <p>Mas de {{ (filters.termino) ? '80' : '1000' }} viviendas en venta en 
+                <span>{{ (filters.termino) ? filters.termino : 'Diportal.es' }}</span> 
+            </p>
         </div>
         <div class="search-input">
             <app-search-input></app-search-input>
@@ -16,7 +18,8 @@
                     <div class="want-to">
                         <h4 class="filter-title">¿Que desea?</h4>
                         <div class="filter">
-                            <select class="filters-FormSelect">
+                            <select [(ngModel)]="filters.queDesea" name='queDesea' 
+                                    class="filters-FormSelect">
                                 
                                 <option value="comprar">Comprar</option>
                                 <option value="alquilar">Alquilar</option>
@@ -28,7 +31,8 @@
                     <div class="type">
                         <h4 class="filter-title">Tipo</h4>
                         <div class="filter">
-                            <select class="filters-FormSelect">
+                            <select [(ngModel)]="filters.tipo" name='tipo'
+                                    class="filters-FormSelect">
                                 <option value="vivienda">Vivienda</option>
                                 <option value="obranueva">Obra Nueva</option>
                                 <option value="localynave">Local y Nave</option>
@@ -43,7 +47,8 @@
                     <div class="caracteristicas">
                         <h4 class="filter-title">Características</h4>
                         <div class="filter">
-                            <select class="filters-FormSelect">
+                            <select [(ngModel)]="filters.ambientes" name='ambientes'
+                                    class="filters-FormSelect">
                                 <option value="">Habitaciones</option>
                                 <option value="1">1 o más habs.</option>
                                 <option value="2">2 o más habs.</option>
@@ -55,8 +60,9 @@
                     </div>
                     <div class="baños">
                         <div class="filter">
-                            <select class="filters-FormSelect">
-                                <option value="">Baños</option>
+                            <select [(ngModel)]="filters.bathrooms" name='bathrooms'
+                                    class="filters-FormSelect">
+                                <option value="" default>Baños</option>
                                 <option value="1">1 o más baños</option>
                                 <option value="2">2 o más baños</option>
                                 <option value="3">3 o más baños</option>
@@ -171,7 +177,8 @@
                     <div class="superficio-desde">
                         <h4 class="filter-title">Superficie</h4>
                         <div class="filter">
-                            <select class="filters-FormSelect">
+                            <select [(ngModel)]="filters.superficieDesde" name='superficieDesde'
+                                    class="filters-FormSelect">
                                 <option value="0">Superficie desde</option>
                                 <option value="60">Desde 60 m2</option>
                                 <option value="80">Desde 80 m2</option>
@@ -191,7 +198,8 @@
                     </div>
                     <div class="superficio-desde">
                         <div class="filter">
-                            <select class="filters-FormSelect">
+                            <select [(ngModel)]="filters.superficieHasta" name='superficieHasta'
+                                    class="filters-FormSelect">
                                 <option value="0">Superficie hasta</option>
                                 <option value="60">Hasta 60 m2</option>
                                 <option value="80">Hasta 80 m2</option>

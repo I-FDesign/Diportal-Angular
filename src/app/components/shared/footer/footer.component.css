@@ -83,6 +83,7 @@ footer .last-footer .credits{
     text-align: center;
     color:#fff;
     opacity: .7;
+    padding-bottom: 5px;
 }
 footer .last-footer .credits a{
     color: white;

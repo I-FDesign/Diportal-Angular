@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { ODS_URL } from '../config/config';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -15,9 +15,15 @@ export class SearchInputService {
 
   temporalyResult: any = {};
 
+  public notification = new EventEmitter();
+
   constructor(
     public http: HttpClient
   ) { }
+
+  emitOption( option ) {
+    this.notification.emit( option );
+  }
 
   searchMunicipalitys( term: string ) {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Filters } from '../../../models/filters.model';
 import { SearchInputService } from '../../../services/search-input.service';
 
@@ -77,11 +77,13 @@ export class SearchInputComponent implements OnInit {
 
     if ( type ===  'municipality' ) {
       this.filters.termino = option.fields.municipio + ', ' + option.fields.provincia + ' Provincia';
+      this._searchInputService.emitOption( option );
       return;
     }
 
     if ( type ===  'result' ) {
       this.filters.termino = option.fields.municipio + ', ' + option.fields.provincia + ' Provincia';
+      this._searchInputService.emitOption( option );
       return;
     }
 

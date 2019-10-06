@@ -8,9 +8,16 @@ import { Filters } from '../../../models/filters.model';
 })
 export class SearchComponent implements OnInit {
 
+  filters: Filters =  new Filters('');
+
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.getItem('filter')) {
+      const filters = JSON.parse(localStorage.getItem('filter'));
+      this.filters = filters;
+      console.log(this.filters);
+    }
   }
 
 }

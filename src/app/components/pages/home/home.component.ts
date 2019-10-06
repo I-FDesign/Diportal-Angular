@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Filters } from '../../../models/filters.model';
 import { Router } from '@angular/router';
 import { SearchInputService } from '../../../services/search-input.service';
@@ -21,6 +21,12 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this._searchInputService.notification.subscribe( location => {
+      this.filters.termino = location.fields.municipio + ', ' + location.fields.provincia + ' Provincia';
+      this.filters.cmun = location.fields.cmun;
+    } );
+
     if (localStorage.getItem('filter')) {
       const filters = JSON.parse(localStorage.getItem('filter'));
       this.filters = filters;
@@ -33,10 +39,6 @@ export class HomeComponent implements OnInit {
 
   searchSubmit( form ) {
     this.filters = form;
-
-    if (!this.filters.cmun && this.filters.termino) {
-      this.filters.cmun = this._searchInputService.temporalyResult.fields.cmun;
-    }
 
     localStorage.removeItem('filter');
     localStorage.setItem('filter', JSON.stringify(this.filters));

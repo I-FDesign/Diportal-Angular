@@ -8,7 +8,12 @@
                     </div>
                     <div class="find">
                         <form #f="ngForm" (ngSubmit)="searchSubmit(f.value)">
+                            <input type="hidden" [(ngModel)]="filters.bathrooms" name='bathrooms'>
+                            <input type="hidden" [(ngModel)]="filters.superficieDesde" name='superficieDesde'>
+                            <input type="hidden" [(ngModel)]="filters.superficieHasta" name='superficieHasta'>
                             <input *ngIf='filters.cmun' type="hidden" [(ngModel)]="filters.cmun" name='cmun'>
+                            <input *ngIf='filters.termino' type="hidden" [(ngModel)]="filters.termino" name='termino'>
+
                             <div class="show-new">
                                 <input type="checkbox" [(ngModel)]="filters.obraNueva" name="obraNueva">
                                 <label onclick="changeCheckbox()" (click)="filters.obraNueva = !filters.obraNueva"
