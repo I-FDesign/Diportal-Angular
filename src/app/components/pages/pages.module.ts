@@ -15,6 +15,8 @@ import { ContactModalComponent } from '../shared/contact-modal/contact-modal.com
 import { PostComponent } from '../shared/post/post.component';
 import { SearchInputComponent } from '../shared/search-input/search-input.component';
 import { SharedModule } from '../shared/shared.module';
+import { AdminComponent } from './admin/admin.component';
+import { AnuncioComponent } from './anuncio/anuncio.component';
 
 
 
@@ -27,7 +29,9 @@ import { SharedModule } from '../shared/shared.module';
     SearchComponent,
     ContactModalComponent,
     PostComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    AdminComponent,
+    AnuncioComponent
   ],
   imports: [
     CommonModule,

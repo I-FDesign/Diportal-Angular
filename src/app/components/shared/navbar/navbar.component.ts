@@ -3,6 +3,7 @@ import { Filters } from '../../../models/filters.model';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { ContactModalService } from '../../../services/contact-modal.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 declare function slideUpDropdown();
 
@@ -18,7 +19,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public router: Router,
     // tslint:disable-next-line: variable-name
-    public _contactModalService: ContactModalService
+    public _contactModalService: ContactModalService,
+    public authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -47,6 +49,11 @@ export class NavbarComponent implements OnInit {
   openModal( ) {
     this._contactModalService.openModal('empresa');
   }
+
+  logout() {
+    this.authService.logout();
+  }
+
 
 
 }

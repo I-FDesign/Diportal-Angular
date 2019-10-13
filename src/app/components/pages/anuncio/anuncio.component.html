@@ -1,0 +1,156 @@
+<div class="container pt-4 animated fadeIn faster" id='anuncio_container'>
+    <div class="page-title">
+        <h3>Nuevo anuncio</h3>
+        <hr>
+    </div>
+    <div class="content-form">
+        <div class="upload-image">
+            <app-upload-file></app-upload-file>
+        </div>
+        <div class="options">
+            <div class="option-group que-desea">
+                <label class='type-title' for="">¿Que desea?</label>
+                <div class="linear-options">
+                    <div class="linear-buttons">
+                        <button [ngClass]="{'active': anuncio.queDesea === 'comprar'}"
+                            (click)="anuncio.queDesea = 'comprar'">Vender</button>
+                        <button [ngClass]="{'active': anuncio.queDesea === 'alquilar'}"
+                            (click)="anuncio.queDesea = 'alquilar'">Alquilar</button>
+                        <button [ngClass]="{'active': anuncio.queDesea === 'vacacional'}"
+                            (click)="anuncio.queDesea = 'vacacional'">Vacacional</button>
+                        <button [ngClass]="{'active': anuncio.queDesea === 'servicio'}"
+                            (click)="anuncio.queDesea = 'servicio'">Servicio</button>
+                    </div>
+                    <div class="button-options">
+                        <div class="input-text" *ngIf="anuncio.queDesea === 'comprar'">
+                            <input [(ngModel)]="anuncio.precio" name='precio' id='precio_venta' type="text" placeholder="Precio de venta">
+                            <label for='precio_venta' class='input-span'>€</label>
+                        </div>
+                        <div class="input-text" *ngIf="anuncio.queDesea === 'alquilar'">
+                            <input [(ngModel)]="anuncio.precio" name='precio' id='precio_alquiler' type="text" placeholder="Precio de alquiler">
+                            <label for='precio_alquiler' class='input-span'>€</label>
+                        </div>
+
+                        <div class="periodicidad" *ngIf="anuncio.queDesea === 'vacacional'">
+                            <label for="" class="type-title">PERIODICIDAD</label>
+                            <div class="linear-checkboxs">
+                                <div class="inputGroup">
+                                    <input (change)="checkboxChange('diario', $event)" 
+                                            id="diario" name="diario" type="checkbox"/>
+                                    <label class='checkbox-label' for="diario">Diario</label>
+                                </div>
+                                    
+                                <div class="inputGroup">
+                                    <input (change)="checkboxChange('semanal', $event)" 
+                                            id="semanal" name="semanal" type="checkbox"/>
+                                    <label class='checkbox-label' for="semanal">Semanal</label>
+                                </div>
+                                
+                                <div class="inputGroup">
+                                    <input (change)="checkboxChange('mensual', $event)" 
+                                            id="mensual" name="mensual" type="checkbox"/>
+                                    <label class='checkbox-label' for="mensual">Mensual</label>
+                                </div>
+                            </div>
+                            <div class="input-text fadeIn faster" *ngIf='anuncio.vacacional.diario.desea'>
+                                <input [(ngModel)]="anuncio.vacacional.diario.precio" name='diario_precio'
+                                       id='precio_diario' type="text" placeholder="Precio diario">
+                                <label for='precio_diario' class='input-span'>€</label>
+                            </div>
+                            <div class="input-text fadeIn faster" *ngIf='anuncio.vacacional.semanal.desea'>
+                                <input [(ngModel)]="anuncio.vacacional.semanal.precio" name='semanal_precio'
+                                       id='precio_semanal' type="text" placeholder="Precio semanal">
+                                <label for='precio_semanal' class='input-span'>€</label>
+                            </div>
+                            <div class="input-text fadeIn faster" *ngIf='anuncio.vacacional.mensual.desea'>
+                                <input [(ngModel)]="anuncio.vacacional.mensual.precio" name='mensual_precio'
+                                       id='precio_mensual' type="text" placeholder="Precio mensual">
+                                <label for='precio_mensual' class='input-span'>€</label>
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <input [(ngModel)]="anuncio.superficie" name='superficie' id='superficie' type="text" placeholder="Superficie">
+                            <label for='superficie' class='input-span'>m²</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="option-group type">
+                <label class='type-title' for="">TIPO DE INMUEBLE</label>
+                <div class="linear-options">
+                    <div class="linear-buttons">
+                            <button [ngClass]="{'active': anuncio.tipo === 'vivienda'}"
+                                 (click)='anuncio.tipo = "vivienda"'>Vivienda</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'obranueva'}"
+                                 (click)='anuncio.tipo = "obranueva"'>Obra Nueva</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'localynave'}"
+                                 (click)='anuncio.tipo = "localynave"'>Local y Nave</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'edificio'}"
+                                 (click)='anuncio.tipo = "edificio"'>Edificio</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'terreno'}"
+                                 (click)='anuncio.tipo = "terreno"'>Terreno</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'trastero'}"
+                                 (click)='anuncio.tipo = "trastero"'>Trastero</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'garaje'}"
+                                 (click)='anuncio.tipo = "garaje"'>Garaje</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'oficina'}"
+                                 (click)='anuncio.tipo = "oficina"'>Oficina</button>
+                    </div>
+                </div>
+                <select name="" class="input-select">
+                    <option value="vivienda">Vivienda</option>
+                    <option value="obranueva">Obra Nueva</option>
+                    <option value="localynave">Local y Nave</option>
+                    <option value="edificio">Edificio</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="trastero">Trastero</option>
+                    <option value="garaje">Garaje</option>
+                    <option value="oficina">Oficina</option>
+                </select>
+            </div>
+            <div class="group-option localization">
+                <div class="search-input">
+                    <input type="text" placeholder="Calle y número">
+                    <button class='localization-btn'>Buscar</button>
+                </div>
+                <div class="map"></div>
+            </div>
+            <div class="option-group is-new">
+                <label for="is_new" class="type-title">OBRA NUEVA</label>
+                <div class="checkbox-new">
+                    <input (change)='anuncio.obraNueva = !anuncio.obraNueva'
+                        type="checkbox" id="is_new" style="display:none"/>
+                    <label for="is_new" class="toggle"><span></span></label> 
+                </div>
+            </div>
+            <div class="option-group habs incrementor">
+                <label for="habitaciones" class="type-title">HABITACIONES</label>
+                <div class="input">
+                    <button (click)="moreOrLessInput('habitaciones', true)" 
+                            class="less" [disabled]='anuncio.ambientes === "1"'>-</button>
+                    <input [(ngModel)]="anuncio.ambientes" name='ambientes' type="text" id='habitaciones' value='1' readonly>
+                    <button (click)="moreOrLessInput('habitaciones', false)" 
+                            class="more" [disabled]='anuncio.ambientes === "10"'>+</button>
+                </div>
+            </div>
+            <div class="option-group bathrooms incrementor">
+                <label for="baños" class="type-title">BAÑOS</label>
+                <div class="input">
+                    <button (click)="moreOrLessInput('baños', true)" 
+                            class="less" [disabled]='anuncio.bathrooms === "1"'>-</button>
+                    <input [(ngModel)]="anuncio.bathrooms" name='bathrooms' type="text" id='baños' value='1' readonly>
+                    <button (click)="moreOrLessInput('baños', false)" 
+                            class="more" [disabled]='anuncio.bathrooms === "10"'>+</button>
+                </div>
+            </div>
+            <div class="option-group description">
+                <label for="description" class="type-title">Descripción</label>
+                <textarea [(ngModel)]="anuncio.description" name='description' 
+                          placeholder='Descripción' id='description'></textarea>
+            </div>
+            <div class="send-button">
+                <button (click)='uploadAnuncio()'>Subir anuncio</button>
+            </div>
+        </div>
+    </div>
+</div>

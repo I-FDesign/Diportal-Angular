@@ -145,13 +145,13 @@ header .navbar .left-side .menu .dropmenu:before{
     width: 0;
     box-sizing: inherit;
 }
-header .navbar .right-side .options li .dropmenu li{
+header .navbar .right-side .options li .dropmenu .language li{
     list-style: none;
     width: 130px;
     padding: 10px 20px;
     cursor: pointer;
 }
-header .navbar .right-side .options li .dropmenu li.selected{
+header .navbar .right-side .options li .dropmenu .language li.selected{
     background: #4761CF;
     color: white;
     padding: 9px 20px;
@@ -213,8 +213,25 @@ header .navbar .right-side .options li .dropmenu .areyou a{
     color:#4761CF;
     cursor: pointer;
 }
-
-
+header .navbar .right-side .options li .dropmenu .logged{
+    width: 200px;
+}
+header .navbar .right-side .options li .dropmenu .logged li{
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+header .navbar .right-side .options li .dropmenu .logged li svg{
+    height: 16px;
+    width: 16px;
+    fill: #5676FC;
+    stroke: #5676FC;
+    stroke-width: 1px;
+    margin-top: -2px;
+}
+header .navbar .right-side .options li .dropmenu .logged li svg.heart{
+    margin-top: 0;
+}
 
 
 

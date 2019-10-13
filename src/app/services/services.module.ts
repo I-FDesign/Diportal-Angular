@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HomeService } from './home.service';
 import { ContactModalService } from './contact-modal.service';
 import { SearchInputService } from './search-input.service';
+import { AuthenticationService } from './authentication.service';
 
 
 
@@ -11,7 +12,8 @@ import { SearchInputService } from './search-input.service';
   providers: [
     HomeService,
     ContactModalService,
-    SearchInputService
+    SearchInputService,
+    AuthenticationService
   ]
 })
 export class ServicesModule { }

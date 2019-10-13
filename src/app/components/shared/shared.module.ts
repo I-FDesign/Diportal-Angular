@@ -10,6 +10,9 @@ import { LoadingComponent } from './loading/loading.component';
 
 // Directives
 import { ClickStopPropagationDirective } from '../../directives/click-stop-propagation.directive';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+
+import { ImageUploadModule } from 'angular2-image-upload';
 
 
 
@@ -18,17 +21,20 @@ import { ClickStopPropagationDirective } from '../../directives/click-stop-propa
     NavbarComponent,
     FooterComponent,
     LoadingComponent,
-    ClickStopPropagationDirective
+    ClickStopPropagationDirective,
+    UploadFileComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ImageUploadModule.forRoot()
   ],
   exports: [
     NavbarComponent,
     FooterComponent,
-    LoadingComponent
+    LoadingComponent,
+    UploadFileComponent
   ]
 })
 export class SharedModule { }

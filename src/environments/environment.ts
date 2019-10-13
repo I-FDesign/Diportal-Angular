@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true
+  production: true,
+  firebase: {
+    apiKey: 'AIzaSyBwfg-E3iaknh4rEeSUSakfimyf2o2Rvts',
+    authDomain: 'diportal.firebaseapp.com',
+    databaseURL: 'https://diportal.firebaseio.com',
+    projectId: 'diportal',
+    storageBucket: '',
+    messagingSenderId: '116719333004',
+    appId: '1:116719333004:web:f8b2635a127390cd3415a9'
+  }
 };
 
 /*

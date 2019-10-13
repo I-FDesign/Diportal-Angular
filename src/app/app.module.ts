@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './components/pages/pages.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 // Components
 import { AppComponent } from './app.component';
@@ -15,6 +19,7 @@ import { APP_ROUTES } from './app.routes';
 
 // Services
 import { ServicesModule } from './services/services.module';
+import { LoginErrorPipe } from './pipes/login-error.pipe';
 
 
 
@@ -22,7 +27,8 @@ import { ServicesModule } from './services/services.module';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    LoginErrorPipe
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,10 @@ import { ServicesModule } from './services/services.module';
     APP_ROUTES,
     PagesModule,
     ServicesModule,
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     HttpClientModule
   ],
   providers: [],

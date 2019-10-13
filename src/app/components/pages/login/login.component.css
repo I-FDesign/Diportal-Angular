@@ -3040,7 +3040,7 @@
   
   a:hover {
       text-decoration: none;
-    color: #1b3815;
+    color: rgba(86,118,252, .60);
   }
   
   /*---------------------------------------------*/
@@ -3126,14 +3126,14 @@
   .txt2 {
     font-family: Ubuntu-Regular;
     font-size: 15px;
-    color: #57b846;
+    color: #5676FC;
     line-height: 1.4;
   }
   
   .txt3 {
     font-family: Ubuntu-Bold;
     font-size: 15px;
-    color: #57b846;
+    color: #5676FC;
     line-height: 1.4;
     text-transform: uppercase;
   }
@@ -3196,7 +3196,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #57b846;
+    background-color: #5676FC;
     padding-top: 50px;
     padding-bottom: 39px;
   }
@@ -3282,7 +3282,7 @@
     padding: 0 20px;
     width: 100%;
     height: 50px;
-    background-color: #57b846;
+    background-color: #5676FC;
     border-radius: 25px;
   
     font-family: Ubuntu-Bold;
@@ -3298,7 +3298,7 @@
   }
   
   .login100-form-btn:hover {
-    background-color: #1b3815;
+    background-color: rgba(86,118,252, .60);
   }
   
   
@@ -3380,6 +3380,17 @@
     }
   }
 
+  /*//////////////////////////////////////////////////////////////////
+  ----------------------------[ Ajustes ]-----------------------------
+  ///////////////////////////////////////////////////////////////////*/
+  
+  .form-error{
+	margin-top: 10px;
+  }
+  .form-error p{
+	color: #c80000;
+	font-size: 16px;
+  }
 
 
 

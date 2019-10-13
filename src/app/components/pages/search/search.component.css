@@ -51,31 +51,6 @@
     text-align: left;
     margin-bottom: 10px;
 }
-.main-search .sidebar-filters .filters .filter select{
-    margin-right: 0;
-    height: 36px;
-    padding-bottom: 4px;
-    padding-top: 4px;
-    display: flex;
-    flex: 100%;
-    flex-wrap: wrap;
-    text-align: left;
-    margin-top: 8px;
-    -webkit-appearance: none;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E");
-    background-position: right 10px center;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    border: 1px solid #bbb;
-    border-radius: 0;
-    color: #4d4d4d;
-    font-size: 14px;
-    padding: 8px 40px 8px 8px;
-    width: 100%;
-    background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center;
-    text-transform: none;
-}
 .main-search .sidebar-filters .filters-btn{
     margin-top: 20px;
 }

@@ -26,11 +26,43 @@ button, input, optgroup, select, textarea{
 .container{
     max-width: 1000px;
     margin:0 auto;
-    animation-name: fadeIn;
     overflow: hidden;
 }
 :focus{
 	outline:0px;
+}
+.fadeIn{
+    animation-name: fadeIn;
+}
+.faster{
+    -webkit-animation-duration: 300ms;
+    animation-duration: 300ms;
+}
+
+.input-select{
+    margin-right: 0;
+    height: 36px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    display: flex;
+    flex: 100%;
+    flex-wrap: wrap;
+    text-align: left;
+    margin-top: 8px;
+    -webkit-appearance: none;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border: 1px solid #bbb;
+    border-radius: 0;
+    color: #4d4d4d;
+    font-size: 14px;
+    padding: 8px 40px 8px 8px;
+    width: 100%;
+    background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8l10 9 10-9' stroke-linecap='round' stroke='%235F5F5F' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center;
+    text-transform: none;
 }
 
 
@@ -44,12 +76,3 @@ button, input, optgroup, select, textarea{
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}

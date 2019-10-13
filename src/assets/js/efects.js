@@ -1,3 +1,4 @@
+
 // Header------------------------------------------------------------------
 function menuSlideDown(){
     $('#menu_dropdown').addClass('slideInDown');
@@ -81,5 +82,33 @@ function upToSearch(){
     }, 500);
 }
 
-// Search ------------------------------------------------------
+// Upload file----------------
+
+function updateStyles(){
+    $($('.img-ul-upload')).ready(function(){
+        if($('.img-ul-upload').length > 0){
+            $('.img-ul-upload').children()[0].innerText='Seleccionar Imagénes'
+            $('.img-ul-upload').css({
+                'background-color': '#5676FC',
+                'margin-bottom': '0'
+            })
+    
+            $('.img-ul-drag-box-msg')[0].innerText = 'O simplemente arrastralas!';
+        }
+    })
+}
+
+function changeClearButton(){
+    $('.img-ul-clear')[0].innerText = 'Limpiar';
+    $('.img-ul-clear').css({
+        'opacity': '.7',
+        'padding-top': '11.5px',
+        'padding-bottom': '11.5px'
+    })
+}
+
+
+
+
+
 
