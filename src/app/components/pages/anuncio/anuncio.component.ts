@@ -87,31 +87,31 @@ export class AnuncioComponent implements OnInit {
     }
 
 
-    this.uploadFileService.images.forEach((image, index) => {
+    // this.uploadFileService.images.forEach((image, index) => {
 
-      this.uploadFileService.uploadImage(image).subscribe( uploadPercentage => {
+    //   this.uploadFileService.uploadImage(image).subscribe( uploadPercentage => {
 
-        this.uploadPercentage = uploadPercentage + '%';
+    //     this.uploadPercentage = uploadPercentage + '%';
 
-        if (uploadPercentage === 100) {
-          if ( index === this.uploadFileService.images.length - 1 ) {
+    //     if (uploadPercentage === 100) {
+    //       if ( index === this.uploadFileService.images.length - 1 ) {
 
-            this.anuncioService.uploadAnuncio( this.anuncio ).then( res => {
-              sweetAlert(
-                'Anuncio subido correctamente.',
-                'Podras verlo o editarlo cuando lo desees',
-                'success')
-              .then((value) => {
-                this.router.navigate(['/post', this.anuncio.id]);
-              });
-            } );
+    //         this.anuncioService.uploadAnuncio( this.anuncio ).then( res => {
+    //           sweetAlert(
+    //             'Anuncio subido correctamente.',
+    //             'Podras verlo o editarlo cuando lo desees',
+    //             'success')
+    //           .then((value) => {
+    //             this.router.navigate(['/post', this.anuncio.id]);
+    //           });
+    //         } );
 
-          }
-        }
+    //       }
+    //     }
 
-      } );
+    //   } );
 
-    });
+    // });
 
   }
 
