@@ -24,10 +24,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.24",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.1",
+    "angular-geocoder": "^8.1.0",
     "angular2-image-upload": "^1.0.0-rc.2",
     "firebase": "^7.1.0",
     "jquery": "^3.4.1",
     "rxjs": "~6.4.0",
+    "sweetalert": "^2.1.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

@@ -1,6 +1,8 @@
 import { Image } from './image.model';
+import { Address } from './address.model';
 export class Anuncio {
     constructor(
+        public address?: Address,
         public obraNueva = false,
         public queDesea = 'comprar',
         public vacacional = {
@@ -21,10 +23,10 @@ export class Anuncio {
         public ambientes = '1',
         public bathrooms = '1',
         public superficie = '',
-        public precio?: any,
-        public cmun?: string,
+        public precio = '',
+        // public cmun?: string,
         public imagenes: Image[] = [],
-        public description?: string,
+        public description = '',
         public id?: string,
         public uid?: string
     ) {}

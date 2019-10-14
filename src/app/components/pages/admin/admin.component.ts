@@ -28,6 +28,7 @@ export class AdminComponent implements OnInit {
       const newUser = JSON.parse(JSON.stringify(this.user));
       newUser.password = '';
       newUser.email = newUser.email.toLowerCase();
+      newUser.id = new Date().valueOf().toString();
 
       this.afs.collection('users').add( newUser ).then( resp => {
         console.log('User created');

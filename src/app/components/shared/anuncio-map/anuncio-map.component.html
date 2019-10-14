@@ -1,0 +1,31 @@
+<div class="search-input">
+    <input [(ngModel)]="query" name='query' type="text" (keyup.enter)='getAddress()'
+        placeholder="Busca una provincia o localidad">
+    <button (click)='getAddress()' class='localization-btn'>Buscar</button>
+
+    <div class="locations" *ngIf='locations.length > 0 || loadingLocations'>
+
+        <div class="loading-locations" *ngIf='loadingLocations'>
+            <i class="fa fa-spinner fa-3x fa-spin" aria-hidden="true"></i>
+        </div>
+
+        <div (click)='addressSelected(location)' *ngFor='let location of locations'
+             class="location" >
+            <p>{{ location.formatted }}</p>
+        </div>
+    </div>
+
+</div>
+
+<div id="map"></div>
+<div class="street-found" *ngIf='address?.calle'>
+    <div class="left">
+        <i class="fa fa-road" aria-hidden="true"></i>
+        <p>{{ address.calle }}</p>
+    </div>
+    <div class="right">
+        <i  (click)='removeAddress()' class="fa fa-close"></i>
+    </div>
+</div>
+    
+

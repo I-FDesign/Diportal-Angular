@@ -17,6 +17,7 @@ import { SearchInputComponent } from '../shared/search-input/search-input.compon
 import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin/admin.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
+import { PostViewComponent } from './post-view/post-view.component';
 
 
 
@@ -31,7 +32,8 @@ import { AnuncioComponent } from './anuncio/anuncio.component';
     PostComponent,
     SearchInputComponent,
     AdminComponent,
-    AnuncioComponent
+    AnuncioComponent,
+    PostViewComponent
   ],
   imports: [
     CommonModule,

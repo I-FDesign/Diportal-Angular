@@ -7,6 +7,7 @@ import { PagesModule } from './components/pages/pages.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
 // Components
@@ -20,6 +21,7 @@ import { APP_ROUTES } from './app.routes';
 // Services
 import { ServicesModule } from './services/services.module';
 import { LoginErrorPipe } from './pipes/login-error.pipe';
+import { PostImagesPipe } from './pipes/post-images.pipe';
 
 
 
@@ -41,9 +43,12 @@ import { LoginErrorPipe } from './pipes/login-error.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    // { provide: StorageBucket, useValue: 'my-bucket-name' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

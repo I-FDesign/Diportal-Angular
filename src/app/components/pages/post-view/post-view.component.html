@@ -1,0 +1,8 @@
+
+<div class="anuncio" *ngIf='anuncio?.id'>
+    <div class="image" *ngFor='let image of anuncio.imagenes'>
+        <img [src]="image.downloadUrl" alt="" *ngIf="image.downloadUrl">
+    </div>
+    
+</div>
+

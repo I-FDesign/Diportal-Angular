@@ -5,7 +5,7 @@ export const environment = {
     authDomain: 'diportal.firebaseapp.com',
     databaseURL: 'https://diportal.firebaseio.com',
     projectId: 'diportal',
-    storageBucket: '',
+    storageBucket: 'diportal.appspot.com',
     messagingSenderId: '116719333004',
     appId: '1:116719333004:web:f8b2635a127390cd3415a9'
   }

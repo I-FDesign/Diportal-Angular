@@ -109,11 +109,7 @@
                 </select>
             </div>
             <div class="group-option localization">
-                <div class="search-input">
-                    <input type="text" placeholder="Calle y número">
-                    <button class='localization-btn'>Buscar</button>
-                </div>
-                <div class="map"></div>
+                <app-anuncio-map></app-anuncio-map>
             </div>
             <div class="option-group is-new">
                 <label for="is_new" class="type-title">OBRA NUEVA</label>
@@ -148,9 +144,24 @@
                 <textarea [(ngModel)]="anuncio.description" name='description' 
                           placeholder='Descripción' id='description'></textarea>
             </div>
+            <div class="errors mt-2" *ngIf="errors">
+                <div class="alert alert-danger">
+                    <p>{{ errors }}</p>
+                </div>
+            </div>
+
+            <div class="image-progress mt-2" *ngIf="uploadPercentage !== null">
+                <p>Subiendo imágenes</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+                        [ngStyle]="{'width': uploadPercentage}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            
             <div class="send-button">
                 <button (click)='uploadAnuncio()'>Subir anuncio</button>
             </div>
         </div>
+
     </div>
 </div>

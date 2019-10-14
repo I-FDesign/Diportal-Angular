@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from '../../../models/image.model';
+import { UploadFileService } from '../../../services/upload-file.service';
 
 declare function changeClearButton();
 
@@ -10,27 +11,20 @@ declare function changeClearButton();
 })
 export class UploadFileComponent implements OnInit {
 
-  images: Image[] = [];
-
-  constructor() { }
+  constructor(
+    public uploadFileService: UploadFileService
+  ) { }
 
   ngOnInit() {
   }
 
   onUploadFinish(event) {
     changeClearButton();
-    const image = new Image(event.src, event.file.name, event.file.lastModified);
-
-    this.images.push(image);
+    this.uploadFileService.saveImage(event);
    }
 
    imageRemoved( event ) {
-    this.images.forEach((image, index) => {
-      if ( event.file.lastModified === image.lastModified ) {
-        this.images.splice(index, 1);
-        return;
-      }
-    });
+    this.uploadFileService.removeImage( event );
    }
 
 }
