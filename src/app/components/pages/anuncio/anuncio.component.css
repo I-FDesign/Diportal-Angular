@@ -1,13 +1,15 @@
-.content-form{
-    padding:20px 0;
+.content-form {
+    padding: 20px 0;
     width: 800px;
     margin: 0 auto;
 }
-.content-form .option-group{
+
+.content-form .option-group {
     margin-top: 40px;
     position: relative;
 }
-.content-form label.type-title{
+
+.content-form label.type-title {
     font-weight: 400;
     font-size: 10px;
     margin: 0 0 0 8px;
@@ -17,14 +19,17 @@
     top: -16px;
     padding-bottom: 4px;
 }
-.content-form .linear-options{
+
+.content-form .linear-options {
     padding-top: 10px;
 }
-.content-form .linear-options .linear-buttons{
-    border-right:1px solid #ddd;
+
+.content-form .linear-options .linear-buttons {
+    border-right: 1px solid #ddd;
     display: inline-block;
 }
-.content-form .linear-options .linear-buttons button{
+
+.content-form .linear-options .linear-buttons button {
     color: #000;
     background: #fff;
     border: 1px solid #ddd;
@@ -32,15 +37,18 @@
     padding: 12px 20px;
     transition: background .3s;
 }
-.content-form .linear-options .linear-buttons button.active{
+
+.content-form .linear-options .linear-buttons button.active {
     background: rgb(86, 118, 252);
     color: #fff;
 }
-.content-form .input-select{
+
+.content-form .input-select {
     padding: 20px;
     max-width: 400px;
 }
-.content-form .input-text{
+
+.content-form .input-text {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,39 +56,47 @@
     border: 1px solid #dcdcdc;
     margin-top: 20px;
 }
-.content-form .input-text input{
+
+.content-form .input-text input {
     border: none;
     display: block;
     padding: 16px;
     font-size: 16px;
 }
-.content-form .input-text:focus{
+
+.content-form .input-text:focus {
     background: rgb(86, 118, 252);
 }
-.content-form .input-text label{
+
+.content-form .input-text label {
     opacity: .5;
     padding: 16px;
     margin-bottom: 0;
     cursor: text;
 }
-.content-form .que-desea .button-options{
+
+.content-form .que-desea .button-options {
     margin-top: 40px;
 }
-.content-form .que-desea .button-options .periodicidad{
+
+.content-form .que-desea .button-options .periodicidad {
     position: relative;
 }
-.content-form .que-desea .button-options .periodicidad .linear-checkboxs{
-    display:flex;
+
+.content-form .linear-checkboxs {
+    display: flex;
     justify-content: space-between;
 }
-.content-form .que-desea .button-options .periodicidad .inputGroup {
+
+.content-form .inputGroup {
     background-color: #fff;
     display: block;
     margin: 10px 0;
     position: relative;
     width: 33%;
 }
-.content-form .que-desea .button-options .periodicidad label.checkbox-label{
+
+.content-form label.checkbox-label {
     padding: 12px 30px;
     width: 100%;
     display: block;
@@ -93,7 +109,8 @@
     overflow: hidden;
     border: 1px solid #dcdcdc;
 }
-.content-form .que-desea .button-options .periodicidad label.checkbox-label:before{
+
+.content-form label.checkbox-label:before {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -107,7 +124,8 @@
     opacity: 0;
     z-index: -1;
 }
-.content-form .que-desea .button-options .periodicidad label.checkbox-label:after{
+
+.content-form label.checkbox-label:after {
     width: 32px;
     height: 32px;
     content: '';
@@ -125,18 +143,22 @@
     cursor: pointer;
     transition: all 200ms ease-in;
 }
-.content-form .que-desea .button-options .periodicidad input:checked ~ label{
+
+.content-form input:checked~label {
     color: #fff;
 }
-.content-form .que-desea .button-options .periodicidad input:checked ~ label:before{
+
+.content-form input:checked~label:before {
     transform: translate(-50%, -50%) scale3d(56, 56, 1);
     opacity: 1;
 }
-.content-form .que-desea .button-options .periodicidad input:checked ~ label:after{
+
+.content-form input:checked~label:after {
     background-color: #54E0C7;
     border-color: #54E0C7;
 }
-.content-form .que-desea .button-options .periodicidad .inputGroup input{
+
+.content-form .inputGroup input {
     width: 32px;
     height: 32px;
     order: 1;
@@ -148,29 +170,33 @@
     cursor: pointer;
     visibility: hidden;
 }
-.content-form .type select{
-    display:none;
+
+.content-form .type select {
+    display: none;
 }
-.content-form .localization{
+
+.content-form .localization {
     margin-top: 20px;
     background: #f4f4f4;
     padding: 5px;
 }
 
-.content-form .is-new .checkbox-new{
-    padding-left:10px;
+.content-form .is-new .checkbox-new {
+    padding-left: 10px;
     margin-top: 20px;
 }
-.content-form .is-new .checkbox-new .toggle{
+
+.content-form .is-new .checkbox-new .toggle {
     position: relative;
     display: block;
     width: 40px;
     height: 20px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
 }
-.content-form .is-new .checkbox-new .toggle:before{
+
+.content-form .is-new .checkbox-new .toggle:before {
     content: "";
     position: relative;
     top: 3px;
@@ -182,7 +208,8 @@
     border-radius: 8px;
     transition: background .2s ease;
 }
-.content-form .is-new .checkbox-new span{
+
+.content-form .is-new .checkbox-new span {
     position: absolute;
     top: 0;
     left: 0;
@@ -191,77 +218,182 @@
     display: block;
     background: #dcdcdc;
     border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(gray,.5);
+    box-shadow: 0 3px 8px rgba(gray, .5);
     transition: all .2s ease;
 }
-.content-form .is-new .checkbox-new span:before{
+
+.content-form .is-new .checkbox-new span:before {
     content: "";
     position: absolute;
     display: block;
     margin: -18px;
     width: 56px;
     height: 56px;
-    background: rgba(rgb(86, 118, 252),.5);
+    background: rgba(rgb(86, 118, 252), .5);
     border-radius: 50%;
     transform: scale(0);
     opacity: 1;
     pointer-events: none;
 }
-.content-form .is-new .checkbox-new #is_new:checked + .toggle:before{
+
+.content-form .is-new .checkbox-new #is_new:checked+.toggle:before {
     background: rgb(127, 141, 197);
 }
-.content-form .is-new .checkbox-new #is_new:checked + .toggle span{
+
+.content-form .is-new .checkbox-new #is_new:checked+.toggle span {
     background: rgb(86, 118, 252);
     transform: translateX(20px);
-    transition: all .2s cubic-bezier(.8,.4,.3,1.25), background .15s ease;
-    box-shadow: 0 3px 8px rgba(rgb(86, 118, 252),.2);
+    transition: all .2s cubic-bezier(.8, .4, .3, 1.25), background .15s ease;
+    box-shadow: 0 3px 8px rgba(rgb(86, 118, 252), .2);
 }
-.content-form .is-new .checkbox-new #is_new:checked + .toggle span:before{
+
+.content-form .is-new .checkbox-new #is_new:checked+.toggle span:before {
     transform: scale(1);
     opacity: 0;
     transition: all .4s ease;
 }
-.content-form .incrementor .input{
-    display:flex;
+
+.content-form .other-options .container {
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
 }
-.content-form .incrementor .input input[type='text']{
+
+.content-form .other-options ul.ks-cboxtags {
+    list-style: none;
+    padding: 20px;
+}
+
+.content-form .other-options ul.ks-cboxtags li {
+    display: inline;
+}
+
+.content-form .other-options ul.ks-cboxtags li label {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+.content-form .other-options ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.content-form .other-options ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+.content-form .other-options ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+.content-form .other-options ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+    border: 2px solid rgb(86, 118, 252);
+    background-color: rgb(86, 118, 252);
+    color: #fff;
+    transition: all .2s;
+}
+
+.content-form .other-options ul.ks-cboxtags li input[type="checkbox"] {
+    display: absolute;
+}
+
+.content-form .other-options ul.ks-cboxtags li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.content-form .other-options ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+    border: 2px solid rgba(86, 118, 252,.5);
+}
+
+.content-form .incrementor .input {
+    display: flex;
+}
+
+.content-form .incrementor .input input[type='text'] {
     padding: 12px 0;
-    display:block;
+    display: block;
     width: 70px;
     text-align: center;
     font-size: 20px;
     border: 1px solid #dcdcdc;
 }
-.content-form .incrementor .input button{
+
+.content-form .incrementor .input button {
     background: none;
     border: 1px solid rgb(86, 118, 252);
     padding: 0 25px;
     background: rgb(86, 118, 252);
-    color:white;
+    color: white;
     font-size: 20px;
 }
-.content-form .incrementor .input button:disabled{
+
+.content-form .incrementor .input button:disabled {
     background: #dcdcdc;
     border: 1px solid #dcdcdc;
 }
-.content-form .description textarea{
+
+.content-form .description .linear-checkbox {
+    justify-content: flex-start;
+}
+
+.content-form .description .linear-checkbox .inputGroup:first-child {
+    margin-right: 10px;
+}
+
+.content-form .description textarea {
     border: 1px solid #dcdcdc;
     padding: 16px;
     min-width: 100%;
     max-width: 100%;
     min-height: 120px;
 }
-.content-form .image-progress p{
+
+.content-form .english-description label.type-title {
+    position: static;
+}
+
+.content-form .english-description textarea {
+    margin-top: 20px;
+}
+
+.content-form .image-progress p {
     margin-bottom: 5px;
     padding-left: 10px;
     opacity: .7;
 }
-.content-form .send-button{
+
+.content-form .send-button {
     margin-top: 20px;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
-.content-form .send-button button{
+
+.content-form .send-button button {
     border: 1px solid rgb(86, 118, 252);
     background: rgb(86, 118, 252);
     padding: 10px 30px;
@@ -269,9 +401,9 @@
     border-radius: 2px;
     font-size: 14px;
 }
-.content-form .send-button button:hover{
+
+.content-form .send-button button:hover {
     transition: .3s all ease;
     background: white;
-    color:rgb(86, 118, 252);
+    color: rgb(86, 118, 252);
 }
-

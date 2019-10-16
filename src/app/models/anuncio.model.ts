@@ -27,6 +27,7 @@ export class Anuncio {
         // public cmun?: string,
         public imagenes: Image[] = [],
         public description = '',
+        public enDescription = '',
         public id?: string,
         public uid?: string
     ) {}

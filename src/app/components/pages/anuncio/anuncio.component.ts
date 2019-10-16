@@ -24,6 +24,8 @@ export class AnuncioComponent implements OnInit {
 
   errors: string;
 
+  descEng = false;
+
   constructor(
     private uploadFileService: UploadFileService,
     private anuncioService: AnuncioService,
