@@ -29,6 +29,56 @@ export class Anuncio {
         public description = '',
         public enDescription = '',
         public id?: string,
-        public uid?: string
+        public uid?: string,
+        public otherOptions = [
+            {
+                name: 'Amueblado',
+                exists: false
+            },
+            {
+                name: 'Piscina',
+                exists: false
+            },
+            {
+                name: 'Terraza',
+                exists: false
+            },
+            {
+                name: 'Calefacción / Aire Acondicionado',
+                exists: false
+            },
+            {
+                name: 'Trastero',
+                exists: false
+            },
+            {
+                name: 'Acceso para discapacidad',
+                exists: false
+            },
+            {
+                name: 'Ascensor',
+                exists: false
+            },
+            {
+                name: 'Chimenea',
+                exists: false
+            },
+            {
+                name: 'Baño en suite',
+                exists: false
+            },
+            {
+                name: 'Jacuzzi',
+                exists: false
+            },
+            {
+                name: 'Admite mascotas',
+                exists: false
+            },
+            {
+                name: 'Spa / Balneario',
+                exists: false
+            }
+        ]
     ) {}
 }

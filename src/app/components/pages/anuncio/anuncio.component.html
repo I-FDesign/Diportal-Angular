@@ -105,7 +105,7 @@
                 <div class="container">
                     <ul class="ks-cboxtags">
                         <li *ngFor='let option of anuncio.otherOptions; let i = index'>
-                            <input type="checkbox" [(ngModel)]='option.exist' [attr.id]="'checkbox_' + i">
+                            <input type="checkbox" [(ngModel)]='option.exists' [attr.id]="'checkbox_' + i">
                             <label [attr.for]="'checkbox_' + i">
                                 <fa-icon class='add-icon' [icon]="faPlus"></fa-icon>
                                 <fa-icon class='check-icon' [icon]="faCheck"></fa-icon>

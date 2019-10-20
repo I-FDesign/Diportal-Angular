@@ -74,9 +74,7 @@ export class AnuncioComponent implements OnInit {
   }
 
   uploadAnuncio() {
-
-console.log(this.anuncio);
-
+    console.log(this.anuncio);
     if (this.uploadFileService.images.length === 0) {
       this.errors = 'Debes añadir por lo menos una imagen';
       return;
