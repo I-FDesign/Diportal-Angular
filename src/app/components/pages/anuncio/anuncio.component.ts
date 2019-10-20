@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Anuncio } from '../../../models/anuncio.model';
 import { UploadFileService } from '../../../services/upload-file.service';
 import { AnuncioService } from '../../../services/anuncio.service';
+import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 
 import sweetAlert from 'sweetalert';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 declare function updateStyles();
@@ -25,6 +25,9 @@ export class AnuncioComponent implements OnInit {
   errors: string;
 
   descEng = false;
+
+  faPlus = faPlus;
+  faCheck = faCheck;
 
   constructor(
     private uploadFileService: UploadFileService,
@@ -71,6 +74,8 @@ export class AnuncioComponent implements OnInit {
   }
 
   uploadAnuncio() {
+
+console.log(this.anuncio);
 
     if (this.uploadFileService.images.length === 0) {
       this.errors = 'Debes añadir por lo menos una imagen';
