@@ -15,6 +15,8 @@ export class UploadFileService {
 
   public downloadUrl = new EventEmitter();
 
+  IMG_MAX_SIZE_MB = 10;
+
   constructor(
     private storage: AngularFireStorage
   ) { }
@@ -35,6 +37,26 @@ export class UploadFileService {
         return;
       }
     });
+   }
+
+   checkImages() {
+    const response = {
+      isValid: true,
+      size: 0
+    };
+    this.images.forEach( (image: any) => {
+      const imgSize = image.file.size;
+      const imgSizeOnMB = imgSize / 1024 / 1024;
+
+      if ( imgSizeOnMB > this.IMG_MAX_SIZE_MB) {
+        response.isValid = false;
+        response.size = imgSizeOnMB;
+
+        return;
+      }
+    } );
+
+    return response;
    }
 
    uploadImage(image: Image) {

@@ -78,6 +78,22 @@ export class AnuncioComponent implements OnInit {
     if (this.uploadFileService.images.length === 0) {
       this.errors = 'Debes añadir por lo menos una imagen';
       return;
+    } else {
+      const imagesValidation = this.uploadFileService.checkImages();
+
+      if (!imagesValidation.isValid) {
+        this.errors = 'La imagen es demasiado pesada, peso maximo: ';
+        this.errors += this.uploadFileService.IMG_MAX_SIZE_MB + ' MB, peso de la ';
+        this.errors += 'imagen: ' + imagesValidation.size.toFixed(2) + ' MB';
+        this.errors += '. Puedes intentar reducirla ';
+
+        return;
+      }
+    }
+
+    if (this.anuncio.title.length <= 0) {
+      this.errors = 'Debes añadir un titúlo';
+      return;
     }
 
     if (!this.validateQueDesea()) {

@@ -8,6 +8,13 @@
             <app-upload-file></app-upload-file>
         </div>
         <div class="options">
+            <div class="option-group title">
+                <label for="" class="type-title">Título</label>
+                <div class="input-text">
+                    <input [(ngModel)]="anuncio.title" name='title' 
+                        type="text" placeholder="Título del anuncio">
+                </div>
+            </div>
             <div class="option-group que-desea">
                 <label class='type-title' for="">¿Que desea?</label>
                 <div class="linear-options">
@@ -67,28 +74,52 @@
             </div>
             <div class="option-group type">
                 <label class='type-title' for="">TIPO DE INMUEBLE</label>
-                <div class="linear-options">
-                    <div class="linear-buttons">
-                        <button [ngClass]="{'active': anuncio.tipo === 'vivienda'}" (click)='anuncio.tipo = "vivienda"'>Vivienda</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'obranueva'}" (click)='anuncio.tipo = "obranueva"'>Obra Nueva</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'localynave'}" (click)='anuncio.tipo = "localynave"'>Local y Nave</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'edificio'}" (click)='anuncio.tipo = "edificio"'>Edificio</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'terreno'}" (click)='anuncio.tipo = "terreno"'>Terreno</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'trastero'}" (click)='anuncio.tipo = "trastero"'>Trastero</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'garaje'}" (click)='anuncio.tipo = "garaje"'>Garaje</button>
-                        <button [ngClass]="{'active': anuncio.tipo === 'oficina'}" (click)='anuncio.tipo = "oficina"'>Oficina</button>
+                <div class="type-first-options">
+                    <div class="linear-options">
+                        <div class="linear-buttons">
+                            <button [ngClass]="{'active': anuncio.tipo === 'vivienda'}" (click)='anuncio.tipo = "vivienda"'>Vivienda</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'obranueva'}" (click)='anuncio.tipo = "obranueva"'>Obra Nueva</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'localynave'}" (click)='anuncio.tipo = "localynave"'>Local y Nave</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'edificio'}" (click)='anuncio.tipo = "edificio"'>Edificio</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'terreno'}" (click)='anuncio.tipo = "terreno"'>Terreno</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'trastero'}" (click)='anuncio.tipo = "trastero"'>Trastero</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'garaje'}" (click)='anuncio.tipo = "garaje"'>Garaje</button>
+                            <button [ngClass]="{'active': anuncio.tipo === 'oficina'}" (click)='anuncio.tipo = "oficina"'>Oficina</button>
+                        </div>
                     </div>
+                    <select [(ngModel)]="anuncio.tipo" name="tipo" class="input-select">
+                        <option value="vivienda">Vivienda</option>
+                        <option value="obranueva">Obra Nueva</option>
+                        <option value="localynave">Local y Nave</option>
+                        <option value="edificio">Edificio</option>
+                        <option value="terreno">Terreno</option>
+                        <option value="trastero">Trastero</option>
+                        <option value="garaje">Garaje</option>
+                        <option value="oficina">Oficina</option>
+                    </select>
                 </div>
-                <select name="" class="input-select">
-                    <option value="vivienda">Vivienda</option>
-                    <option value="obranueva">Obra Nueva</option>
-                    <option value="localynave">Local y Nave</option>
-                    <option value="edificio">Edificio</option>
-                    <option value="terreno">Terreno</option>
-                    <option value="trastero">Trastero</option>
-                    <option value="garaje">Garaje</option>
-                    <option value="oficina">Oficina</option>
-                </select>
+                <div class="type-second-options" *ngIf="anuncio.tipo === 'vivienda'">
+                        <div class="linear-options">
+                            <div class="linear-buttons">
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'piso'}" (click)='anuncio.tipoVivienda = "piso"'>Piso</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'apartamento'}" (click)='anuncio.tipoVivienda = "apartamento"'>Apartamento</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'duplex'}" (click)='anuncio.tipoVivienda = "duplex"'>Duplex</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'atico'}" (click)='anuncio.tipoVivienda = "atico"'>Atico</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'adosado'}" (click)='anuncio.tipoVivienda = "adosado"'>Adosado</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'casa'}" (click)='anuncio.tipoVivienda = "casa"'>Casa</button>
+                                <button [ngClass]="{'active': anuncio.tipoVivienda === 'villa'}" (click)='anuncio.tipoVivienda = "villa"'>Villa</button>
+                            </div>
+                        </div>
+                        <select [(ngModel)]="anuncio.tipoVivienda" name="tipoVivienda" class="input-select">
+                            <option value="piso">Piso</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="duplex">Duplex</option>
+                            <option value="atico">Atico</option>
+                            <option value="adosado">Adosado</option>
+                            <option value="casa">Casa</option>
+                            <option value="villa">Villa</option>
+                        </select>
+                    </div>
             </div>
             <div class="group-option localization">
                 <app-anuncio-map></app-anuncio-map>
@@ -98,6 +129,13 @@
                 <div class="checkbox-new">
                     <input (change)='anuncio.obraNueva = !anuncio.obraNueva' type="checkbox" id="is_new" style="display:none" />
                     <label for="is_new" class="toggle"><span></span></label>
+                </div>
+            </div>
+            <div class="option-group referencia">
+                <label for="" class="type-title">Referencia</label>
+                <div class="input-text">
+                    <input [(ngModel)]="anuncio.refCode"  name='refCode'
+                        type="text" placeholder="Codigo de referencia">
                 </div>
             </div>
             <div class='option-group other-options'>
@@ -158,7 +196,14 @@
             </div>
             <div class="errors mt-2" *ngIf="errors">
                 <div class="alert alert-danger">
-                    <p>{{ errors }}</p>
+                    <p>
+                        {{ errors }}
+                        <a *ngIf='errors.length > 50' target='_blank'
+                            href='https://compressjpeg.com/es/'>
+                            aqui.
+                        </a>
+                    </p>
+                    
                 </div>
             </div>
 

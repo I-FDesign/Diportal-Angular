@@ -2,6 +2,7 @@ import { Image } from './image.model';
 import { Address } from './address.model';
 export class Anuncio {
     constructor(
+        public title = '',
         public address?: Address,
         public obraNueva = false,
         public queDesea = 'comprar',
@@ -20,6 +21,7 @@ export class Anuncio {
             }
         },
         public tipo = 'vivienda',
+        public tipoVivienda = 'piso',
         public ambientes = '1',
         public bathrooms = '1',
         public superficie = '',
@@ -30,6 +32,7 @@ export class Anuncio {
         public enDescription = '',
         public id?: string,
         public uid?: string,
+        public refCode?: string,
         public otherOptions = [
             {
                 name: 'Amueblado',
@@ -79,6 +82,6 @@ export class Anuncio {
                 name: 'Spa / Balneario',
                 exists: false
             }
-        ]
+        ],
     ) {}
 }

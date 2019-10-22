@@ -75,6 +75,11 @@
     cursor: text;
 }
 
+.content-form .title .input-text{
+    width: 100%;
+    max-width: 500px;
+}
+
 .content-form .que-desea .button-options {
     margin-top: 40px;
 }
@@ -389,6 +394,10 @@
     margin-bottom: 5px;
     padding-left: 10px;
     opacity: .7;
+}
+
+.content-form .errors .alert{
+    display: flex;
 }
 
 .content-form .send-button {
