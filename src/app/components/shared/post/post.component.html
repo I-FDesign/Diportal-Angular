@@ -29,29 +29,33 @@
             <fa-icon [icon]="faHeartSolid"></fa-icon>
         </div>
         <div class="price">
-            <p>EUR 240.000</p>
+            <p>EUR {{ anuncio.precio | number }}</p>
         </div>
     </div>
     <div class="info">
         <div class="location">
-            <p>Piso en Alquiler, Barcelona</p> 
+            <p>{{ anuncio.title }}</p> 
         </div>
         <div class="street">
-            <p>Calle test de la prueba 123</p> 
+            <p>{{ anuncio.address.calle }}</p> 
         </div>
         <div class="rooms">
             <ul>
                 <li>
                     <fa-icon [icon]="faHome"></fa-icon>
-                    <p><span>4</span> Habitaciones <span class='dot'>•</span></p>
+                    <p>
+                        <span>{{ anuncio.ambientes }}</span> 
+                        Habitaciones 
+                        <span class='dot'>•</span>
+                    </p>
                 </li>
                 <li>
                     <fa-icon [icon]="faDollarSign"></fa-icon>
-                    <p>Alquiler <span class='dot'>•</span></p>
+                    <p>{{ anuncio.queDesea | postType }} <span class='dot'>•</span></p>
                 </li>
-                <li>
+                <li *ngIf='anuncio.superficie'>
                     <fa-icon [icon]="faRulerHorizontal"></fa-icon>
-                    <p><span>300</span> m²</p>
+                    <p><span>{{ anuncio.superficie }}</span> m²</p>
                 </li>
             </ul>
         </div>

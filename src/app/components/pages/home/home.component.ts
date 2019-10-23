@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Filters } from '../../../models/filters.model';
 import { Router } from '@angular/router';
 import { SearchInputService } from '../../../services/search-input.service';
+import { SearchService } from '../../../services/search.service';
+import { Anuncio } from '../../../models/anuncio.model';
 
 
 @Component({
@@ -13,11 +15,17 @@ export class HomeComponent implements OnInit {
 
   filters: Filters = new Filters('');
 
+  anuncios: Anuncio[] = [];
+
   constructor(
     // tslint:disable-next-line: variable-name
     public _searchInputService: SearchInputService,
+    public searchService: SearchService,
     public router: Router
   ) {
+    this.searchService.getPosts().subscribe( (anuncios: any) => {
+      this.anuncios = anuncios;
+    } );
    }
 
   ngOnInit() {

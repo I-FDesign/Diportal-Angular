@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin/admin.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
 import { PostViewComponent } from './post-view/post-view.component';
+import { PostTypePipe } from 'src/app/pipes/post-type.pipe';
 
 
 
@@ -33,7 +34,8 @@ import { PostViewComponent } from './post-view/post-view.component';
     SearchInputComponent,
     AdminComponent,
     AnuncioComponent,
-    PostViewComponent
+    PostViewComponent,
+    PostTypePipe
   ],
   imports: [
     CommonModule,

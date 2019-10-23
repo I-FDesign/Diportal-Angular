@@ -13,16 +13,21 @@ export class ContactModalService {
 
   constructor() { }
 
-  openModal( emailOrEnterprise: string ) {
+  // Puede recibir un mail al cual enviar el contacto
+  // o un valor 'new-user', el cual abrira el formulario para solicitar user
+  openModal( contactOrNewUser: string ) {
 
-    if (emailOrEnterprise === 'empresa') {
+    // La funcion se encarga de abrir un modal para el envio de un correo
+    // para solicitar un usuario o para contactar con un publicador
+
+    if (contactOrNewUser === 'new-user') {
       this.recipientsEmail = CONTACT_EMAIL;
       this.enterpriseMode = true;
     }
 
-    this.recipientsEmail = emailOrEnterprise;
+    this.recipientsEmail = contactOrNewUser;
 
-    $('#exampleModal').modal('show');
+    $('#contactModal').modal('show');
   }
 
 }

@@ -131,10 +131,10 @@
             <div class="container">
                 <h2>Algunas publicaciones</h2>
                 <div class="posts">
-                    <app-post [modalId]="'one'"></app-post>
-                    <app-post [modalId]="'two'"></app-post>
-                    <app-post [modalId]="'three'"></app-post>
-                    <app-post [modalId]="'four'"></app-post>
+                    <app-post *ngFor='let anuncio of anuncios; let i = index' 
+                        [modalId]="'anuncio_' + i" 
+                        [anuncio]='anuncio'>
+                    </app-post>
                 </div>
                 <div class="show-more">
                     <button [routerLink]="['/search']" >Ver más</button>

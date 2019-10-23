@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { faHeart, faHome, faDollarSign, faRulerHorizontal } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { ContactModalService } from '../../../services/contact-modal.service';
+import { Anuncio } from '../../../models/anuncio.model';
 
 @Component({
   selector: 'app-post',
@@ -18,6 +19,8 @@ export class PostComponent implements OnInit {
 
   // tslint:disable-next-line: no-input-rename
   @Input() modalId = '';
+
+  @Input() anuncio: Anuncio;
 
   constructor(
     // tslint:disable-next-line: variable-name
