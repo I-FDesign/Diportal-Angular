@@ -6,8 +6,6 @@ import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 
-import sweetAlert from 'sweetalert';
-
 
 declare function updateStyles();
 
@@ -74,7 +72,6 @@ export class AnuncioComponent implements OnInit {
   }
 
   uploadAnuncio() {
-    console.log(this.anuncio);
     if (this.uploadFileService.images.length === 0) {
       this.errors = 'Debes añadir por lo menos una imagen';
       return;
@@ -116,18 +113,7 @@ export class AnuncioComponent implements OnInit {
 
         if (uploadPercentage === 100) {
           if ( index === this.uploadFileService.images.length - 1 ) {
-
-            this.anuncioService.uploadAnuncio( this.anuncio ).then( res => {
-              sweetAlert(
-                'Anuncio subido correctamente.',
-                'Podras verlo o editarlo cuando lo desees',
-                'success')
-              .then((value) => {
-                this.router.navigate(['/search']);
-                // this.router.navigate(['/post', this.anuncio.id]);
-              });
-            } );
-
+            this.anuncioService.uploadAnuncio( this.anuncio );
           }
         }
 
@@ -187,15 +173,6 @@ export class AnuncioComponent implements OnInit {
         return false;
       }
 
-    }
-
-    if (!this.anuncio.superficie) {
-      this.errors = 'Debes ingresar una superficie aproximada';
-      return false;
-    // tslint:disable-next-line: radix
-    } else if ( !parseInt(this.anuncio.superficie) ) {
-      this.errors = 'La superficie debe ser numerica';
-      return false;
     }
 
     return true;

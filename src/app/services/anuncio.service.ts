@@ -6,6 +6,9 @@ import { UploadFileService } from './upload-file.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Image } from '../models/image.model';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Router } from '@angular/router';
+
+import sweetAlert from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,8 @@ export class AnuncioService {
     private authenticationService: AuthenticationService,
     private uploadFileService: UploadFileService,
     private afs: AngularFirestore,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private router: Router
   ) {
 
    }
@@ -46,13 +50,33 @@ export class AnuncioService {
     // Parsing objects to the f*ucking Firebase
     anuncio.address = JSON.parse(JSON.stringify(anuncio.address));
 
-    anuncio.imagenes.forEach((imagen, index) => { // Do you like it Firebase?
-      imagen.file = null;
-      anuncio.imagenes[index] = JSON.parse(JSON.stringify(imagen));
+    new Promise( ( resolve, reject ) => {
+      anuncio.imagenes.forEach((imagen, index) => { // Do you like it now Firebase?
+        imagen.file = null;
+
+        this.getImageUrl(imagen).subscribe( url => {
+
+          imagen.downloadUrl = url;
+          anuncio.imagenes[index] = JSON.parse(JSON.stringify(imagen));
+
+          if (index === anuncio.imagenes.length - 1) {
+            resolve('finalizado');
+          }
+
+        } );
+      });
+    } ).then( res => { // URL images already obtained
+        this.afs.collection('posts').add( Object.assign({}, anuncio) ).then( () => {
+            sweetAlert(
+              'Anuncio subido correctamente.',
+              'Podras verlo o editarlo cuando lo desees',
+              'success')
+            .then((value) => {
+              this.router.navigate(['/search']);
+              // this.router.navigate(['/post', this.anuncio.id]);
+            });
+        });
     });
-
-
-    return this.afs.collection('posts').add( Object.assign({}, anuncio) );
 
   }
 

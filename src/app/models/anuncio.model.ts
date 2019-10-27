@@ -32,7 +32,7 @@ export class Anuncio {
         public enDescription = '',
         public id?: string,
         public uid?: string,
-        public refCode?: string,
+        public refCode = '',
         public otherOptions = [
             {
                 name: 'Amueblado',
