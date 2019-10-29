@@ -105,10 +105,10 @@
 .info .rooms li p{
     font-size: 14px;
 }
-.info .rooms li p .dot{
+.info .rooms li .dot{
     font-weight: bold;
     color:#5676FC;
-    padding-left: 5px;
+    padding-right: 10px;
 }
 .info .contact-btn{
     width: 100%;

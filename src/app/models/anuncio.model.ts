@@ -51,11 +51,11 @@ export class Anuncio {
                 exists: false
             },
             {
-                name: 'Trastero',
+                name: 'Acceso para discapacidad',
                 exists: false
             },
             {
-                name: 'Acceso para discapacidad',
+                name: 'Trastero',
                 exists: false
             },
             {

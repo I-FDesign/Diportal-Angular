@@ -5,8 +5,12 @@
                 <span>{{ (filters.termino) ? filters.termino : 'Diportal.es' }}</span>
             </p>
         </div>
-        <div class="search-input">
-            <app-search-input></app-search-input>
+        <div class="search-posts">
+            <input #search type="text" (keyup.enter)='searchPosts(search.value)'
+                 placeholder="Busca una publicación">
+            <button type='button' (click)='searchPosts(search.value)'>
+                <i class="fa fa-search"></i>
+            </button>
         </div>
     </div>
     <section class="main-search">
@@ -209,6 +213,21 @@
                                 <option value="280">Hasta 280 m2</option>
                                 <option value="300">Hasta 300 m2</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="other-options">
+                        <h4 class="filter-title">Otras opciones</h4>
+                        <div class="filter">
+                            <ul class="ks-cboxtags">
+                                <li *ngFor='let option of anuncio.otherOptions; let i = index'>
+                                    <input type="checkbox" [attr.id]="'checkbox_' + i">
+                                    <label [attr.for]="'checkbox_' + i">
+                                        <fa-icon class='add-icon' [icon]="faPlus"></fa-icon>
+                                        <fa-icon class='check-icon' [icon]="faCheck"></fa-icon>
+                                        {{ option.name }}
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

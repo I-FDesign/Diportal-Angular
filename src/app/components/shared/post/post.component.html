@@ -46,14 +46,15 @@
                     <p>
                         <span>{{ anuncio.ambientes }}</span> 
                         Habitaciones 
-                        <span class='dot'>•</span>
                     </p>
                 </li>
                 <li>
+                    <span class='dot'>•</span>
                     <fa-icon [icon]="faDollarSign"></fa-icon>
-                    <p>{{ anuncio.queDesea | postType }} <span class='dot'>•</span></p>
+                    <p>{{ anuncio.queDesea | postType }} </p>
                 </li>
                 <li *ngIf='anuncio.superficie'>
+                    <span class='dot'>•</span>
                     <fa-icon [icon]="faRulerHorizontal"></fa-icon>
                     <p><span>{{ anuncio.superficie }}</span> m²</p>
                 </li>
