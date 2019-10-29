@@ -2,17 +2,8 @@
     <div class="img">
         <div [attr.id]="modalId" class="carousel carousel-fade">
             <div class="carousel-inner">
-                <div class="carousel-item active photo">
-                    <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item photo">
-                    <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item photo">
-                    <img src="../../../../assets/img/posts/test.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item photo">
-                    <img src="../../../../assets/img/posts/test1.jfif" class="d-block w-100" alt="...">
+                <div class="carousel-item active photo" *ngFor='let image of anuncio.imagenes'>
+                    <img [src]="image.downloadUrl" class="d-block w-100" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" [href]="'#' + modalId" role="button" data-slide="prev">
