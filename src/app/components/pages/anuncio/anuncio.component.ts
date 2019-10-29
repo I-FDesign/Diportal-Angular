@@ -104,22 +104,27 @@ export class AnuncioComponent implements OnInit {
       this.anuncio.address = this.anuncioService.address;
     }
 
+    new Promise( (resolve, reject) => {
 
-    this.uploadFileService.images.forEach((image, index) => {
+      this.uploadFileService.images.forEach((image, index) => {
 
-      this.uploadFileService.uploadImage(image).subscribe( uploadPercentage => {
+        this.uploadFileService.uploadImage(image).subscribe( uploadPercentage => {
 
-        this.uploadPercentage = uploadPercentage + '%';
+          this.uploadPercentage = uploadPercentage + '%';
 
-        if (uploadPercentage === 100) {
-          if ( index === this.uploadFileService.images.length - 1 ) {
-            this.anuncioService.uploadAnuncio( this.anuncio );
+          if (uploadPercentage === 100) {
+            if ( index === this.uploadFileService.images.length - 1 ) {
+              resolve('Imgs uploaded');
+            }
           }
-        }
 
-      } );
+        } );
 
-    });
+      });
+
+    } ).then( res => {
+      this.anuncioService.uploadAnuncio(this.anuncio);
+    } );
 
   }
 

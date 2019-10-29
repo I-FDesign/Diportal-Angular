@@ -80,6 +80,10 @@
     max-width: 500px;
 }
 
+.content-form .title .input-text input{
+    width: 100%;
+}
+
 .content-form .que-desea .button-options {
     margin-top: 40px;
 }

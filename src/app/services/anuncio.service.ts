@@ -9,6 +9,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 
 import sweetAlert from 'sweetalert';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -54,13 +56,20 @@ export class AnuncioService {
       anuncio.imagenes.forEach((imagen, index) => { // Do you like it now Firebase?
         imagen.file = null;
 
-        this.getImageUrl(imagen).subscribe( url => {
+        this.getImageUrl(imagen).pipe(
+
+          catchError( (err) => {
+            reject(imagen.name);
+            return throwError( err );
+          } )
+
+        ).subscribe( url => {
 
           imagen.downloadUrl = url;
           anuncio.imagenes[index] = JSON.parse(JSON.stringify(imagen));
 
           if (index === anuncio.imagenes.length - 1) {
-            resolve('finalizado');
+            resolve('URL images obtained');
           }
 
         } );
@@ -76,7 +85,18 @@ export class AnuncioService {
               // this.router.navigate(['/post', this.anuncio.id]);
             });
         });
-    });
+    }).catch( imageThatFailed => {
+      const imgSeparated = imageThatFailed.split('_');
+      const imgName = imgSeparated[imgSeparated.length - 1];
+
+      sweetAlert(
+        'Ha habido un problema en la subida de la imagen',
+        'No se ha podido subir la imagen: ' + imgName +  ', intenta nuevamente, o prueba con otra.',
+        'error')
+      .then((value) => {
+        window.location.reload();
+      });
+    } );
 
   }
 

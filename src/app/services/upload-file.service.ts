@@ -45,7 +45,7 @@ export class UploadFileService {
       size: 0
     };
     this.images.forEach( (image: any) => {
-      const imgSize = image.file.size;
+      const imgSize = image.file.size; //Validar caca
       const imgSizeOnMB = imgSize / 1024 / 1024;
 
       if ( imgSizeOnMB > this.IMG_MAX_SIZE_MB) {
