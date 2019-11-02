@@ -2,6 +2,7 @@ export class Filters {
     constructor(
         public termino: string,
         public obraNueva = false,
+        public provincia = '',
         public queDesea = 'comprar',
         public tipo = 'vivienda',
         public ambientes = '1',

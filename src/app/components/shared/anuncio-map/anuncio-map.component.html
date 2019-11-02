@@ -18,10 +18,10 @@
 </div>
 
 <div id="map"></div>
-<div class="street-found" *ngIf='address?.calle'>
+<div class="street-found" *ngIf='address?.formatted'>
     <div class="left">
         <i class="fa fa-road" aria-hidden="true"></i>
-        <p>{{ address.calle }}</p>
+        <p>{{ address.formatted }}</p>
     </div>
     <div class="right">
         <i  (click)='removeAddress()' class="fa fa-close"></i>

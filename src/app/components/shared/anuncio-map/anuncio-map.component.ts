@@ -86,9 +86,16 @@ export class AnuncioMapComponent implements OnInit {
   }
 
   addressSelected( location, zoom = 15, selectedByMap = false ) {
-    this.anuncioService.address.calle = location.formatted;
+    this.anuncioService.address.formatted = location.formatted;
     this.anuncioService.address.latitud = location.geometry.lat;
     this.anuncioService.address.longitud = location.geometry.lng;
+
+    const placeComponents = location.components;
+
+    this.anuncioService.address.provincia = placeComponents.city || placeComponents.county;
+    this.anuncioService.address.poblacion = placeComponents.state || placeComponents.county || placeComponents.city;
+    this.anuncioService.address.zona = placeComponents.suburb || placeComponents.state || placeComponents.county;
+    this.anuncioService.address.cp = placeComponents.postcode || '';
 
     if (selectedByMap) {
       this.address = this.anuncioService.address;

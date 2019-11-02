@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   faPlus = faPlus;
   faCheck = faCheck;
 
+  loading = false;
 
   constructor(
     public searchService: SearchService
@@ -37,15 +38,47 @@ export class SearchComponent implements OnInit {
   }
 
   getPosts() {
+    this.loading = true;
+
     this.searchService.getPosts().subscribe( (anuncios: any) => {
       this.anuncios = anuncios;
+      this.loading = false;
+    } );
+  }
+
+  provinceChanged(province) {
+  this.loading = true;
+
+  if (!province) {
+    this.getPosts();
+    return;
+  }
+
+  this.searchService.getPostsFromProvince( province )
+    .subscribe( (anuncios: any) => {
+      this.anuncios = anuncios;
+      this.loading = false;
     } );
   }
 
   searchPosts( term: string ) {
-    this.searchService.searchPosts( term ).subscribe( (posts: any) => {
-      this.anuncios = posts;
-    } );
+    const anuncios = [];
+
+    if (!term) {
+      return;
+    }
+
+    for (const anuncio of this.anuncios) {
+      if (
+        anuncio.address.cp === term ||
+        anuncio.address.poblacion.indexOf(term) > -1 ||
+        anuncio.address.zona.indexOf(term) > -1
+      ) {
+        anuncios.push(anuncio);
+      }
+    }
+
+    this.anuncios = anuncios;
   }
 
 }

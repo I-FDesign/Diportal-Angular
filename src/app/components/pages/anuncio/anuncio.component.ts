@@ -97,7 +97,7 @@ export class AnuncioComponent implements OnInit {
       return;
     }
 
-    if (!this.anuncioService.address.calle) {
+    if (!this.anuncioService.address.formatted) {
       this.errors = 'Debe agregar una dirección';
       return false;
     } else {

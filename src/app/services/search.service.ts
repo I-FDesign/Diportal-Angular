@@ -19,11 +19,9 @@ export class SearchService {
     }
   }
 
-  searchPosts( term: string ) {
+  getPostsFromProvince( province ) {
     return this.afs.collection('posts',
-      ref => ref.orderBy('address.calle')
-                .startAt(term)
-                .endAt(term + '\uf8ff')
+      ref => ref.where('address.provinciaFormatted', '==', province)
     ).valueChanges();
   }
 
