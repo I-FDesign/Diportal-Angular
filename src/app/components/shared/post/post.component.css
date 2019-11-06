@@ -7,6 +7,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,.3);
     border-radius: 3px;
     margin-bottom: 20px;
+    background: white;
 }
 .post:hover{
     transition: .3s all ease;

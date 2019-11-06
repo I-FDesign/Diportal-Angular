@@ -4,6 +4,7 @@ import { SearchService } from '../../../services/search.service';
 import { Anuncio } from '../../../models/anuncio.model';
 
 import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,6 +12,8 @@ import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+  mapActive = false;
 
   filters: Filters =  new Filters('');
 
@@ -24,9 +27,20 @@ export class SearchComponent implements OnInit {
   loading = false;
 
   constructor(
-    public searchService: SearchService
+    public searchService: SearchService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.getPosts();
+    this.route.paramMap.subscribe( (params: any) => {
+      if (params.get('type')) {
+        if ( params.get('type') === 'mapa' ) {
+          this.mapActive = true;
+        } else {
+          this.router.navigate(['/search']);
+        }
+      }
+    } );
    }
 
   ngOnInit() {
@@ -79,6 +93,12 @@ export class SearchComponent implements OnInit {
     }
 
     this.anuncios = anuncios;
+  }
+
+  applyFilters() {
+    this.searchService.getPostsFromFilters(this.filters).subscribe( (anuncios: any) => {
+      this.anuncios = anuncios;
+    } );
   }
 
 }

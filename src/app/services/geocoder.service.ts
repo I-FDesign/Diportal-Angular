@@ -47,7 +47,7 @@ export class GeocoderService {
   }
 
   sanitizeProvince(province) {
-    // Definimos los caracteres que queremos eliminar
+    // Characters to delete
     const specialChars = '!@#$^&%*()+=-[]\/{}|:<>?,.';
 
     // Deleting special characters
@@ -69,7 +69,7 @@ export class GeocoderService {
     province = province.replace(/ /g, '');
 
     return province;
- }
+  }
 
 
   getProvinceFromCoords( address: Address ) {

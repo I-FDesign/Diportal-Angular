@@ -157,17 +157,17 @@
             <div class="option-group habs incrementor">
                 <label for="habitaciones" class="type-title">HABITACIONES</label>
                 <div class="input">
-                    <button (click)="moreOrLessInput('habitaciones', true)" class="less" [disabled]='anuncio.ambientes === "1"'>-</button>
+                    <button (click)="moreOrLessInput('habitaciones', true)" class="less" [disabled]='anuncio.ambientes === 1'>-</button>
                     <input [(ngModel)]="anuncio.ambientes" name='ambientes' type="text" id='habitaciones' value='1' readonly>
-                    <button (click)="moreOrLessInput('habitaciones', false)" class="more" [disabled]='anuncio.ambientes === "10"'>+</button>
+                    <button (click)="moreOrLessInput('habitaciones', false)" class="more" [disabled]='anuncio.ambientes === 10'>+</button>
                 </div>
             </div>
             <div class="option-group bathrooms incrementor">
                 <label for="baños" class="type-title">BAÑOS</label>
                 <div class="input">
-                    <button (click)="moreOrLessInput('baños', true)" class="less" [disabled]='anuncio.bathrooms === "1"'>-</button>
+                    <button (click)="moreOrLessInput('baños', true)" class="less" [disabled]='anuncio.bathrooms === 1'>-</button>
                     <input [(ngModel)]="anuncio.bathrooms" name='bathrooms' type="text" id='baños' value='1' readonly>
-                    <button (click)="moreOrLessInput('baños', false)" class="more" [disabled]='anuncio.bathrooms === "10"'>+</button>
+                    <button (click)="moreOrLessInput('baños', false)" class="more" [disabled]='anuncio.bathrooms === 10'>+</button>
                 </div>
             </div>
             <div class="option-group description">

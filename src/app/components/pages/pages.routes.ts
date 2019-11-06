@@ -5,6 +5,7 @@ import { SearchComponent } from './search/search.component';
 import { AdminComponent } from './admin/admin.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
 import { PostViewComponent } from './post-view/post-view.component';
+import { MapSearchComponent } from './map-search/map-search.component';
 
 
 
@@ -14,6 +15,7 @@ const PagesRoutes: Routes = [
         component: PagesComponent,
         children: [
             { path: 'home', component: HomeComponent },
+            { path: 'search/:type', component: SearchComponent },
             { path: 'search', component: SearchComponent },
             { path: 'admin', component: AdminComponent },
             { path: 'anuncio', component: AnuncioComponent },

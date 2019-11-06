@@ -55,18 +55,18 @@ export class AnuncioComponent implements OnInit {
     if ( type === 'habitaciones' ) {
       if ( isLess ) {
         // tslint:disable-next-line: radix
-        this.anuncio.ambientes = (parseInt(this.anuncio.ambientes) - 1).toString();
+        this.anuncio.ambientes = this.anuncio.ambientes - 1;
       } else {
         // tslint:disable-next-line: radix
-        this.anuncio.ambientes = (parseInt(this.anuncio.ambientes) + 1).toString();
+        this.anuncio.ambientes = this.anuncio.ambientes + 1;
       }
     } else {
       if ( isLess ) {
         // tslint:disable-next-line: radix
-        this.anuncio.bathrooms = (parseInt(this.anuncio.bathrooms) - 1).toString();
+        this.anuncio.bathrooms = this.anuncio.bathrooms - 1;
       } else {
         // tslint:disable-next-line: radix
-        this.anuncio.bathrooms = (parseInt(this.anuncio.bathrooms) + 1).toString();
+        this.anuncio.bathrooms = this.anuncio.bathrooms + 1;
       }
     }
   }
@@ -137,7 +137,7 @@ export class AnuncioComponent implements OnInit {
         this.errors = 'Debes incluir un precio';
         return false;
       // tslint:disable-next-line: radix
-      } else if (!parseInt(this.anuncio.precio)) {
+      } else if (!this.anuncio.precio) {
         this.errors = 'El precio debe ser numerico';
         return false;
       }
@@ -151,7 +151,7 @@ export class AnuncioComponent implements OnInit {
           return false;
 
         // tslint:disable-next-line: radix
-        } else if ( !parseInt(this.anuncio.vacacional.diario.precio) ) {
+        } else if ( !this.anuncio.vacacional.diario.precio) {
           this.errors = 'El precio diario debe ser un número';
           return false;
         }
@@ -160,7 +160,7 @@ export class AnuncioComponent implements OnInit {
           this.errors = 'Debes agregar un precio semanal';
           return false;
           // tslint:disable-next-line: radix
-        } else if ( !parseInt(this.anuncio.vacacional.semanal.precio) ) {
+        } else if ( !this.anuncio.vacacional.semanal.precio) {
           this.errors = 'El precio semanal debe ser un número';
           return false;
         }
@@ -169,7 +169,7 @@ export class AnuncioComponent implements OnInit {
           this.errors = 'Debes agregar un precio mensual';
           return false;
         // tslint:disable-next-line: radix
-        } else if ( !parseInt(this.anuncio.vacacional.mensual.precio) ) {
+        } else if ( !this.anuncio.vacacional.mensual.precio) {
           this.errors = 'El precio mensual debe ser un número';
           return false;
         }

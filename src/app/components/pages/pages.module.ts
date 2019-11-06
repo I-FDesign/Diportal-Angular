@@ -19,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { PostTypePipe } from 'src/app/pipes/post-type.pipe';
+import { MapSearchComponent } from './map-search/map-search.component';
 
 
 
@@ -35,7 +36,8 @@ import { PostTypePipe } from 'src/app/pipes/post-type.pipe';
     AdminComponent,
     AnuncioComponent,
     PostViewComponent,
-    PostTypePipe
+    PostTypePipe,
+    MapSearchComponent
   ],
   imports: [
     CommonModule,

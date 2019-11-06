@@ -5,12 +5,12 @@ export class Filters {
         public provincia = '',
         public queDesea = 'comprar',
         public tipo = 'vivienda',
-        public ambientes = '1',
-        public bathrooms = '',
-        public superficieDesde = '0',
-        public superficieHasta = '0',
-        public desde?: any,
-        public hasta?: any,
+        public ambientes = 1,
+        public bathrooms = 1,
+        public superficieDesde = 0,
+        public superficieHasta = 0,
+        public desde?: number,
+        public hasta?: number,
         public cmun?: string
     ) {}
 }

@@ -9,23 +9,23 @@ export class Anuncio {
         public vacacional = {
             diario: {
                 desea: false,
-                precio: ''
+                precio: null
             },
             semanal: {
                 desea: false,
-                precio: ''
+                precio: null
             },
             mensual: {
                 desea: false,
-                precio: ''
+                precio: null
             }
         },
         public tipo = 'vivienda',
         public tipoVivienda = 'piso',
-        public ambientes = '1',
-        public bathrooms = '1',
-        public superficie = '',
-        public precio = '',
+        public ambientes = 1,
+        public bathrooms = 1,
+        public superficie = null,
+        public precio = null,
         // public cmun?: string,
         public imagenes: Image[] = [],
         public description = '',
