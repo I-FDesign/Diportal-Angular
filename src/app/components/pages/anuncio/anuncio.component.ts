@@ -5,6 +5,7 @@ import { AnuncioService } from '../../../services/anuncio.service';
 import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
+import sweetAlert from 'sweetalert';
 
 
 declare function updateStyles();
@@ -18,8 +19,6 @@ export class AnuncioComponent implements OnInit {
 
   anuncio: Anuncio = new Anuncio();
 
-  uploadPercentage: string = null;
-
   errors: string;
 
   descEng = false;
@@ -28,7 +27,7 @@ export class AnuncioComponent implements OnInit {
   faCheck = faCheck;
 
   constructor(
-    private uploadFileService: UploadFileService,
+    public uploadFileService: UploadFileService,
     private anuncioService: AnuncioService,
     private router: Router
   ) { }
@@ -104,26 +103,18 @@ export class AnuncioComponent implements OnInit {
       this.anuncio.address = this.anuncioService.address;
     }
 
-    new Promise( (resolve, reject) => {
+    this.uploadFileService.uploadPercentage = 'loading';
 
-      this.uploadFileService.images.forEach((image, index) => {
+    this.anuncioService.uploadAnuncio(this.anuncio).then( (anuncioDB: any) => {
 
-        this.uploadFileService.uploadImage(image).subscribe( uploadPercentage => {
-
-          this.uploadPercentage = uploadPercentage + '%';
-
-          if (uploadPercentage === 100) {
-            if ( index === this.uploadFileService.images.length - 1 ) {
-              resolve('Imgs uploaded');
-            }
-          }
-
-        } );
-
+      sweetAlert(
+        'Anuncio subido correctamente.',
+        'Podras verlo o editarlo cuando lo desees',
+        'success')
+      .then((value) => {
+        // this.router.navigate(['/post', anuncioDB.anuncio._id]);
+        this.router.navigate(['/search']);
       });
-
-    } ).then( res => {
-      this.anuncioService.uploadAnuncio(this.anuncio);
     } );
 
   }

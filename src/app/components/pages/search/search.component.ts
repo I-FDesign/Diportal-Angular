@@ -54,25 +54,25 @@ export class SearchComponent implements OnInit {
   getPosts() {
     this.loading = true;
 
-    this.searchService.getPosts().subscribe( (anuncios: any) => {
-      this.anuncios = anuncios;
+    this.searchService.getPosts().subscribe( (res: any) => {
+      this.anuncios = res.anuncios;
       this.loading = false;
     } );
   }
 
   provinceChanged(province) {
-  this.loading = true;
+    this.loading = true;
 
-  if (!province) {
-    this.getPosts();
-    return;
-  }
+    if (!province) {
+      this.getPosts();
+      return;
+    }
 
-  this.searchService.getPostsFromProvince( province )
-    .subscribe( (anuncios: any) => {
-      this.anuncios = anuncios;
-      this.loading = false;
-    } );
+    // this.searchService.getPostsFromProvince( province )
+    //   .subscribe( (anuncios: any) => {
+    //     this.anuncios = anuncios;
+    //     this.loading = false;
+    //   } );
   }
 
   searchPosts( term: string ) {
@@ -96,9 +96,9 @@ export class SearchComponent implements OnInit {
   }
 
   applyFilters() {
-    this.searchService.getPostsFromFilters(this.filters).subscribe( (anuncios: any) => {
-      this.anuncios = anuncios;
-    } );
+    // this.searchService.getPostsFromFilters(this.filters).subscribe( (anuncios: any) => {
+    //   this.anuncios = anuncios;
+    // } );
   }
 
 }

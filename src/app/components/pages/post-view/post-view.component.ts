@@ -31,20 +31,9 @@ export class PostViewComponent implements OnInit {
         this.router.navigate(['**']);
       } else {
         this.anuncio = anuncio[0];
-        this.getImagesUrl();
       }
     } );
 
-  }
-
-  getImagesUrl() {
-    this.anuncio.imagenes.forEach(image => {
-      this.anuncioService.getImageUrl(image).subscribe( url => {
-        if (url) {
-          image.downloadUrl = url;
-        }
-      });
-    });
   }
 
 }

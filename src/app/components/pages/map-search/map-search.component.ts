@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { SearchService } from '../../../services/search.service';
 import { Anuncio } from '../../../models/anuncio.model';
+import { SearchInputService } from '../../../services/search-input.service';
 
 declare let L;
 
@@ -14,6 +15,7 @@ export class MapSearchComponent implements OnInit, OnChanges {
   map: any;
   mapHandler: any;
   marker: any;
+  layerGroup: any;
 
   @Input() anuncios: Anuncio[] = [];
 
@@ -21,8 +23,14 @@ export class MapSearchComponent implements OnInit, OnChanges {
 
 
   constructor(
-    private searchService: SearchService
-  ) { }
+    private searchService: SearchService,
+    private searchInputService: SearchInputService
+  ) {
+    this.searchInputService.notification.subscribe( optionSelected => {
+      console.log(optionSelected);
+      // Search for coordinates
+    } );
+   }
 
   ngOnInit() {
   }
@@ -52,7 +60,15 @@ export class MapSearchComponent implements OnInit, OnChanges {
         shadowSize: [41, 41]
       });
       this.mapHandler.Marker.prototype.options.icon = iconDefault;
+
+      this.layerGroup =  L.layerGroup().addTo(this.map);
     }
+
+    if (this.layerGroup) {
+      this.layerGroup.clearLayers();
+      console.log('entro');
+    }
+
 
     anuncios.forEach(anuncio => {
 
@@ -61,18 +77,19 @@ export class MapSearchComponent implements OnInit, OnChanges {
         lat: anuncio.address.latitud
       };
 
-      this.mapHandler.marker(latLgn,
-        { title: anuncio.title })
-        .on('click', () => {
-          this.announceToShow = anuncio;
-        })
-        .addTo(this.map);
+      const marker =
+        this.mapHandler.marker(latLgn,
+          { title: anuncio.title })
+          .on('click', () => {
+            this.announceToShow = anuncio;
+          })
+          .addTo(this.layerGroup);
     });
 
   }
 
   ngOnChanges() {
-    console.log(this.anuncios);
+    // console.log(this.anuncios);
     this.generateMap(this.anuncios);
   }
 

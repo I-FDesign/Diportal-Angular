@@ -2,16 +2,12 @@ import { Injectable } from '@angular/core';
 import { Address } from '../models/address.model';
 import { Anuncio } from '../models/anuncio.model';
 import { AuthenticationService } from './authentication.service';
-import { UploadFileService } from './upload-file.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Image } from '../models/image.model';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 
-import sweetAlert from 'sweetalert';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 import { GeocoderService } from './geocoder.service';
+import { HttpClient } from '@angular/common/http';
+import { BACKEND_URL } from '../config/config';
+import { UploadFileService } from './upload-file.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,30 +18,19 @@ export class AnuncioService {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private uploadFileService: UploadFileService,
     private geocoderService: GeocoderService,
-    private afs: AngularFirestore,
-    private storage: AngularFireStorage,
-    private router: Router
+    private http: HttpClient,
+    private uploadFileService: UploadFileService
   ) {
 
    }
 
   getAnuncio( id: string ) {
-    return this.afs.collection('posts', ref => ref.where('id', '==', id)).valueChanges();
-  }
-
-  getImageUrl( image: Image ) {
-    const pathReference = this.storage.ref(image.path);
-
-    return pathReference.getDownloadURL();
+    const url = BACKEND_URL + '/anuncios/' + id;
+    return this.http.get(url);
   }
 
   uploadAnuncio( anuncio: Anuncio ) {
-
-    anuncio.imagenes = this.uploadFileService.images;
-
-    anuncio.id = new Date().valueOf().toString();
 
     if ( this.authenticationService.user ) {
       anuncio.uid = this.authenticationService.user.id;
@@ -53,61 +38,31 @@ export class AnuncioService {
 
     // Getting province / state
 
-    this.geocoderService.getProvinceFromCoords( anuncio.address )
+    return new Promise( (resolve, reject) => {
+      const provinceSubscriber =
+        this.geocoderService.getProvinceFromCoords( anuncio.address )
         .subscribe( address => {
+          provinceSubscriber.unsubscribe();
+
           anuncio.address.provincia = address.provincia;
           anuncio.address.provinciaFormatted = address.provinciaFormatted;
 
-          // Parsing objects to the f*cking Firebase
-          anuncio.address = JSON.parse(JSON.stringify(anuncio.address));
+          const url = BACKEND_URL + '/anuncios';
 
-          new Promise( ( resolve, reject ) => {
-            anuncio.imagenes.forEach((imagen, index) => { // Do you like it now Firebase?
-              imagen.file = null;
+          const images = this.uploadFileService.images;
 
-              this.getImageUrl(imagen).pipe(
-
-                catchError( (err) => {
-                  reject(imagen.name);
-                  return throwError( err );
-                } )
-
-              ).subscribe( url => {
-
-                imagen.downloadUrl = url;
-                anuncio.imagenes[index] = JSON.parse(JSON.stringify(imagen));
-
-                if (index === anuncio.imagenes.length - 1) {
-                  resolve('URL images obtained');
-                }
-
-              } );
-            });
-          } ).then( res => { // URL images already obtained
-              this.afs.collection('posts').add( Object.assign({}, anuncio) ).then( () => {
-                  sweetAlert(
-                    'Anuncio subido correctamente.',
-                    'Podras verlo o editarlo cuando lo desees',
-                    'success')
-                  .then((value) => {
-                    this.router.navigate(['/search']);
-                    // this.router.navigate(['/post', this.anuncio.id]);
-                  });
-              });
-          }).catch( imageThatFailed => {
-            const imgSeparated = imageThatFailed.split('_');
-            const imgName = imgSeparated[imgSeparated.length - 1];
-
-            sweetAlert(
-              'Ha habido un problema en la subida de la imagen',
-              'No se ha podido subir la imagen: ' + imgName +  ', intenta nuevamente, o prueba con otra.',
-              'error')
-            .then((value) => {
-              window.location.reload();
-            });
-          } );
+          const subscriber =
+            this.http.post(url, anuncio).subscribe( (anuncioDB: any) => {
+              this.uploadFileService.uploadImages(images, anuncioDB.anuncio._id)
+                  .then( () => {
+                    subscriber.unsubscribe();
+                    resolve(anuncioDB);
+                  } );
+            } );
 
         } );
+    } );
+
 
   }
 

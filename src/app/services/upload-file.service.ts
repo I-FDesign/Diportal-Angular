@@ -1,8 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Image } from '../models/image.model';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { BACKEND_URL } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +10,12 @@ export class UploadFileService {
 
   images: Image[] = [];
 
-  uploadPercentage: Observable<number>;
-
-  public downloadUrl = new EventEmitter();
+  uploadPercentage: string = null;
 
   IMG_MAX_SIZE_MB = 10;
 
   constructor(
-    private storage: AngularFireStorage
+    private http: HttpClient
   ) { }
 
   saveImage(event) {
@@ -45,7 +42,7 @@ export class UploadFileService {
       size: 0
     };
     this.images.forEach( (image: any) => {
-      const imgSize = image.file.size; //Validar caca
+      const imgSize = image.file.size;
       const imgSizeOnMB = imgSize / 1024 / 1024;
 
       if ( imgSizeOnMB > this.IMG_MAX_SIZE_MB) {
@@ -59,24 +56,26 @@ export class UploadFileService {
     return response;
    }
 
-   uploadImage(image: Image) {
+   uploadImages(images: Image[], anuncioId: string) {
 
-    const file = image.file;
-    image.path = '/posts/' + image.name;
-    const fileRef = this.storage.ref(image.path);
-    const task = this.storage.upload(image.path, file);
+      return new Promise( (resolve, reject) => {
 
-    this.uploadPercentage = task.percentageChanges();
+        const formData = new FormData();
 
-    return this.uploadPercentage.pipe(
+        images.forEach(image => {
+          formData.append('photos', image.file);
+        });
 
-      finalize( () => {
-        fileRef.getDownloadURL().subscribe( url => {
-          this.downloadUrl.emit(url);
+        const url = BACKEND_URL + '/upload/' + anuncioId;
+
+        this.http.post(url, formData).subscribe( (resp: any) => {
+          if (resp.ok) {
+            this.uploadPercentage = '100';
+            resolve('Images uploaded');
+          }
         } );
-      } )
 
-    );
+      } );
 
    }
 

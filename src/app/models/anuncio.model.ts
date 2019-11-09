@@ -30,7 +30,8 @@ export class Anuncio {
         public imagenes: Image[] = [],
         public description = '',
         public enDescription = '',
-        public id?: string,
+        // tslint:disable-next-line: variable-name
+        public _id?: string,
         public uid?: string,
         public refCode = '',
         public otherOptions = [

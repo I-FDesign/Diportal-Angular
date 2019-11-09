@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { BACKEND_URL } from '../config/config';
 
 @Pipe({
   name: 'postImages'
@@ -7,19 +8,24 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class PostImagesPipe implements PipeTransform {
 
   constructor(
-    private storage: AngularFireStorage
   ) { }
 
-  transform(path: any): any {
+  transform(image: any): any {
 
-    const pathReference = this.storage.ref(path);
+    let url = BACKEND_URL + '/images';
 
-    pathReference.getDownloadURL().subscribe( url => {
-      if (url) {
-        console.log(url);
-        return url;
-      }
-    } );
+    if (!image) {
+      return url + '/user/xxx';
+    }
+
+    if (image.indexOf('https') >= 0) { // Verifiying if is an url image
+      return image;
+    }
+
+    url += '/' + image;
+
+    return url;
+
   }
 
 }
