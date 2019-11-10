@@ -7,6 +7,7 @@ import { AnuncioComponent } from './anuncio/anuncio.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { MapSearchComponent } from './map-search/map-search.component';
 import { IsLoggedGuard } from '../../guards/is-logged.guard';
+import { AnunciosComponent } from './anuncios/anuncios.component';
 
 
 
@@ -19,10 +20,15 @@ const PagesRoutes: Routes = [
             { path: 'search/:type', component: SearchComponent },
             { path: 'search', component: SearchComponent },
             { path: 'admin', component: AdminComponent },
-            { 
+            {
                 path: 'anuncio',
                 canActivate: [IsLoggedGuard],
                 component: AnuncioComponent
+            },
+            {
+                path: 'anuncios/:type',
+                canActivate: [IsLoggedGuard],
+                component: AnunciosComponent
             },
             { path: 'post/:id', component: PostViewComponent },
             { path: '', redirectTo: 'home', pathMatch: 'full' }

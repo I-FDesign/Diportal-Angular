@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
       return;
     }
 
-    const filter = new Filters('', false, type);
+    const filter = new Filters('', '', false, type);
 
     localStorage.removeItem('filter');
     localStorage.setItem('filter', JSON.stringify( filter ));

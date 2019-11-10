@@ -1,0 +1,10 @@
+.posts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.posts app-post{
+    width: 47%;
+}

@@ -26,7 +26,7 @@
             <p>EUR {{ anuncio.precio | number }}</p>
         </div>
     </div>
-    <div class="info">
+    <div class="info" [routerLink]="['/post', anuncio._id]" >
         <div class="location">
             <p>{{ anuncio.title }}</p> 
         </div>
@@ -54,8 +54,8 @@
                 </li>
             </ul>
         </div>
-        <div class="contact-btn">
-            <button (click)="openModal('lol@gmail.com')">Contactar</button>
-        </div>
+    </div>
+    <div class="contact-btn">
+        <button (click)="openModal('lol@gmail.com')">Contactar</button>
     </div>
 </div> 

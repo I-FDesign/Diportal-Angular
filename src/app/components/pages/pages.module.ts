@@ -20,6 +20,9 @@ import { AnuncioComponent } from './anuncio/anuncio.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { PostTypePipe } from 'src/app/pipes/post-type.pipe';
 import { MapSearchComponent } from './map-search/map-search.component';
+import { AnunciosComponent } from './anuncios/anuncios.component';
+import { RecoverPasswordComponent } from './login/recover-password/recover-password.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 
 
 
@@ -37,7 +40,10 @@ import { MapSearchComponent } from './map-search/map-search.component';
     AnuncioComponent,
     PostViewComponent,
     PostTypePipe,
-    MapSearchComponent
+    MapSearchComponent,
+    AnunciosComponent,
+    RecoverPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

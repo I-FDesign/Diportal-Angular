@@ -1,0 +1,14 @@
+<div class="container animated fadeIn faster">
+    <div class="title">
+        <h2>
+            {{ (anunciosType === 'favoritos') ? 'Mis favoritos' : 'Mis anuncios' }}
+        </h2>
+        <hr>
+    </div>
+    <div class="posts">
+        <app-post *ngFor='let anuncio of anuncios; let i = index' 
+            [modalId]="anuncio._id" 
+            [anuncio]='anuncio'>
+        </app-post>
+    </div>
+</div>
