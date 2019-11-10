@@ -13,9 +13,9 @@
             </p>
         </div>
         <div class="search-posts">
-            <input #search type="text" (keyup.enter)='searchPosts(search.value)'
-                 placeholder="Busca una publicación" [disabled]='!filters.provincia'>
-            <button (click)='searchPosts(search.value)' [disabled]='!filters.provincia'
+            <input #search type="text" [(ngModel)]="filters.termino" (keyup.enter)='searchPosts(search.value)'
+                 placeholder="Busca una publicación">
+            <button (click)='searchPosts(search.value)'
                     type='button'>
                 <i class="fa fa-search"></i>
             </button>
@@ -297,9 +297,9 @@
                         <h4 class="filter-title">Otras opciones</h4>
                         <div class="filter">
                             <ul class="ks-cboxtags">
-                                <li *ngFor='let option of anuncio.otherOptions; let i = index'>
+                                <li *ngFor='let option of anuncio.otherOptionsView; let i = index'>
                                     <input type="checkbox" [attr.id]="'checkbox_' + i">
-                                    <label [attr.for]="'checkbox_' + i">
+                                    <label [attr.for]="'checkbox_' + i" (click)='checkboxChanged(option.name)'>
                                         <fa-icon class='add-icon' [icon]="faPlus"></fa-icon>
                                         <fa-icon class='check-icon' [icon]="faCheck"></fa-icon>
                                         {{ option.name }}

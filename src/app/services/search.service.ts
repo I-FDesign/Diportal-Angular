@@ -14,8 +14,37 @@ export class SearchService {
     private http: HttpClient
   ) { }
 
-  getPosts(limit = 0) {
+  transformFilter(value) {
+    const filter = value.toLowerCase();
+
+    const filterParts = filter.split(' ');
+
+    let filterWithoutSpaces = '';
+
+    let formattedValue = '';
+
+    if ( filterParts.length <= 1 ) {
+      formattedValue = filter;
+    } else {
+      filterParts.forEach((filterPart, index) => {
+        if (index !== filterParts.length - 1 ) {
+          filterWithoutSpaces += filterPart + '_' ;
+        } else {
+          filterWithoutSpaces += filterPart;
+        }
+      });
+
+      formattedValue = filterWithoutSpaces;
+    }
+
+    return formattedValue;
+  }
+
+  getPosts(term = '', limit = 0) {
     let url = BACKEND_URL + '/anuncios';
+    if (term && term.length > 0) {
+      url += '/' + term;
+    }
     url += '?limit=' + limit;
 
     return this.http.get(url);

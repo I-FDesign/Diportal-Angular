@@ -25,6 +25,32 @@ export class AnuncioService {
 
    }
 
+   transformFilter(value) {
+    const filter = value.toLowerCase();
+
+    const filterParts = filter.split(' ');
+
+    let filterWithoutSpaces = '';
+
+    let formattedValue = '';
+
+    if ( filterParts.length <= 1 ) {
+      formattedValue = filter;
+    } else {
+      filterParts.forEach((filterPart, index) => {
+        if (index !== filterParts.length - 1 ) {
+          filterWithoutSpaces += filterPart + '_' ;
+        } else {
+          filterWithoutSpaces += filterPart;
+        }
+      });
+
+      formattedValue = filterWithoutSpaces;
+    }
+
+    return formattedValue;
+  }
+
   getAnuncio( id: string ) {
     const url = BACKEND_URL + '/anuncios/' + id;
     return this.http.get(url);

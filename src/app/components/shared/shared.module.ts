@@ -21,8 +21,6 @@ import { PostImagesPipe } from '../../pipes/post-images.pipe';
 
 
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,

@@ -36,6 +36,19 @@ export class AnuncioComponent implements OnInit {
     updateStyles();
   }
 
+  otherOptionsChanged(option) {
+    const formattedOption = this.anuncioService.transformFilter(option);
+    if (this.anuncio.otherOptions.indexOf(formattedOption) < 0) {
+      this.anuncio.otherOptions.push(formattedOption);
+    } else {
+      const otherOptions =
+        this.anuncio.otherOptions.filter((value) => {
+          return value !== formattedOption;
+        });
+      this.anuncio.otherOptions = otherOptions;
+    }
+  }
+
   checkboxChange( checkBox, event ) {
       if (checkBox === 'diario') {
         this.anuncio.vacacional.diario.desea = event.srcElement.checked;

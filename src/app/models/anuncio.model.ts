@@ -34,7 +34,7 @@ export class Anuncio {
         public _id?: string,
         public uid?: string,
         public refCode = '',
-        public otherOptions = [
+        public otherOptionsView = [
             {
                 name: 'Amueblado',
                 exists: false
@@ -84,5 +84,6 @@ export class Anuncio {
                 exists: false
             }
         ],
+        public otherOptions = []
     ) {}
 }

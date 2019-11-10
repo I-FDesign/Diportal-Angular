@@ -142,9 +142,9 @@
                 <label class='type-title' for="">Otras opciones</label>
                 <div class="container">
                     <ul class="ks-cboxtags">
-                        <li *ngFor='let option of anuncio.otherOptions; let i = index'>
-                            <input type="checkbox" [(ngModel)]='option.exists' [attr.id]="'checkbox_' + i">
-                            <label [attr.for]="'checkbox_' + i">
+                        <li *ngFor='let option of anuncio.otherOptionsView; let i = index'>
+                            <input type="checkbox" [attr.id]="'checkbox_' + i">
+                            <label [attr.for]="'checkbox_' + i" (click)='otherOptionsChanged(option.name)'>
                                 <fa-icon class='add-icon' [icon]="faPlus"></fa-icon>
                                 <fa-icon class='check-icon' [icon]="faCheck"></fa-icon>
                                 {{ option.name }}

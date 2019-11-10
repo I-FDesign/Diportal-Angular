@@ -31,8 +31,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this._searchInputService.notification.subscribe( location => {
-      this.filters.termino = location.fields.municipio + ', ' + location.fields.provincia + ' Provincia';
-      this.filters.cmun = location.fields.cmun;
+      this.filters.termino = location;
     } );
 
     if (localStorage.getItem('filter')) {
@@ -47,6 +46,12 @@ export class HomeComponent implements OnInit {
 
   searchSubmit( form ) {
     this.filters = form;
+
+    if (!this.filters.precioDesde) { this.filters.precioDesde = 0; }
+    if (!this.filters.precioHasta) { this.filters.precioHasta = 0; }
+
+    this.filters.provincia = '';
+    this.filters.otherOptions = [];
 
     localStorage.removeItem('filter');
     localStorage.setItem('filter', JSON.stringify(this.filters));

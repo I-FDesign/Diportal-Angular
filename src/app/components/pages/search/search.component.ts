@@ -5,6 +5,7 @@ import { Anuncio } from '../../../models/anuncio.model';
 
 import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SearchInputService } from '../../../services/search-input.service';
 
 @Component({
   selector: 'app-search',
@@ -29,9 +30,10 @@ export class SearchComponent implements OnInit {
   constructor(
     public searchService: SearchService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private searchInputService: SearchInputService
   ) {
-    this.getPosts();
+    this.getPosts('');
     this.route.paramMap.subscribe( (params: any) => {
       if (params.get('type')) {
         if ( params.get('type') === 'mapa' ) {
@@ -48,12 +50,30 @@ export class SearchComponent implements OnInit {
       const filters = JSON.parse(localStorage.getItem('filter'));
       this.filters = filters;
     }
+
+    this.searchInputService.notification.subscribe( optionSelected => {
+      this.filters.termino = optionSelected.termino;
+      this.getPostsByFilter();
+    } );
   }
 
-  getPosts() {
+  checkboxChanged(option) {
+    const formattedOption = this.searchService.transformFilter(option);
+    if (this.filters.otherOptions.indexOf(formattedOption) < 0) {
+      this.filters.otherOptions.push(formattedOption);
+    } else {
+      const otherOptions =
+        this.filters.otherOptions.filter((value) => {
+          return value !== formattedOption;
+        });
+      this.filters.otherOptions = otherOptions;
+    }
+  }
+
+  getPosts(term: string) {
     this.loading = true;
 
-    this.searchService.getPosts().subscribe( (res: any) => {
+    this.searchService.getPosts(term).subscribe( (res: any) => {
       this.anuncios = res.anuncios;
       this.loading = false;
     } );
@@ -62,19 +82,25 @@ export class SearchComponent implements OnInit {
   getPostsByFilter() {
     this.loading = true;
 
+    if (!this.filters.provincia) {
+      delete this.filters.provincia;
+    }
+
+    if (!this.filters.terminoFormatted) {
+      delete this.filters.terminoFormatted;
+    }
+
     const filters = {
       filters: this.filters
     };
 
     this.searchService.getPostsByFilters(filters).subscribe( (res: any) => {
-      console.log(res.anuncios);
       this.anuncios = res.anuncios;
       this.loading = false;
     } );
   }
 
   provinceChanged(province) {
-    this.loading = true;
 
     if (!province) {
       this.filters.provincia = '';
@@ -83,21 +109,14 @@ export class SearchComponent implements OnInit {
 
     this.filters.provincia = province;
 
-    this.getPostsByFilter();
-
   }
 
   searchPosts( term: string ) {
-    if (!term) {
-      this.filters.termino = '';
-      return;
-    }
-
-    this.loading = true;
 
     this.filters.termino = term;
+    this.filters.terminoFormatted = term;
 
-    this.getPostsByFilter();
+    this.getPosts(term);
 
   }
 

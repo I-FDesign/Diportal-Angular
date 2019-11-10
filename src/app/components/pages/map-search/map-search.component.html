@@ -16,7 +16,7 @@
                                 <div class="carousel-item" [ngClass]="{'active': i === 0}"
                                 *ngFor='let image of announceToShow.imagenes; let i = index'>
                                 <div class="img">
-                                    <img [src]="image.downloadUrl" class="d-block" alt="...">
+                                    <img [src]="image | postImages" class="d-block" alt="...">
                                 </div>
                                 </div>
                             </div>

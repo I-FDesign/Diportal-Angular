@@ -1,7 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { SearchService } from '../../../services/search.service';
 import { Anuncio } from '../../../models/anuncio.model';
-import { SearchInputService } from '../../../services/search-input.service';
 
 declare let L;
 
@@ -23,13 +21,7 @@ export class MapSearchComponent implements OnInit, OnChanges {
 
 
   constructor(
-    private searchService: SearchService,
-    private searchInputService: SearchInputService
   ) {
-    this.searchInputService.notification.subscribe( optionSelected => {
-      console.log(optionSelected);
-      // Search for coordinates
-    } );
    }
 
   ngOnInit() {

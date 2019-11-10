@@ -1,6 +1,7 @@
 export class Filters {
     constructor(
         public termino: string,
+        public terminoFormatted?: string,
         public obraNueva = false,
         public provincia = '',
         public queDesea = 'comprar',
@@ -11,6 +12,7 @@ export class Filters {
         public superficieHasta = 0,
         public precioDesde = 0,
         public precioHasta = 0,
-        public cmun?: string
+        public cmun?: string,
+        public otherOptions = []
     ) {}
 }

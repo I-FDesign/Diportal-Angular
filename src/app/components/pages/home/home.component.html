@@ -104,10 +104,10 @@
                                 <div class="price">
                                     <div class="final-filters-inputs">
                                         <div class="input-container">
-                                            <input class='desde' [(ngModel)]="filters.desde" name='desde'
+                                            <input class='desde' (ngModel)="filters.precioDesde" name='precioDesde'
                                                    type="text" placeholder="EUR Desde" autocomplete="off">
                                         
-                                            <input class='hasta' [(ngModel)]="filters.hasta" name='hasta'
+                                            <input class='hasta' (ngModel)="filters.precioHasta" name='precioHasta'
                                                    type="text" placeholder="EUR Hasta" autocomplete="off">
                                         </div>
                                         

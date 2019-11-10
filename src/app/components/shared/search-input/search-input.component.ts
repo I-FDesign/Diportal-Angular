@@ -77,15 +77,18 @@ export class SearchInputComponent implements OnInit {
 
     if ( type ===  'municipality' ) {
       this.filters.termino = option.fields.municipio + ', ' + option.fields.provincia + ' Provincia';
-      this._searchInputService.emitOption( option );
-      return;
     }
 
     if ( type ===  'result' ) {
       this.filters.termino = option.fields.municipio + ', ' + option.fields.provincia + ' Provincia';
-      this._searchInputService.emitOption( option );
-      return;
     }
+
+    const location = {
+      termino: this.filters.termino,
+      terminoFormatted: (option.fields.municipio) ? option.fields.municipio : option.fields.provincia
+    };
+
+    this._searchInputService.emitOption(location);
 
 
   }
