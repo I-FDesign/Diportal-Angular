@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase/app';
 import { User } from '../models/user.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClient } from '@angular/common/http';
+import { BACKEND_URL } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
@@ -10,47 +9,48 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class AuthenticationService {
 
   user: User;
+  token: string;
 
   constructor(
-    public afAuth: AngularFireAuth,
-    public afs: AngularFirestore
+    private http: HttpClient
   ) {
-    this.afAuth.authState.subscribe( user => {
-      if ( user ) {
-        const collection = this.afs.collection('users', ref => ref.where( 'email', '==', user.email ));
-        collection.valueChanges().subscribe( (userDB: any) => {
-          if ( userDB ) {
-            this.user = userDB[0];
-          }
-        } );
+    if (!this.user || !this.token) {
+      if (localStorage.getItem('token') && localStorage.getItem('user')) {
+        this.getStorage();
       }
-    } );
+    }
    }
 
+   tryRegister( user: User ) {
 
-  tryLogin( user ) {
-    return new Promise( (resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword( user.email, user.password )
-        .then( res => {
-          resolve( res );
-        }, err => reject( err ) );
-    } );
+    let url = BACKEND_URL + '/users/register';
+    url += '?token=' + this.token;
+
+    return this.http.post(url, user); 
+
   }
 
-  tryRegister( user: User ) {
+  tryLogin( user ) {
+    const url = BACKEND_URL + '/users/login';
 
-    return new Promise( (resolve, reject) => {
-        firebase.auth().createUserWithEmailAndPassword( user.email, user.password )
-          .then( res => {
-            resolve( res );
-          }, err => reject( err ));
-    } );
+    return this.http.post(url, user);
+  }
 
+  saveUserInStorage(user: User, token: string) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getStorage() {
+    this.token = localStorage.getItem('token');
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   logout() {
-    this.afAuth.auth.signOut();
-    this.user = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.token = '';
+    this.user = new User();
   }
 
 }

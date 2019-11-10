@@ -4,11 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './components/pages/pages.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
-import { environment } from '../environments/environment';
 
 // Components
 import { AppComponent } from './app.component';
@@ -20,8 +15,6 @@ import { APP_ROUTES } from './app.routes';
 
 // Services
 import { ServicesModule } from './services/services.module';
-import { LoginErrorPipe } from './pipes/login-error.pipe';
-import { PostImagesPipe } from './pipes/post-images.pipe';
 
 
 
@@ -29,8 +22,7 @@ import { PostImagesPipe } from './pipes/post-images.pipe';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LoginComponent,
-    LoginErrorPipe
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +32,6 @@ import { PostImagesPipe } from './pipes/post-images.pipe';
     PagesModule,
     ServicesModule,
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
     HttpClientModule
   ],
   providers: [

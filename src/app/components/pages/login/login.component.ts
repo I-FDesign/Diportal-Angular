@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    public afs: AngularFirestore,
     public authService: AuthenticationService,
     public router: Router
   ) { }
@@ -34,14 +33,20 @@ export class LoginComponent implements OnInit {
 
       this.user.email = this.user.email.toLowerCase();
 
-      this.authService.tryLogin( this.user ).then( res => {
+      this.authService.tryLogin( this.user ).pipe(
+        catchError( (err: any) => {
+          this.formError.error = true;
+          this.formError.message = err.error.message;
+          return throwError(err);
+        } )
+      ).subscribe( (res: any) => {
+        this.authService.saveUserInStorage(res.user, res.token);
         this.router.navigate(['/home']);
-      }, (err: any) => {
-        this.formError.message = err.code;
-      } );
+      });
 
     } else {
       this.formError.error = true;
+      this.formError.message = 'Completa los campos vacios';
     }
 
   }

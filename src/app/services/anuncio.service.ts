@@ -33,7 +33,7 @@ export class AnuncioService {
   uploadAnuncio( anuncio: Anuncio ) {
 
     if ( this.authenticationService.user ) {
-      anuncio.uid = this.authenticationService.user.id;
+      anuncio.uid = this.authenticationService.user._id;
     }
 
     // Getting province / state

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user.model';
-import { AuthenticationService } from '../../../services/authentication.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { BACKEND_URL } from '../../../config/config';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,9 +15,9 @@ export class AdminComponent implements OnInit {
   user: User = new User();
 
   constructor(
-    public authService: AuthenticationService,
-    public afs: AngularFirestore,
-    public router: Router
+    public router: Router,
+    private authService: AuthenticationService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -24,17 +25,8 @@ export class AdminComponent implements OnInit {
 
   createUser( user ) {
 
-    this.authService.tryRegister( this.user ).then( res => {
-      const newUser = JSON.parse(JSON.stringify(this.user));
-      newUser.password = '';
-      newUser.email = newUser.email.toLowerCase();
-      newUser.id = new Date().valueOf().toString();
-
-      this.afs.collection('users').add( newUser ).then( resp => {
-        console.log('User created');
-        this.authService.logout();
-        this.router.navigate(['/login']);
-      } );
+    this.authService.tryRegister(user).subscribe( res => {
+      // usuario creado
     } );
 
   }
