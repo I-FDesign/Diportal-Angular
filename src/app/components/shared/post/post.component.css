@@ -16,7 +16,16 @@
 .post .img{
     position: relative;
 }
-.post .img:before{
+.post .imagen{
+    width: 100%;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    overflow: hidden;
+}
+
+.post .imagen:before{
     display: block;
     content: "";
     background: linear-gradient(to bottom,transparent 70%,rgba(0,0,0,.85) 100%);
@@ -25,19 +34,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2;
 }
-.post .img .photo{
-    display: inline-block;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-}
-.post .img .photo img{
-    width: 100%;
+
+.post .imagen img{
     height: auto;
-    vertical-align: top;
-    border-radius: 3px 3px 0 0;
+    width: 100%;
+    min-width: 100%;
 }
 .carousel-control-next, .carousel-control-prev{
     z-index: 5 !important;
@@ -47,8 +49,10 @@
     position: absolute;
     top: 15px;
     right:15px;
-    z-index:1;
+    padding: 0 5px;
+    z-index:999;
 }
+
 .post .img .favorite fa-icon{
     font-size: 24px;
     vertical-align: top;

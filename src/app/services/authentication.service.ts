@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { BACKEND_URL } from '../config/config';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,9 @@ export class AuthenticationService {
   saveUserInStorage(user: User, token: string) {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
+
+    this.user = user;
+    this.token = token;
   }
 
   getStorage() {
@@ -49,6 +53,7 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+
     this.token = '';
     this.user = new User();
   }

@@ -1,23 +1,26 @@
 <div class="post">
     <div class="img">
-        <div [attr.id]="modalId" class="carousel carousel-fade">
+        <div [attr.id]="modalId" class="carousel slide" >
             <div class="carousel-inner">
-                <div class="carousel-item active photo" *ngFor='let image of anuncio.imagenes'>
-                    <img [src]="image | postImages" class="d-block w-100" alt="...">
+                <div class="carousel-item img-container" [ngClass]="{'active': i === 0}"
+                *ngFor='let image of anuncio.imagenes; let i = index'>
+                <div class="imagen">
+                    <img [src]="image | postImages" class="d-block" alt="...">
+                </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" [href]="'#' + modalId" role="button" data-slide="prev">
+            <a class="carousel-control-prev" [attr.href]="'#' + modalId" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
             </a>
-            <a class="carousel-control-next" [href]="'#' + modalId" role="button" data-slide="next">
+            <a class="carousel-control-next" [attr.href]="'#' + modalId" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Siguiente</span>
             </a>
         </div>
-        <div class="favorite">
-            <!-- <fa-icon [icon]="faHeartRegular"></fa-icon> -->
-            <fa-icon [icon]="faHeartSolid"></fa-icon>
+        <div class="favorite" (click)='favouriteChanged(anuncio._id)'>
+            <fa-icon *ngIf='!isFavourite' [icon]="faHeartRegular"></fa-icon>
+            <fa-icon *ngIf='isFavourite' [icon]="faHeartSolid"></fa-icon>
         </div>
         <div class="price">
             <p>EUR {{ anuncio.precio | number }}</p>

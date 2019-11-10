@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     public searchService: SearchService,
     public router: Router
   ) {
-    this.searchService.getPosts(4).subscribe( (res: any) => {
+    this.searchService.getPosts('', 4).subscribe( (res: any) => {
       this.anuncios = res.anuncios;
     } );
    }

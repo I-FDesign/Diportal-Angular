@@ -3,6 +3,7 @@ import { faHeart, faHome, faDollarSign, faRulerHorizontal } from '@fortawesome/f
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { ContactModalService } from '../../../services/contact-modal.service';
 import { Anuncio } from '../../../models/anuncio.model';
+import { PostService } from '../../../services/post.service';
 
 @Component({
   selector: 'app-post',
@@ -17,6 +18,8 @@ export class PostComponent implements OnInit {
   faDollarSign = faDollarSign;
   faRulerHorizontal = faRulerHorizontal;
 
+  isFavourite = false;
+
   // tslint:disable-next-line: no-input-rename
   @Input() modalId = '';
 
@@ -24,17 +27,30 @@ export class PostComponent implements OnInit {
 
   constructor(
     // tslint:disable-next-line: variable-name
-    public _contactModalService: ContactModalService
+    public _contactModalService: ContactModalService,
+    private postService: PostService
   ) {
    }
 
   ngOnInit() {
+    this.checkFavourite(this.anuncio._id);
   }
 
   openModal( email: string ) {
 
     this._contactModalService.openModal( email );
 
+  }
+
+  favouriteChanged( anuncioId: string ) {
+    this.postService.favouriteChanged(anuncioId).subscribe( res => {
+      this.checkFavourite(this.anuncio._id);
+    } );
+  }
+
+  checkFavourite(anuncioId: string) {
+    const isFavourite = this.postService.isFavourite(anuncioId);
+    this.isFavourite = isFavourite;
   }
 
 }
