@@ -47,7 +47,6 @@ export class SearchComponent implements OnInit {
     if (localStorage.getItem('filter')) {
       const filters = JSON.parse(localStorage.getItem('filter'));
       this.filters = filters;
-      // console.log(this.filters);
     }
   }
 
@@ -60,45 +59,46 @@ export class SearchComponent implements OnInit {
     } );
   }
 
+  getPostsByFilter() {
+    this.loading = true;
+
+    const filters = {
+      filters: this.filters
+    };
+
+    this.searchService.getPostsByFilters(filters).subscribe( (res: any) => {
+      console.log(res.anuncios);
+      this.anuncios = res.anuncios;
+      this.loading = false;
+    } );
+  }
+
   provinceChanged(province) {
     this.loading = true;
 
     if (!province) {
-      this.getPosts();
+      this.filters.provincia = '';
       return;
     }
 
-    // this.searchService.getPostsFromProvince( province )
-    //   .subscribe( (anuncios: any) => {
-    //     this.anuncios = anuncios;
-    //     this.loading = false;
-    //   } );
+    this.filters.provincia = province;
+
+    this.getPostsByFilter();
+
   }
 
   searchPosts( term: string ) {
-    const anuncios = [];
-
     if (!term) {
+      this.filters.termino = '';
       return;
     }
 
-    for (const anuncio of this.anuncios) {
-      if (
-        anuncio.address.cp === term ||
-        anuncio.address.poblacion.indexOf(term) > -1 ||
-        anuncio.address.zona.indexOf(term) > -1
-      ) {
-        anuncios.push(anuncio);
-      }
-    }
+    this.loading = true;
 
-    this.anuncios = anuncios;
-  }
+    this.filters.termino = term;
 
-  applyFilters() {
-    // this.searchService.getPostsFromFilters(this.filters).subscribe( (anuncios: any) => {
-    //   this.anuncios = anuncios;
-    // } );
+    this.getPostsByFilter();
+
   }
 
 }

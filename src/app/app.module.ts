@@ -35,7 +35,6 @@ import { ServicesModule } from './services/services.module';
     HttpClientModule
   ],
   providers: [
-    // { provide: StorageBucket, useValue: 'my-bucket-name' }
   ],
   bootstrap: [AppComponent]
 })

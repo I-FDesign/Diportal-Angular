@@ -9,8 +9,8 @@ export class Filters {
         public bathrooms = 1,
         public superficieDesde = 0,
         public superficieHasta = 0,
-        public desde?: number,
-        public hasta?: number,
+        public precioDesde = 0,
+        public precioHasta = 0,
         public cmun?: string
     ) {}
 }

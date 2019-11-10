@@ -138,7 +138,7 @@
                     <div class="baños">
                         <div class="filter">
                             <select [(ngModel)]="filters.bathrooms" name='bathrooms' class="filters-FormSelect input-select">
-                                <option value="" default>Baños</option>
+                                <option value="">Baños</option>
                                 <option value="1">1 o más baños</option>
                                 <option value="2">2 o más baños</option>
                                 <option value="3">3 o más baños</option>
@@ -148,59 +148,8 @@
                     <div class="precio-desde">
                         <h4 class="filter-title">Precio</h4>
                         <div class="filter">
-                            <select class="sui-FormSelect re-Filters-gridCell re-Filter-select--selectTo input-select">
-                                <option value="0">Precio hasta</option>
-                                <option value="50000">Hasta 50.000 €</option>
-                                <option value="75000">Hasta 75.000 €</option>
-                                <option value="100000">Hasta 100.000 €</option>
-                                <option value="125000">Hasta 125.000 €</option>
-                                <option value="150000">Hasta 150.000 €</option>
-                                <option value="175000">Hasta 175.000 €</option>
-                                <option value="200000">Hasta 200.000 €</option>
-                                <option value="225000">Hasta 225.000 €</option>
-                                <option value="250000">Hasta 250.000 €</option>
-                                <option value="275000">Hasta 275.000 €</option>
-                                <option value="300000">Hasta 300.000 €</option>
-                                <option value="325000">Hasta 325.000 €</option>
-                                <option value="350000">Hasta 350.000 €</option>
-                                <option value="375000">Hasta 375.000 €</option>
-                                <option value="400000">Hasta 400.000 €</option>
-                                <option value="425000">Hasta 425.000 €</option>
-                                <option value="450000">Hasta 450.000 €</option>
-                                <option value="475000">Hasta 475.000 €</option>
-                                <option value="500000">Hasta 500.000 €</option>
-                                <option value="550000">Hasta 550.000 €</option>
-                                <option value="600000">Hasta 600.000 €</option>
-                                <option value="650000">Hasta 650.000 €</option>
-                                <option value="700000">Hasta 700.000 €</option>
-                                <option value="750000">Hasta 750.000 €</option>
-                                <option value="800000">Hasta 800.000 €</option>
-                                <option value="850000">Hasta 850.000 €</option>
-                                <option value="900000">Hasta 900.000 €</option>
-                                <option value="950000">Hasta 950.000 €</option>
-                                <option value="1000000">Hasta 1.000.000 €</option>
-                                <option value="1100000">Hasta 1.100.000 €</option>
-                                <option value="1200000">Hasta 1.200.000 €</option>
-                                <option value="1300000">Hasta 1.300.000 €</option>
-                                <option value="1400000">Hasta 1.400.000 €</option>
-                                <option value="1500000">Hasta 1.500.000 €</option>
-                                <option value="1600000">Hasta 1.600.000 €</option>
-                                <option value="1700000">Hasta 1.700.000 €</option>
-                                <option value="1800000">Hasta 1.800.000 €</option>
-                                <option value="1900000">Hasta 1.900.000 €</option>
-                                <option value="2000000">Hasta 2.000.000 €</option>
-                                <option value="2250000">Hasta 2.250.000 €</option>
-                                <option value="2500000">Hasta 2.500.000 €</option>
-                                <option value="2750000">Hasta 2.750.000 €</option>
-                                <option value="3000000">Hasta 3.000.000 €</option>
-                                <option value="3500000">Hasta 3.500.000 €</option>
-                                <option value="4000000">Hasta 4.000.000 €</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="precio-hasta">
-                        <div class="filter">
-                            <select class="filters-FormSelect input-select">
+                            <select [(ngModel)]="filters.precioDesde" name='precioDesde'
+                                class="filters-FormSelect input-select">
                                 <option value="0">Precio desde</option>
                                 <option value="50000">Desde 50.000 €</option>
                                 <option value="75000">Desde 75.000 €</option>
@@ -247,6 +196,59 @@
                                 <option value="3000000">Desde 3.000.000 €</option>
                                 <option value="3500000">Desde 3.500.000 €</option>
                                 <option value="4000000">Desde 4.000.000 €</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="precio-hasta">
+                        <div class="filter">
+                            <select [(ngModel)]="filters.precioHasta" name='precioHasta'
+                                class="sui-FormSelect re-Filters-gridCell re-Filter-select--selectTo input-select">
+                                <option value="0">Precio hasta</option>
+                                <option value="50000">Hasta 50.000 €</option>
+                                <option value="75000">Hasta 75.000 €</option>
+                                <option value="100000">Hasta 100.000 €</option>
+                                <option value="125000">Hasta 125.000 €</option>
+                                <option value="150000">Hasta 150.000 €</option>
+                                <option value="175000">Hasta 175.000 €</option>
+                                <option value="200000">Hasta 200.000 €</option>
+                                <option value="225000">Hasta 225.000 €</option>
+                                <option value="250000">Hasta 250.000 €</option>
+                                <option value="275000">Hasta 275.000 €</option>
+                                <option value="300000">Hasta 300.000 €</option>
+                                <option value="325000">Hasta 325.000 €</option>
+                                <option value="350000">Hasta 350.000 €</option>
+                                <option value="375000">Hasta 375.000 €</option>
+                                <option value="400000">Hasta 400.000 €</option>
+                                <option value="425000">Hasta 425.000 €</option>
+                                <option value="450000">Hasta 450.000 €</option>
+                                <option value="475000">Hasta 475.000 €</option>
+                                <option value="500000">Hasta 500.000 €</option>
+                                <option value="550000">Hasta 550.000 €</option>
+                                <option value="600000">Hasta 600.000 €</option>
+                                <option value="650000">Hasta 650.000 €</option>
+                                <option value="700000">Hasta 700.000 €</option>
+                                <option value="750000">Hasta 750.000 €</option>
+                                <option value="800000">Hasta 800.000 €</option>
+                                <option value="850000">Hasta 850.000 €</option>
+                                <option value="900000">Hasta 900.000 €</option>
+                                <option value="950000">Hasta 950.000 €</option>
+                                <option value="1000000">Hasta 1.000.000 €</option>
+                                <option value="1100000">Hasta 1.100.000 €</option>
+                                <option value="1200000">Hasta 1.200.000 €</option>
+                                <option value="1300000">Hasta 1.300.000 €</option>
+                                <option value="1400000">Hasta 1.400.000 €</option>
+                                <option value="1500000">Hasta 1.500.000 €</option>
+                                <option value="1600000">Hasta 1.600.000 €</option>
+                                <option value="1700000">Hasta 1.700.000 €</option>
+                                <option value="1800000">Hasta 1.800.000 €</option>
+                                <option value="1900000">Hasta 1.900.000 €</option>
+                                <option value="2000000">Hasta 2.000.000 €</option>
+                                <option value="2250000">Hasta 2.250.000 €</option>
+                                <option value="2500000">Hasta 2.500.000 €</option>
+                                <option value="2750000">Hasta 2.750.000 €</option>
+                                <option value="3000000">Hasta 3.000.000 €</option>
+                                <option value="3500000">Hasta 3.500.000 €</option>
+                                <option value="4000000">Hasta 4.000.000 €</option>
                             </select>
                         </div>
                     </div>
@@ -308,7 +310,7 @@
                     </div>
                 </div>
                 <div class="filters-btn">
-                    <button (click)='applyFilters()'
+                    <button (click)='getPostsByFilter()'
                         type='submit'>Aplicar filtros</button>
                 </div>
             </form>

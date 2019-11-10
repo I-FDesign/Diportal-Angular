@@ -21,20 +21,13 @@ export class SearchService {
     return this.http.get(url);
   }
 
-  getPostsFromProvince( province ) {
-    // return this.afs.collection('posts',
-    //   ref => ref.where('address.provinciaFormatted', '==', province)
-    // ).valueChanges();
-  }
+  getPostsByFilters(filters, limit = 0) {
+    let url = BACKEND_URL + '/anuncios/search';
+    url += '?limit=' + limit;
 
-  getPostsFromFilters( filters: Filters ) {
-     // tslint:disable: radix
-    //  return this.afs.collection
-    //  ('posts', ref => ref
-    //     .where('queDesea', '==', filters.queDesea)
-    //     .where('tipo', '==', filters.tipo)
-    //     // .where('ambientes', '>=', 1).orderBy('ambientes', 'asc')
-    //   ).valueChanges();
+    console.log(filters.filters);
+
+    return this.http.post(url, filters);
   }
 
 }

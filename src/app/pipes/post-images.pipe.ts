@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { BACKEND_URL } from '../config/config';
 
 @Pipe({
