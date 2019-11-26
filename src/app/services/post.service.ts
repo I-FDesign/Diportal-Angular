@@ -55,6 +55,10 @@ export class PostService {
       return isFavourite;
     }
 
+    if (!this.authService.user.favourites) {
+      return isFavourite;
+    }
+
     this.authService.user.favourites.forEach(favourite => {
       if (favourite === anuncioId) {
         isFavourite = true;

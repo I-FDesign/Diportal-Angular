@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Address } from '../models/address.model';
 import { Anuncio } from '../models/anuncio.model';
 import { AuthenticationService } from './authentication.service';
-import { Router } from '@angular/router';
 
 import { GeocoderService } from './geocoder.service';
 import { HttpClient } from '@angular/common/http';
@@ -52,7 +51,7 @@ export class AnuncioService {
   }
 
   getAnuncio( id: string ) {
-    const url = BACKEND_URL + '/anuncios/' + id;
+    const url = BACKEND_URL + '/anuncios/anuncio/' + id;
     return this.http.get(url);
   }
 
@@ -73,7 +72,8 @@ export class AnuncioService {
           anuncio.address.provincia = address.provincia;
           anuncio.address.provinciaFormatted = address.provinciaFormatted;
 
-          const url = BACKEND_URL + '/anuncios';
+          let url = BACKEND_URL + '/anuncios';
+          url += '?token=' + this.authenticationService.token;
 
           const images = this.uploadFileService.images;
 

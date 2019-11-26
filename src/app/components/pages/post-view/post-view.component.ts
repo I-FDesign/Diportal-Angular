@@ -26,11 +26,12 @@ export class PostViewComponent implements OnInit {
 
   ngOnInit() {
 
-    this.anuncioService.getAnuncio( this.postId ).subscribe( (anuncio: any) => {
-      if (anuncio.length === 0) {
+    this.anuncioService.getAnuncio( this.postId ).subscribe( (res: any) => {
+      if (res.anuncios.length === 0) {
         this.router.navigate(['**']);
       } else {
-        this.anuncio = anuncio[0];
+        this.anuncio = res.anuncios[0];
+        console.log(this.anuncio);
       }
     } );
 

@@ -1,8 +1,54 @@
-
-<div class="anuncio" *ngIf='anuncio?.id'>
-    <div class="image" *ngFor='let image of anuncio.imagenes'>
-        <img [src]="image.downloadUrl" alt="" *ngIf="image.downloadUrl">
+<div class="container mt-2 mb-4">
+    <div class="anuncio" *ngIf='anuncio?._id'>
+        <div class="img">
+            <div id='post_view' class="carousel slide" >
+                <div class="carousel-inner">
+                    <div class="carousel-item img-container" [ngClass]="{'active': i === 0}"
+                    *ngFor='let image of anuncio.imagenes; let i = index'>
+                    <div class="imagen">
+                        <img [src]="image | postImages" class="d-block" alt="...">
+                    </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#post_view" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#post_view" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+            <div class="price">
+                <p>EUR {{ anuncio.precio | number }}</p>
+            </div>
+        </div>
+        <div class="info">
+            <div class="address">
+                <p>{{ anuncio.title }} - {{ anuncio.address.formatted }}</p>
+            </div>
+            <div class="options">
+                <div class="ambientes">
+                    <p>{{ anuncio.ambientes }} Ambientes</p>
+                </div>
+                <div class="ambientes">
+                    <p>{{ anuncio.bathrooms }} Baños</p>
+                </div>
+                <div class="ambientes">
+                    <p>{{ anuncio.superficie }} Metros cuadrados</p>
+                </div>
+            </div>
+            <div class="description">
+                <p>
+                    {{ anuncio.description }}
+                </p>
+            </div>
+            <div class="other-options">
+                <button *ngFor="let option of anuncio.otherOptions">
+                    {{ option | option }}
+                </button>
+            </div>
+        </div>
     </div>
-    
 </div>
 

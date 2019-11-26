@@ -67,18 +67,18 @@ export class AnuncioComponent implements OnInit {
     if ( type === 'habitaciones' ) {
       if ( isLess ) {
         // tslint:disable-next-line: radix
-        this.anuncio.ambientes = this.anuncio.ambientes - 1;
+        this.anuncio.ambientes = (parseInt(this.anuncio.ambientes) - 1).toString();
       } else {
         // tslint:disable-next-line: radix
-        this.anuncio.ambientes = this.anuncio.ambientes + 1;
+        this.anuncio.ambientes = (parseInt(this.anuncio.ambientes) + 1).toString();
       }
     } else {
       if ( isLess ) {
         // tslint:disable-next-line: radix
-        this.anuncio.bathrooms = this.anuncio.bathrooms - 1;
+        this.anuncio.bathrooms = (parseInt(this.anuncio.bathrooms) - 1).toString();
       } else {
         // tslint:disable-next-line: radix
-        this.anuncio.bathrooms = this.anuncio.bathrooms + 1;
+        this.anuncio.bathrooms = (parseInt(this.anuncio.bathrooms) + 1).toString();
       }
     }
   }
@@ -126,6 +126,7 @@ export class AnuncioComponent implements OnInit {
         'success')
       .then((value) => {
         // this.router.navigate(['/post', anuncioDB.anuncio._id]);
+        this.uploadFileService.uploadPercentage = null;
         this.router.navigate(['/search']);
       });
     } );

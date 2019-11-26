@@ -18,6 +18,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AnuncioMapComponent } from './anuncio-map/anuncio-map.component';
 import { FormsModule } from '@angular/forms';
 import { PostImagesPipe } from '../../pipes/post-images.pipe';
+import { OptionPipe } from 'src/app/pipes/option.pipe';
 
 
 
@@ -29,7 +30,8 @@ import { PostImagesPipe } from '../../pipes/post-images.pipe';
     ClickStopPropagationDirective,
     UploadFileComponent,
     AnuncioMapComponent,
-    PostImagesPipe
+    PostImagesPipe,
+    OptionPipe
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { PostImagesPipe } from '../../pipes/post-images.pipe';
     LoadingComponent,
     UploadFileComponent,
     AnuncioMapComponent,
-    PostImagesPipe
+    PostImagesPipe,
+    OptionPipe
   ]
 })
 export class SharedModule { }

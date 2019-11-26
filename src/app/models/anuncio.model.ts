@@ -1,5 +1,6 @@
 import { Image } from './image.model';
 import { Address } from './address.model';
+import { User } from './user.model';
 export class Anuncio {
     constructor(
         public title = '',
@@ -22,8 +23,8 @@ export class Anuncio {
         },
         public tipo = 'vivienda',
         public tipoVivienda = 'piso',
-        public ambientes = 1,
-        public bathrooms = 1,
+        public ambientes = '1',
+        public bathrooms = '1',
         public superficie = null,
         public precio = null,
         // public cmun?: string,
@@ -32,7 +33,7 @@ export class Anuncio {
         public enDescription = '',
         // tslint:disable-next-line: variable-name
         public _id?: string,
-        public uid?: string,
+        public uid?: User,
         public refCode = '',
         public otherOptionsView = [
             {

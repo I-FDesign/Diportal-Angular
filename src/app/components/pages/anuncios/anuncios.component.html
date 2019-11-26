@@ -7,7 +7,7 @@
     </div>
     <div class="posts">
         <app-post *ngFor='let anuncio of anuncios; let i = index' 
-            [modalId]="anuncio._id" 
+            [modalId]="'anuncio_' + i" 
             [anuncio]='anuncio'>
         </app-post>
     </div>

@@ -47,8 +47,8 @@ export class HomeComponent implements OnInit {
   searchSubmit( form ) {
     this.filters = form;
 
-    if (!this.filters.precioDesde) { this.filters.precioDesde = 0; }
-    if (!this.filters.precioHasta) { this.filters.precioHasta = 0; }
+    if (!this.filters.precioDesde) { this.filters.precioDesde = '0'; }
+    if (!this.filters.precioHasta) { this.filters.precioHasta = '0'; }
 
     this.filters.provincia = '';
     this.filters.otherOptions = [];
