@@ -1,0 +1,68 @@
+<div class="container-fluid animated fadeIn faster">
+    <div class="users d-flex justify-content-between">
+        <div class="users-list">
+            <div class="title">
+                <h2>Usuarios</h2>
+                <hr>
+            </div>
+            <div class="userslist">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Inmobiliaria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let user of users; let i = index'>
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.inmobiliaria }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="add-user mt-4">
+            <div class="title text-center">
+                <h2>Crear usuario</h2>
+                <hr>
+            </div>
+            <div class="user-form mt-2">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">Nombre</label>
+                        <input type="text" [(ngModel)]="user.name" name='name' 
+                            placeholder="Nombre y apellido" class='form-control'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" [(ngModel)]="user.email" name='email' 
+                            placeholder="Email" class='form-control'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Contraseña</label>
+                        <input type="text" [(ngModel)]="user.password" name='password' 
+                            placeholder="Ingrese una contraseña" class='form-control'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nombre inmobiliaria</label>
+                        <input type="text" [(ngModel)]="user.inmobiliaria" name='inmobiliaria' 
+                            placeholder="Ingrese una inmobiliaria" class='form-control'>
+                    </div>
+                    <div class="submit-button text-center mb-2 mt-2">
+                        <button class='btn btn-outline-success' type='button'
+                            (click)='createUser()'>
+                            <i class="fa fa-save"></i>
+                            Crear usuario
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        
+</div>

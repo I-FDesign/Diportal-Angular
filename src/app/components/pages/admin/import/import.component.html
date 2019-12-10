@@ -1,0 +1,23 @@
+<div class="container animated fadeIn faster">
+    <div class="title">
+        <h2>Importar anuncios</h2>
+        <hr>
+    </div>
+    <div class="import-form">
+        <form action="">
+            <div class="form-group">
+              <label for="link">Link del archivo</label>
+              <input type="text" [(ngModel)]="link" name="link" 
+                id="link" class="form-control" placeholder="Ejemplo: http://feed.inmoweb.es/?key=28745DE6-6E9B-4A32-8099-13B1884A5C49" aria-describedby="helpId">
+              <small id="helpId" class="text-muted">El link debe contener información en formato XML.</small>
+            </div>
+            <div class="button text-center">
+                <button (click)='formSubmit()'
+                    class="btn btn-outline-success w-50">
+                    <i class="fa fa-save"></i>
+                    Subir archivo
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

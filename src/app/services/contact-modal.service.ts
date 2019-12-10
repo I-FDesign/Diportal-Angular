@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CONTACT_EMAIL, BACKEND_URL } from '../config/config';
 import { ContactMessage } from '../models/contact-message';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 declare var $: any;
 
@@ -11,7 +12,7 @@ declare var $: any;
 export class ContactModalService {
 
   recipientsEmail: string;
-  enterpriseMode = false;
+  enterpriseMode = true;
 
   anuncioTitle: string;
 
@@ -28,7 +29,7 @@ export class ContactModalService {
 
     if (contactOrNewUser === 'new-user') {
       this.recipientsEmail = CONTACT_EMAIL;
-      this.enterpriseMode = true;
+      this.enterpriseMode = false;
     }
 
     this.recipientsEmail = contactOrNewUser;
@@ -37,18 +38,33 @@ export class ContactModalService {
     $('#contactModal').modal('show');
   }
 
+  getMessages() {
+    const url = BACKEND_URL + '/contact';
+
+    return this.http.get(url).pipe( map( (res: any) => {
+      return res.messages;
+    } ) );
+  }
+
   sendMessage(message: ContactMessage) {
     const url = BACKEND_URL + '/contact';
 
     const body = {
       recipientsEmail: this.recipientsEmail,
       anuncioTitle: this.anuncioTitle,
+      enterpriseMode: this.enterpriseMode,
       name: message.name,
       email: message.email,
       message: message.content
     };
 
     return this.http.post(url, body);
+  }
+
+  deleteMessage(messageId: string) {
+    const url = BACKEND_URL + '/contact/' + messageId;
+
+    return this.http.delete(url);
   }
 
 }

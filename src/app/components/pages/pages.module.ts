@@ -27,7 +27,6 @@ import { ResetPasswordComponent } from './login/reset-password/reset-password.co
 
 
 
-
 @NgModule({
   declarations: [
     PagesComponent,

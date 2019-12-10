@@ -1,0 +1,40 @@
+<div class="container-fluid animated fadeIn faster">
+    <div class="title">
+        <h2>Mensajes</h2>
+        <hr>
+    </div>
+    <div class="mensajes mt-4">
+            <div id="accordion">
+                <div class="card" *ngFor='let message of messages'>
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link w-100 collapsed d-flex justify-content-between" 
+                            data-toggle="collapse" [attr.data-target]="'#lol' + message._id" aria-expanded="false" aria-controls="collapseTwo">
+                            Mensaje recibido de {{ message.name }}.
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                        </h5>
+                    </div>
+                    <div [attr.id]="'lol' + message._id" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="info d-flex justify-content-between">
+                                <p>Mail: {{ message.email }}</p>
+                                <p>Nombre: {{ message.name }}</p>
+                                <p>Inmobiliaria: {{ message.user.inmobiliaria }}</p>
+                            </div>
+                            <hr>
+                            <div class="message mt-4">
+                                <p>{{ message.content }}</p>
+                            </div>
+                            <div class="check text-center mt-3">
+                                <button type='button' (click)='removeMessage(message)'
+                                    class='btn btn-outline-danger'>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

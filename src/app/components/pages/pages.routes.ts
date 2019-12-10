@@ -19,7 +19,6 @@ const PagesRoutes: Routes = [
             { path: 'home', component: HomeComponent },
             { path: 'search/:type', component: SearchComponent },
             { path: 'search', component: SearchComponent },
-            { path: 'admin', component: AdminComponent },
             {
                 path: 'anuncio',
                 canActivate: [IsLoggedGuard],

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './components/pages/pages.module';
+import { AdminModule } from './components/pages/admin/admin.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ServicesModule } from './services/services.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import { ServicesModule } from './services/services.module';
     FormsModule,
     CommonModule,
     APP_ROUTES,
+    AdminModule,
     PagesModule,
     ServicesModule,
     BrowserModule,

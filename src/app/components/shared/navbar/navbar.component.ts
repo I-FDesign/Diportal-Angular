@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openModal( ) {
-    this._contactModalService.openModal('empresa');
+    this._contactModalService.openModal('new-user', 'Contactanos!');
   }
 
   logout() {

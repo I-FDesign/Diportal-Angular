@@ -1,0 +1,10 @@
+.users .users-list{
+    width: 60%;
+}
+.users .add-user{
+    width: 38%;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

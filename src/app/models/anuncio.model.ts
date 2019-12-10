@@ -4,6 +4,7 @@ import { User } from './user.model';
 export class Anuncio {
     constructor(
         public title = '',
+        public englishTitle = '',
         public address?: Address,
         public obraNueva = false,
         public queDesea = 'comprar',
@@ -33,7 +34,7 @@ export class Anuncio {
         public enDescription = '',
         // tslint:disable-next-line: variable-name
         public _id?: string,
-        public uid?: User,
+        public uid?: any,
         public refCode = '',
         public otherOptionsView = [
             {
@@ -82,6 +83,10 @@ export class Anuncio {
             },
             {
                 name: 'Spa / Balneario',
+                exists: false
+            },
+            {
+                name: 'Garage',
                 exists: false
             }
         ],
