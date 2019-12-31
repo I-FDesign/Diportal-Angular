@@ -23,7 +23,7 @@
             <fa-icon *ngIf='isFavourite' [icon]="faHeartSolid"></fa-icon>
         </div>
         <div class="price">
-            <p>EUR {{ anuncio.precio | number }}</p>
+            <p>{{ anuncio.precio | currency: 'EUR':'code' }}</p>
         </div>
     </div>
     <div class="info" [routerLink]="['/post', anuncio._id]" >

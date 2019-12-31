@@ -40,21 +40,19 @@ export class SearchService {
     return formattedValue;
   }
 
-  getPosts(term = '', limit = 0) {
+  getPosts(term = '', page = 1) {
     let url = BACKEND_URL + '/anuncios';
     if (term && term.length > 0) {
       url += '/' + term;
     }
-    url += '?limit=' + limit;
+    url += '?page=' + page;
 
     return this.http.get(url);
   }
 
-  getPostsByFilters(filters, limit = 0) {
+  getPostsByFilters(filters, page = 1) {
     let url = BACKEND_URL + '/anuncios/search';
-    url += '?limit=' + limit;
-
-    console.log(filters.filters);
+    url += '?page=' + page;
 
     return this.http.post(url, filters);
   }

@@ -35,8 +35,8 @@ export class AnunciosComponent implements OnInit {
   }
 
   getAnuncios() {
-    this.anunciosService.getPosts(this.anunciosType).subscribe( (res: any) => {
-      this.anuncios = res.anuncios;
+    this.anunciosService.getPosts(this.anunciosType).subscribe( (anuncios: any) => {
+      this.anuncios = anuncios;
     } );
   }
 

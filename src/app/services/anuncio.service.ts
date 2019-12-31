@@ -92,4 +92,14 @@ export class AnuncioService {
 
   }
 
+  uploadImportedAnuncios( anuncio: Anuncio ) {
+    let url = BACKEND_URL + '/anuncios';
+    url += '?token=' + this.authenticationService.token;
+
+    const subscriber =
+    this.http.post(url, anuncio).subscribe( ( res) => {
+      subscriber.unsubscribe();
+    });
+  }
+
 }

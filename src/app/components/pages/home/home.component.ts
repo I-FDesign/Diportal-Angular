@@ -23,8 +23,13 @@ export class HomeComponent implements OnInit {
     public searchService: SearchService,
     public router: Router
   ) {
-    this.searchService.getPosts('', 4).subscribe( (res: any) => {
-      this.anuncios = res.anuncios;
+    this.searchService.getPosts('').subscribe( (res: any) => {
+      res.anuncios.docs.forEach((anuncio, index) => {
+        if (index >= 4) {
+          return;
+        }
+        this.anuncios.push(anuncio);
+      });
     } );
    }
 

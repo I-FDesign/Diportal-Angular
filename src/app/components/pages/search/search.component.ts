@@ -7,6 +7,8 @@ import { faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchInputService } from '../../../services/search-input.service';
 
+declare function goToTop(animationTime);
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -17,6 +19,7 @@ export class SearchComponent implements OnInit {
   mapActive = false;
 
   filters: Filters =  new Filters('');
+  filtersApplyed = false;
 
   anuncios: Anuncio[] = [];
 
@@ -26,6 +29,9 @@ export class SearchComponent implements OnInit {
   faCheck = faCheck;
 
   loading = false;
+
+  pages = [];
+  actualPage = 1;
 
   constructor(
     public searchService: SearchService,
@@ -55,6 +61,8 @@ export class SearchComponent implements OnInit {
       this.filters.termino = optionSelected.termino;
       this.getPostsByFilter();
     } );
+
+    goToTop(0);
   }
 
   checkboxChanged(option) {
@@ -73,8 +81,12 @@ export class SearchComponent implements OnInit {
   getPosts(term: string) {
     this.loading = true;
 
-    this.searchService.getPosts(term).subscribe( (res: any) => {
-      this.anuncios = res.anuncios;
+    this.searchService.getPosts(term, this.actualPage).subscribe( (res: any) => {
+      this.anuncios = res.anuncios.docs;
+      this.pages = [];
+      for (let i = 0; i < res.anuncios.pages; i++) {
+        this.pages.push(i + 1);
+      }
       this.loading = false;
     } );
   }
@@ -94,8 +106,13 @@ export class SearchComponent implements OnInit {
       filters: this.filters
     };
 
-    this.searchService.getPostsByFilters(filters).subscribe( (res: any) => {
-      this.anuncios = res.anuncios;
+    this.searchService.getPostsByFilters(filters, this.actualPage).subscribe( (res: any) => {
+      this.anuncios = res.anuncios.docs;
+      this.pages = [];
+      for (let i = 0; i < res.anuncios.pages; i++) {
+        this.pages.push(i + 1);
+      }
+      this.filtersApplyed = true;
       this.loading = false;
     } );
   }
@@ -118,6 +135,17 @@ export class SearchComponent implements OnInit {
 
     this.getPosts(term);
 
+  }
+
+  changePage(page: number) {
+    this.actualPage = page;
+    if (!this.filtersApplyed) {
+      this.getPosts(this.filters.termino);
+    } else {
+      this.getPostsByFilter();
+    }
+
+    goToTop(0);
   }
 
 }

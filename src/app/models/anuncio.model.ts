@@ -33,9 +33,9 @@ export class Anuncio {
         public description = '',
         public enDescription = '',
         // tslint:disable-next-line: variable-name
-        public _id?: string,
-        public uid?: any,
         public refCode = '',
+        public importedOptions = [],
+        public otherOptions = [],
         public otherOptionsView = [
             {
                 name: 'Amueblado',
@@ -90,6 +90,7 @@ export class Anuncio {
                 exists: false
             }
         ],
-        public otherOptions = []
+        public _id?: string,
+        public uid?: any,
     ) {}
 }

@@ -43,7 +43,15 @@ function slideUpDropdown(){
         dropdown.id = '';
     }
 
-}   
+}
+
+function goToTop(animationTime = 500) {
+    $('html, body').animate({
+        scrollTop: 0
+    }, animationTime);
+    return false;
+}
+
 
 function noSlide(event){
     event.stopPropagation();

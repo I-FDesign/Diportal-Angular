@@ -34,7 +34,6 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.checkFavourite(this.anuncio._id);
-    console.log(this.anuncio);
   }
 
   openModal( email: string, anuncioTitle: string ) {

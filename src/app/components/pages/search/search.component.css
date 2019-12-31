@@ -170,3 +170,7 @@
 .main-search .posts app-post{
     width: 48%;
 }
+
+.pagination li{
+    cursor: pointer;
+}

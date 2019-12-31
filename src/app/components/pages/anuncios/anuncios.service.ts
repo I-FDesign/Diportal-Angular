@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BACKEND_URL } from '../../../config/config';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,8 @@ export class AnunciosService {
     }
     url += '&token=' + this.authService.token;
 
-    return this.http.get(url);
+    return this.http.get(url).pipe(map( (res: any) => {
+      return res.anuncios.docs;
+    } ));
   }
 }
